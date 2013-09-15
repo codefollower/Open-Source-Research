@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ 
+<!--
+   Copyright 2004 Clinton Begin
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+ -->
+
+<!--The root element of an iBATIS SQL Map file.
+A single SQL Map XML file can contain as many cache models, parameter maps, result maps and
+statements as you like. Use discretion and organize the statements and maps appropriately for your
+application (group them logically).-->
+<!ELEMENT sqlMap (typeAlias* | cacheModel* | resultMap* | parameterMap* | sql* | statement* | insert* | update* | delete* | select* | procedure*)+>
+<!ATTLIST sqlMap
+xmlns:fo CDATA #IMPLIED
+namespace CDATA #IMPLIED
+>
+
+<!--The parameterMap is responsible for mapping JavaBeans properties to the parameters of a statement.
+The parameterMap itself only requires a id attribute that is an identifier that statements will use to refer to it.
+The class attribute is optional but highly recommended. Similar to the parameterClass attribute of a statement, 
+the class attribute allows the framework to validate the incoming parameter as well as optimize the engine
+for performance. The parameterMap can contain any number of parameter mappings that map directly to the
+parameters of a statement.-->
+<!ELEMENT parameterMap (parameter+)>
+<!ATTLIST parameterMap
+id CDATA #REQUIRED
+class CDATA #REQUIRED
+>
+
+<!-- The <parameter> tag is used to describe the parameters of a parameterMap.-->
+<!ELEMENT parameter EMPTY>
+<!ATTLIST parameter
+property CDATA #REQUIRED
+javaType CDATA #IMPLIED
+jdbcType CDATA #IMPLIED
+typeName CDATA #IMPLIED
+nullValue CDATA #IMPLIED
+mode (IN | OUT | INOUT) #IMPLIED
+typeHandler CDATA #IMPLIED
+resultMap CDATA #IMPLIED
+numericScale CDATA #IMPLIED
+>
+<!--Result maps are an extremely important component of Data Mapper. The resultMap is responsible for
+mapping JavaBeans properties to the columns of a ResultSet produced by executing a query mapped
+statement.
+The resultMap itself has a id attribute that statements will use to refer to it. The resultMap also has a 
+class attribute that is the fully qualified (i.e. full package) name of a class or a type alias. This class will 
+be instantiated and populated based on the result mappings it contains. The extends attribute can be
+optionally set to the name of another resultMap upon which to base a resultMap. This is similar to
+extending a class in Java, all properties of the super resultMap will be included as part of the sub
+resultMap. The properties of the super resultMap are always inserted before the sub resultMap
+properties and the parent resultMap must be defined before the child. The classes for the super/sub
+resultMaps need not be the same, nor do they need to be related at all (they can each use any class).
+
+The resultMap element also supports the attribute groupBy. The groupBy attribute is used to specify a list
+of properties in this resultMap that are used to identify unique rows in the returned result set. Rows with
+equal values for the specified properties will only generate one result object. Use groupBy in combination
+with nested resultMaps to solve the N+1 query problem (see following discussion for examples).
+
+The resultMap can contain any number of result mappings that map JavaBean properties to the columns of a
+ResultSet. These property mappings will be applied in the order that they are defined in the document. The
+associated class must be a JavaBeans compliant class with appropriate get/set methods for each of the
+properties, a Map or XML.-->
+<!ELEMENT resultMap (result*, discriminator?)>
+<!ATTLIST resultMap
+id CDATA #REQUIRED
+class CDATA #REQUIRED
+extends CDATA #IMPLIED
+xmlName CDATA #IMPLIED
+groupBy CDATA #IMPLIED
+>
+<!--Results map JavaBean properties to the columns of a ResultSet. These property mappings will be applied
+in the order that they are defined in the document. The associated class must be a JavaBeans compliant 
+class with appropriate get/set methods for each of the properties, a Map or XML.-->
+<!ELEMENT result EMPTY>
+<!ATTLIST result
+property CDATA #REQUIRED
+javaType CDATA #IMPLIED
+column CDATA #IMPLIED
+columnIndex CDATA #IMPLIED
+jdbcType CDATA #IMPLIED
+nullValue CDATA #IMPLIED
+notNullColumn CDATA #IMPLIED
+select CDATA #IMPLIED
+resultMap CDATA #IMPLIED
+typeHandler CDATA #IMPLIED
+>
+<!-- TODO: add documentation. Could not find anything about this element in the official iabtis doc.-->
+<!ELEMENT discriminator (subMap+)>
+<!ATTLIST discriminator
+javaType CDATA #REQUIRED
+column CDATA #IMPLIED
+columnIndex CDATA #IMPLIED
+jdbcType CDATA #IMPLIED
+nullValue CDATA #IMPLIED
+typeHandler CDATA #IMPLIED
+>
+<!-- TODO: add documentation. Could not find anything about this element in the official iabtis doc. -->
+<!ELEMENT subMap EMPTY>
+<!ATTLIST subMap
+value CDATA #REQUIRED
+resultMap CDATA #REQUIRED
+>
+<!--A cacheModel is used to describe a cache for use with a query mapped statement. Each query mapped statement 
+can use a different cacheModel, or the same one. The following example will demonstrate how it looks related to a statement:
+<br><br>
+&lt;cacheModel id="product-cache" type="LRU"&gt;<br>
+	&lt;flushInterval hours="24"/&gt;<br>
+	&lt;flushOnExecute statement="insertProduct"/&gt;<br>
+	&lt;flushOnExecute statement="updateProduct"/&gt;<br>
+	&lt;flushOnExecute statement="deleteProduct"/&gt;<br>
+	&lt;property name=”size” value=”1000” /&gt;<br>
+&lt;/cacheModel&gt;<br>
+<br>
+&lt;select id=”getProductList” parameterClass=”int” cacheModel=”product-cache”&gt;<br>
+	select * from PRODUCT where PRD_CAT_ID = #value#<br>
+&lt;/select&gt;<br>
+
+In the above example, a cache is defined for products that uses a WEAK reference type and flushes every
+24 hours or whenever associated update statements are executed.-->
+<!ELEMENT cacheModel (flushInterval?, flushOnExecute*, property*)+>
+<!ATTLIST cacheModel
+id CDATA #REQUIRED
+type CDATA #REQUIRED
+readOnly (true | false) #IMPLIED
+serialize (true | false) #IMPLIED
+>
+<!--Defines the interval of when the cache will be flushed. There can be only one flush interval element and it
+can be set using hours, minutes, seconds or milliseconds.-->
+<!ELEMENT flushInterval EMPTY>
+<!ATTLIST flushInterval
+milliseconds CDATA #IMPLIED
+seconds CDATA #IMPLIED
+minutes CDATA #IMPLIED
+hours CDATA #IMPLIED
+>
+<!--Defines that the cache will be flushed when the specified statement is executed. There can
+be any number of "flush on execute" elements specified for a cache.-->
+<!ELEMENT flushOnExecute EMPTY>
+<!ATTLIST flushOnExecute
+statement CDATA #REQUIRED
+>
+
+<!--Defines a standard Java property. Is used by various elements to define settings.-->
+<!ELEMENT property EMPTY>
+<!ATTLIST property
+name CDATA #REQUIRED
+value CDATA #REQUIRED
+>
+
+<!--The typeAlias element simply allows you to specify a shorter name to refer to what is usually a long, fully
+qualified classname. For example:
+
+<typeAlias alias="shortname" type="com.long.class.path.Class"/>-->
+<!ELEMENT typeAlias EMPTY>
+<!ATTLIST typeAlias
+alias CDATA #REQUIRED
+type CDATA #REQUIRED
+>
+
+<!--The &lt;sql&gt; tag can be used to eliminate duplication of SQL code. You can define define a part of SQL code via
+the use of the &lt;sql&gt; tag and use it in a statement by using the <include> tag. Here is a short example:
+<br><br>
+Example:<br>
+&lt;sql id="selectItem_fragment"&gt;<br>
+	FROM items<br>
+	WHERE parentid = 6<br>
+&lt;/sql&gt;<br>
+<br>
+&lt;select id="selectItemCount" resultClass="int"&gt;<br>
+	SELECT COUNT(*) AS total<br>
+	&lt;include refid="selectItem_fragment"/&gt;<br>
+&lt;/select&gt;<br>
+<br>
+&lt;select id="selectItems" resultClass="Item"&gt;<br>
+	SELECT id, name<br>
+	&lt;include refid="selectItem_fragment"/&gt;<br>
+&lt;/select&gt;-->
+<!ELEMENT sql (#PCDATA | include | dynamic | iterate | isParameterPresent | isNotParameterPresent | isEmpty | isNotEmpty | isNotNull | isNull | isNotEqual | isEqual | isGreaterThan | isGreaterEqual | isLessThan | isLessEqual | isPropertyAvailable | isNotPropertyAvailable)*>
+<!ATTLIST sql
+id CDATA #REQUIRED
+>
+
+<!--The <include> tag can be used to insert SQL code fragments defined by the <sql> tag into
+a SQL statement. Here is a short example:
+<br>
+Example:<br>
+&lt;sql id="selectItem_fragment"&gt;<br>
+	FROM items<br>
+	WHERE parentid = 6<br>
+&lt;/sql&gt;<br>
+
+&lt;select id="selectItemCount" resultClass="int"&gt;<br>
+	SELECT COUNT(*) AS total<br>
+	<include refid="selectItem_fragment"/><br>
+&lt;/select&gt;<br>
+
+&lt;select id="selectItems" resultClass="Item"&gt;<br>
+	SELECT id, name<br>
+	&lt;include refid="selectItem_fragment"/><br>
+&lt;/select&gt;-->
+<!ELEMENT include EMPTY>
+<!ATTLIST include
+refid CDATA #REQUIRED
+>
+
+<!-- The <statement> element is a general “catch all” statement that can be used for any type of SQL statement.
+Generally it is a good idea to use one of the more specific statement elements. The more specific elements
+provide a more intuitive XML DTD and sometimes provides additional features that a normal <statement>
+element cannot. -->
+<!ELEMENT statement (#PCDATA | include | dynamic | iterate | isParameterPresent | isNotParameterPresent | isEmpty | isNotEmpty | isNotNull | isNull | isNotEqual | isEqual | isGreaterThan | isGreaterEqual | isLessThan | isLessEqual | isPropertyAvailable | isNotPropertyAvailable)*>
+<!ATTLIST statement
+id CDATA #REQUIRED
+parameterMap CDATA #IMPLIED
+parameterClass CDATA #IMPLIED
+resultMap CDATA #IMPLIED
+resultClass CDATA #IMPLIED
+cacheModel CDATA #IMPLIED
+resultSetType (FORWARD_ONLY | SCROLL_INSENSITIVE | SCROLL_SENSITIVE) #IMPLIED
+fetchSize CDATA #IMPLIED
+xmlResultName CDATA #IMPLIED
+remapResults (true|false) #IMPLIED
+timeout CDATA #IMPLIED
+>
+
+<!--Statement used for select queries.
+Supports all dynamic elements and query methods.-->
+<!ELEMENT select (#PCDATA | include | dynamic | iterate | isParameterPresent | isNotParameterPresent | isEmpty | isNotEmpty | isNotNull | isNull | isNotEqual | isEqual | isGreaterThan | isGreaterEqual | isLessThan | isLessEqual | isPropertyAvailable | isNotPropertyAvailable)*>
+<!ATTLIST select
+id CDATA #REQUIRED
+parameterMap CDATA #IMPLIED
+parameterClass CDATA #IMPLIED
+resultMap CDATA #IMPLIED
+resultClass CDATA #IMPLIED
+cacheModel CDATA #IMPLIED
+resultSetType (FORWARD_ONLY | SCROLL_INSENSITIVE | SCROLL_SENSITIVE) #IMPLIED
+fetchSize CDATA #IMPLIED
+xmlResultName CDATA #IMPLIED
+remapResults (true|false) #IMPLIED
+timeout CDATA #IMPLIED
+>
+
+<!--Statement used for insert queries.
+Supports all dynamic elements, <selectKey> and the query methods insert, update and delete.-->
+<!ELEMENT insert (#PCDATA | include | dynamic | selectKey | iterate | isParameterPresent | isNotParameterPresent | isEmpty | isNotEmpty | isNotNull | isNull | isNotEqual | isEqual | isGreaterThan | isGreaterEqual | isLessThan | isLessEqual | isPropertyAvailable | isNotPropertyAvailable)*>
+<!ATTLIST insert
+id CDATA #REQUIRED
+parameterMap CDATA #IMPLIED
+parameterClass CDATA #IMPLIED
+timeout CDATA #IMPLIED
+>
+
+<!--Many relational database systems support auto-generation of primary key fields. This feature of the
+RDBMS is often (if not always) proprietary. Data Mapper supports auto-generated keys via the
+<selectKey> stanza of the <insert> element. Both pre-generated keys (e.g. Oracle) and post-generated
+(MS-SQL Server) keys are supported.
+The selectKey statement is executed before the insert statement if it is placed before the insert SQL,
+otherwise the selectKey statement is executed after the insert statement. In the previous examples, the
+Oracle example shows that the selectKey will be executed before the insert statement (as is appropriate for
+a sequence). The SQL Server example shows that the selectKey statement will be executed after the insert
+statement (as is appropriate for an identity column).
+With iBATIS versions 2.2.0 and later, you can explicitly state the order of execution of the statements if
+you wish. The selectKey element supports an attribute type that can be used to explicitly set the execution
+order. The value of the type attribute can be either “pre” or “post” - meaning that the statement will be
+executed before or after the insert statement. If you specify the type attribute, then the value you specify
+will be used regardless of the position of the selectKey element.-->
+<!ELEMENT selectKey (#PCDATA | include)*>
+<!ATTLIST selectKey
+resultClass CDATA #IMPLIED
+keyProperty CDATA #IMPLIED
+type (pre|post) #IMPLIED
+>
+
+<!--Statement used for update queries.
+Supports all dynamic elements and the query methods insert, update and delete.-->
+<!ELEMENT update (#PCDATA | include | dynamic | iterate | isParameterPresent | isNotParameterPresent | isEmpty | isNotEmpty | isNotNull | isNull | isNotEqual | isEqual | isGreaterThan | isGreaterEqual | isLessThan | isLessEqual | isPropertyAvailable | isNotPropertyAvailable)*>
+<!ATTLIST update
+id CDATA #REQUIRED
+parameterMap CDATA #IMPLIED
+parameterClass CDATA #IMPLIED
+timeout CDATA #IMPLIED
+>
+
+<!--Statement used for delete queries.
+Supports all dynamic elements and the query methods insert, update and delete.-->
+<!ELEMENT delete (#PCDATA | include | dynamic | iterate | isParameterPresent | isNotParameterPresent | isEmpty | isNotEmpty | isNotNull | isNull | isNotEqual | isEqual | isGreaterThan | isGreaterEqual | isLessThan | isLessEqual | isPropertyAvailable | isNotPropertyAvailable)*>
+<!ATTLIST delete
+id CDATA #REQUIRED
+parameterMap CDATA #IMPLIED
+parameterClass CDATA #IMPLIED
+timeout CDATA #IMPLIED
+>
+
+<!--The <procedure> statement element is used for Stored Procedures. The following example shows
+how a stored procedure would be used with output parameters:
+<br><br>
+&lt;parameterMap id="swapParameters" class="map" &gt;<br>
+	&lt;parameter property="email1" jdbcType="VARCHAR" javaType="java.lang.String" mode="INOUT"/&gt;<br>
+	&lt;parameter property="email2" jdbcType="VARCHAR" javaType="java.lang.String" mode="INOUT"/&gt;<br>
+&lt;/parameterMap&gt;<br>
+<br>
+&lt;procedure id="swapEmailAddresses" parameterMap="swapParameters" &gt;<br>
+	{call swap_email_address (?, ?)}<br>
+&lt;/procedure&gt;<br>
+<br>
+Calling the above procedure would swap two email addresses between two columns (database table) and
+also in the parameter object (Map). The parameter object is only modified if the parameter mappings mode
+attribute is set to “INOUT” or “OUT”. Otherwise they are left unchanged. Obviously immutable parameter
+objects (e.g. String) cannot be modified.-->
+<!ELEMENT procedure (#PCDATA | include | dynamic | iterate | isParameterPresent | isNotParameterPresent | isEmpty | isNotEmpty | isNotNull | isNull | isNotEqual | isEqual | isGreaterThan | isGreaterEqual | isLessThan | isLessEqual | isPropertyAvailable | isNotPropertyAvailable)*>
+<!ATTLIST procedure
+id CDATA #REQUIRED
+parameterMap CDATA #IMPLIED
+parameterClass CDATA #IMPLIED
+resultMap CDATA #IMPLIED
+resultClass CDATA #IMPLIED
+cacheModel CDATA #IMPLIED
+fetchSize CDATA #IMPLIED
+xmlResultName CDATA #IMPLIED
+remapResults (true|false) #IMPLIED
+timeout CDATA #IMPLIED
+>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - -
+                 DYNAMIC ELEMENTS
+  - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<!--Wrapper tag that allows for an overall prepend, open and close.-->
+<!ELEMENT dynamic (#PCDATA | include | iterate | isParameterPresent | isNotParameterPresent | isEmpty | isNotEmpty | isNotNull | isNull | isNotEqual | isEqual | isGreaterThan | isGreaterEqual | isLessThan | isLessEqual | isPropertyAvailable | isNotPropertyAvailable)*>
+<!ATTLIST dynamic
+prepend CDATA #IMPLIED
+open CDATA #IMPLIED
+close CDATA #IMPLIED
+>
+
+<!--Checks if a property is not null.-->
+<!ELEMENT isNotNull (#PCDATA | include | iterate | isParameterPresent | isNotParameterPresent | isEmpty | isNotEmpty | isNotNull | isNull | isNotEqual | isEqual | isGreaterThan | isGreaterEqual | isLessThan | isLessEqual | isPropertyAvailable | isNotPropertyAvailable)*>
+<!ATTLIST isNotNull
+prepend CDATA #IMPLIED
+open CDATA #IMPLIED
+close CDATA #IMPLIED
+property CDATA #IMPLIED
+removeFirstPrepend (true|false) #IMPLIED
+>
+
+<!--Checks if a property is null.-->
+<!ELEMENT isNull (#PCDATA | include | iterate | isParameterPresent | isNotParameterPresent | isEmpty | isNotEmpty | isNotNull | isNull | isNotEqual | isEqual | isGreaterThan | isGreaterEqual | isLessThan | isLessEqual | isPropertyAvailable | isNotPropertyAvailable)*>
+<!ATTLIST isNull
+prepend CDATA #IMPLIED
+open CDATA #IMPLIED
+close CDATA #IMPLIED
+property CDATA #IMPLIED
+removeFirstPrepend (true|false) #IMPLIED
+>
+
+<!--Checks if a property is unavailable (i.e not a property of the parameter bean).-->
+<!ELEMENT isNotPropertyAvailable (#PCDATA | include | iterate | isParameterPresent | isNotParameterPresent | isEmpty | isNotEmpty | isNotNull | isNull | isNotEqual | isEqual | isGreaterThan | isGreaterEqual | isLessThan | isLessEqual | isPropertyAvailable | isNotPropertyAvailable)*>
+<!ATTLIST isNotPropertyAvailable
+prepend CDATA #IMPLIED
+open CDATA #IMPLIED
+close CDATA #IMPLIED
+property CDATA #REQUIRED
+removeFirstPrepend (true|false) #IMPLIED
+>
+
+<!--Checks if a property is available (i.e is a property of the parameter bean).-->
+<!ELEMENT isPropertyAvailable (#PCDATA | include | iterate | isParameterPresent | isNotParameterPresent | isEmpty | isNotEmpty | isNotNull | isNull | isNotEqual | isEqual | isGreaterThan | isGreaterEqual | isLessThan | isLessEqual | isPropertyAvailable | isNotPropertyAvailable)*>
+<!ATTLIST isPropertyAvailable
+prepend CDATA #IMPLIED
+open CDATA #IMPLIED
+close CDATA #IMPLIED
+property CDATA #REQUIRED
+removeFirstPrepend (true|false) #IMPLIED
+>
+
+<!--Checks the equality of a property and a value, or another property.-->
+<!ELEMENT isEqual (#PCDATA | include | iterate | isParameterPresent | isNotParameterPresent | isEmpty | isNotEmpty | isNotNull | isNull | isNotEqual | isEqual | isGreaterThan | isGreaterEqual | isLessThan | isLessEqual | isPropertyAvailable | isNotPropertyAvailable)*>
+<!ATTLIST isEqual
+prepend CDATA #IMPLIED
+open CDATA #IMPLIED
+close CDATA #IMPLIED
+property CDATA #IMPLIED
+removeFirstPrepend (true|false) #IMPLIED
+compareProperty CDATA #IMPLIED
+compareValue CDATA #IMPLIED
+>
+
+<!--Checks the inequality of a property and a value, or another property.-->
+<!ELEMENT isNotEqual (#PCDATA | include | iterate | isParameterPresent | isNotParameterPresent | isEmpty | isNotEmpty | isNotNull | isNull | isNotEqual | isEqual | isGreaterThan | isGreaterEqual | isLessThan | isLessEqual | isPropertyAvailable | isNotPropertyAvailable)*>
+<!ATTLIST isNotEqual
+prepend CDATA #IMPLIED
+open CDATA #IMPLIED
+close CDATA #IMPLIED
+property CDATA #IMPLIED
+removeFirstPrepend (true|false) #IMPLIED
+compareProperty CDATA #IMPLIED
+compareValue CDATA #IMPLIED
+>
+
+<!--Checks if a property is greater than a value or another property.-->
+<!ELEMENT isGreaterThan (#PCDATA | include | iterate | isParameterPresent | isNotParameterPresent | isEmpty | isNotEmpty | isNotNull | isNull | isNotEqual | isEqual | isGreaterThan | isGreaterEqual | isLessThan | isLessEqual | isPropertyAvailable | isNotPropertyAvailable)*>
+<!ATTLIST isGreaterThan
+prepend CDATA #IMPLIED
+open CDATA #IMPLIED
+close CDATA #IMPLIED
+property CDATA #IMPLIED
+removeFirstPrepend (true|false) #IMPLIED
+compareProperty CDATA #IMPLIED
+compareValue CDATA #IMPLIED
+>
+
+<!--Checks if a property is greater than or equal to a value or another property.-->
+<!ELEMENT isGreaterEqual (#PCDATA | include | iterate | isParameterPresent | isNotParameterPresent | isEmpty | isNotEmpty | isNotNull | isNull | isNotEqual | isEqual | isGreaterThan | isGreaterEqual | isLessThan | isLessEqual | isPropertyAvailable | isNotPropertyAvailable)*>
+<!ATTLIST isGreaterEqual
+prepend CDATA #IMPLIED
+open CDATA #IMPLIED
+close CDATA #IMPLIED
+property CDATA #IMPLIED
+removeFirstPrepend (true|false) #IMPLIED
+compareProperty CDATA #IMPLIED
+compareValue CDATA #IMPLIED
+>
+
+<!--Checks if a property is less than a value or another property.-->
+<!ELEMENT isLessThan (#PCDATA | include | iterate | isParameterPresent | isNotParameterPresent | isEmpty | isNotEmpty | isNotNull | isNull | isNotEqual | isEqual | isGreaterThan | isGreaterEqual | isLessThan | isLessEqual | isPropertyAvailable | isNotPropertyAvailable)*>
+<!ATTLIST isLessThan
+prepend CDATA #IMPLIED
+open CDATA #IMPLIED
+close CDATA #IMPLIED
+property CDATA #IMPLIED
+removeFirstPrepend (true|false) #IMPLIED
+compareProperty CDATA #IMPLIED
+compareValue CDATA #IMPLIED
+>
+
+<!--Checks if a property is less than or equal to a value or another property.
+<br>
+Example Usage:<br>
+&lt;isLessEqual prepend=”AND” property=”age” compareValue=”18”&gt;<br>
+	ADOLESCENT = ‘TRUE’<br>
+&lt;/isLessEqual&gt;-->
+<!ELEMENT isLessEqual (#PCDATA | include | iterate | isParameterPresent | isNotParameterPresent | isEmpty | isNotEmpty | isNotNull | isNull | isNotEqual | isEqual | isGreaterThan | isGreaterEqual | isLessThan | isLessEqual | isPropertyAvailable | isNotPropertyAvailable)*>
+<!ATTLIST isLessEqual
+prepend CDATA #IMPLIED
+open CDATA #IMPLIED
+close CDATA #IMPLIED
+property CDATA #IMPLIED
+removeFirstPrepend (true|false) #IMPLIED
+compareProperty CDATA #IMPLIED
+compareValue CDATA #IMPLIED
+>
+
+<!--Checks to see if the value of a Collection, String or String.valueOf() property
+is null or empty (“” or size() < 1).-->
+<!ELEMENT isEmpty (#PCDATA | include | iterate | isParameterPresent | isNotParameterPresent | isEmpty | isNotEmpty | isNotNull | isNull | isNotEqual | isEqual | isGreaterThan | isGreaterEqual | isLessThan | isLessEqual | isPropertyAvailable | isNotPropertyAvailable)*>
+<!ATTLIST isEmpty
+prepend CDATA #IMPLIED
+open CDATA #IMPLIED
+close CDATA #IMPLIED
+property CDATA #IMPLIED
+removeFirstPrepend (true|false) #IMPLIED
+>
+
+<!--Checks to see if the value of a Collection, String or String.valueOf() property
+is not null and not empty (“” or size() < 1).
+<br><br>
+Example Usage:<br>
+&lt;isNotEmpty prepend=”AND” property=”firstName” &gt;<br>
+	FIRST_NAME=#firstName#<br>
+&lt;/isNotEmpty&gt;-->
+<!ELEMENT isNotEmpty (#PCDATA | include | iterate | isParameterPresent | isNotParameterPresent | isEmpty | isNotEmpty | isNotNull | isNull | isNotEqual | isEqual | isGreaterThan | isGreaterEqual | isLessThan | isLessEqual | isPropertyAvailable | isNotPropertyAvailable)*>
+<!ATTLIST isNotEmpty
+prepend CDATA #IMPLIED
+open CDATA #IMPLIED
+close CDATA #IMPLIED
+property CDATA #IMPLIED
+removeFirstPrepend (true|false) #IMPLIED
+>
+
+<!--Checks to see if the parameter object is present (not null).-->
+<!ELEMENT isParameterPresent (#PCDATA | include | iterate | isParameterPresent | isNotParameterPresent | isEmpty | isNotEmpty | isNotNull | isNull | isNotEqual | isEqual | isGreaterThan | isGreaterEqual | isLessThan | isLessEqual | isPropertyAvailable | isNotPropertyAvailable)*>
+<!ATTLIST isParameterPresent
+prepend CDATA #IMPLIED
+open CDATA #IMPLIED
+close CDATA #IMPLIED
+removeFirstPrepend (true|false) #IMPLIED
+>
+
+<!--Checks to see if the parameter object is not present (null). -->
+<!ELEMENT isNotParameterPresent (#PCDATA | include | iterate | isParameterPresent | isNotParameterPresent | isEmpty | isNotEmpty | isNotNull | isNull | isNotEqual | isEqual | isGreaterThan | isGreaterEqual | isLessThan | isLessEqual | isPropertyAvailable | isNotPropertyAvailable)*>
+<!ATTLIST isNotParameterPresent
+prepend CDATA #IMPLIED
+open CDATA #IMPLIED
+close CDATA #IMPLIED
+removeFirstPrepend (true|false) #IMPLIED
+>
+
+<!--Iterates over a property that is an implementation java.util.Collection, or
+java.util.Iterator, or is an array.
+<br><br>
+Example Usage:<br>
+&lt;iterate prepend=”AND” property=”userNameList” open=”(” close=”)” conjunction=”OR”&gt;<br>
+	username=#userNameList[]#<br>
+&lt;/iterate&gt;<br>
+<br>
+It is also possible to use the iterate when the collection is passed in as a
+parameter to your mapped statement.
+<br>
+Example Usage:<br>
+&lt;iterate prepend=”AND” open=”(” close=”)” conjunction=”OR”&gt;<br>
+	username=#[]#<br>
+&lt;/iterate&gt;<br>
+
+Note: It is very important to include the square brackets[] at the end of the
+property name when using the Iterate element. These brackets distinguish this
+object as a collection to keep the parser from simply outputting the collection
+as a string.-->
+<!ELEMENT iterate (#PCDATA | include | iterate | isParameterPresent | isNotParameterPresent | isEmpty | isNotEmpty | isNotNull | isNull | isNotEqual | isEqual | isGreaterThan | isGreaterEqual | isLessThan | isLessEqual | isPropertyAvailable | isNotPropertyAvailable)*>
+<!ATTLIST iterate
+prepend CDATA #IMPLIED
+property CDATA #IMPLIED
+removeFirstPrepend (true|false|iterate) #IMPLIED
+open CDATA #IMPLIED
+close CDATA #IMPLIED
+conjunction CDATA #IMPLIED
+>

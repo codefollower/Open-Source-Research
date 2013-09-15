@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ 
+<!--
+   Copyright 2004 Clinton Begin
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+ -->
+
+<!--The root element of an iBATIS SQL Map configuration file.
+This file provides configuration details for DataSources, Data Mapper and other options like thread management.-->
+<!ELEMENT sqlMapConfig (properties?, settings?, resultObjectFactory?, typeAlias*, typeHandler*, transactionManager?, sqlMap+)+>
+<!ATTLIST sqlMapConfig
+xmlns:fo CDATA #IMPLIED
+>
+
+<!--The SQL Map can have a single <properties> element that allows a standard Java properties file
+(name=value) to be associated with the SQL Map XML configuration document. By doing so, each named
+value in the properties file can become a variable that can be referred to in the SQL Map configuration file
+and all Data Mapper referenced within. For example, if the properties file contains the following:
+<br><br>
+driver=org.hsqldb.jdbcDriver
+<br><br>
+Then the SQL Map configuration file or each SQL Map referenced by the configuration document can use
+the placeholder ${driver} as a value that will be replaced by org.hsqldb.jdbcDriver. For example:
+<br><br>
+&lt;property name="JDBC.Driver" value="${driver}"/&gt;
+<br><br>
+This comes in handy during building, testing and deployment. It makes it easy to reconfigure your app for
+multiple environments or use automated tools for configuration (e.g. Ant). The properties can be loaded
+from the classpath (use the resource attribute) or from any valid URL (use the url attribute).-->
+<!ELEMENT properties EMPTY>
+<!ATTLIST properties
+resource CDATA #IMPLIED
+url CDATA #IMPLIED
+>
+
+<!-- The <settings> element allows you to configure various options and optimizations for the SqlMapClient
+instance that will be built using this XML file. The settings element and all of its attributes are completely
+optional. -->
+<!ELEMENT settings EMPTY>
+<!ATTLIST settings
+classInfoCacheEnabled (true | false) #IMPLIED
+lazyLoadingEnabled (true | false) #IMPLIED
+statementCachingEnabled (true | false) #IMPLIED
+cacheModelsEnabled (true | false) #IMPLIED
+enhancementEnabled (true | false) #IMPLIED
+errorTracingEnabled (true | false) #IMPLIED
+useStatementNamespaces (true | false) #IMPLIED
+useColumnLabel (true | false) #IMPLIED
+forceMultipleResultSetSupport (true | false) #IMPLIED
+maxSessions CDATA #IMPLIED
+maxTransactions CDATA #IMPLIED
+maxRequests CDATA #IMPLIED
+defaultStatementTimeout CDATA #IMPLIED
+>
+
+<!--The <transactionManager> element allows you to configure the transaction management services for an
+SQL Map. The type attribute indicates which transaction manager to use. The value can either be a class
+name or a type alias. The three transaction managers included with the framework are: JDBC, JTA and
+EXTERNAL.
+<br><br>
+JDBC - This allows JDBC to control the transaction via the usual Connection commit() and
+rollback() methods.<br>
+JTA - This transaction manager uses a JTA global transaction such that the SQL Map activities can
+be included as part of a wider scope transaction that possibly involves other databases or
+transactional resources. This configuration requires a UserTransaction property set to locate the
+user transaction from a JNDI resource.<br> 
+EXTERNAL – This allows you to manage transactions on your own. You can still configure a
+data source, but transactions will not be committed or rolled back as part of the framework
+lifecycle. This means that some part of your application external to Data Mapper must manage the
+transactions. This setting is also useful for non-transactional databases (e.g. Read-only).<br>
+<br>
+The &lt;transactionManager&gt; element also allows an optional attribute commitRequired that can be true or
+false. Normally iBATIS will not commit transactions unless an insert, update, or delete operation has been
+performed. This is true even if you explicitly call the commitTransaction() method. This behavior
+creates problems in some cases. If you want iBATIS to always commit transactions, even if no insert,
+update, or delete operation has been performed, then set the value of the commitRequired attribute to true.
+Examples of where this attribute is useful include:
+<br><br>
+1. If you call a stored procedures that updates data as well as returning rows. In that case you would
+call the procedure with the queryForList() operation – so iBATIS would not normally commit the
+transaction. But then the updates would be rolled back.<br>
+2. In a WebSphere environment when you are using connection pooling and you use the JNDI
+<dataSource> and the JDBC or JTA transaction manager. WebSphere requires all transactions on
+pooled connections to be committed or the connection will not be returned to the pool.<br>
+<br>
+Note that the commitRequired attribute has no effect when using the EXTERNAL transaction manager.
+<br><br>
+Some of the transaction managers allow extra configuration properties.-->
+<!ELEMENT transactionManager (property*,dataSource)>
+<!ATTLIST transactionManager
+type CDATA #REQUIRED
+commitRequired (true | false) #IMPLIED
+>
+
+<!--Included as part of the transaction manager configuration is a dataSource element and a set of properties to
+configure a DataSource for use with your SQL Map. There are currently three datasource factories
+provided with the framework, but you can also write your own.
+<br><br>
+<b>SimpleDataSourceFactory</b><br>
+The SimpleDataSource factory provides a basic implementation of a pooling DataSource that is
+ideal for providing connections in cases where there is no container provided DataSource. It is
+based on the iBATIS SimpleDataSource connection pool implementation.
+<br><br>
+<b>DbcpDataSourceFactory</b><br>
+This implementation uses Jakarta DBCP (Database Connection Pool) to provide connection
+pooling services via the DataSource API. This DataSource is ideal where the application/web
+container cannot provide a DataSource implementation, or you’re running a standalone
+application. IBATIS provides direct access to setting the properties of a DBCP datasource by
+allowing you to specify any DBCP property name you desire in the configuration.
+<br><br>
+<b>JndiDataSourceFactory</b><br>
+This implementation will retrieve a DataSource implementation from a JNDI context from within
+an application container. This is typically used when an application server is in use and a
+container managed connection pool and associated DataSource implementation are provided. The
+standard way to access a JDBC DataSource implementation is via a JNDI context.
+JndiDataSourceFactory provides functionality to access such a DataSource via JNDI. The
+configuration parameters that must be specified in the datasource stanza are as follows:
+<br><br>
+&lt;transactionManager type="JDBC" &gt;<br>
+	&lt;dataSource type="JNDI"&gt;<br>
+		&lt;property name="DataSource" value="java:comp/env/jdbc/jpetstore"/&gt;<br>
+	&lt;/dataSource&gt;<br>
+&lt;/transactionManager&gt;<br>
+<br>
+The above configuration will use normal JDBC transaction management. But with a container
+managed resource, you might also want to configure it for global transactions as follows:
+<br><br>
+&lt;transactionManager type="JTA" &gt;<br>
+	&lt;property name="UserTransaction" value="java:/comp/UserTransaction"/&gt;<br>
+	&lt;dataSource type="JNDI"&gt;<br>
+		&lt;property name="DataSource" value="java:comp/env/jdbc/jpetstore"/&gt;<br>
+	&lt;/dataSource&gt;<br>
+&lt;/transactionManager&gt;<br>
+<br>
+Notice the UserTransaction property that points to the JNDI location where the UserTransaction
+instance can be found. This is required for JTA transaction management so that your SQL Map
+take part in a wider scoped transaction involving other databases and transactional resources.
+JNDI context properties can be added before the lookup by specifying additional properties with a
+prefix of "context.".-->
+<!ELEMENT dataSource (property*)>
+<!ATTLIST dataSource
+type CDATA #REQUIRED
+>
+
+<!-- Defines a standard Java property. Is used by various elements to define settings. -->
+<!ELEMENT property EMPTY>
+<!ATTLIST property
+name CDATA #REQUIRED
+value CDATA #REQUIRED
+>
+
+<!-- The sqlMap element is used to explicitly include an SQL Map or another SQL Map Configuration file.
+Each SQL Map XML file that is going to be used by this SqlMapClient instance, must be declared. The
+SQL Map XML files will be loaded as a stream resource from the classpath or from a URL. You must
+specify any and all Data Mapper (as many as there are). -->
+<!ELEMENT sqlMap EMPTY>
+<!ATTLIST sqlMap
+resource CDATA #IMPLIED
+url CDATA #IMPLIED
+>
+
+<!--The typeAlias element simply allows you to specify a shorter name to refer to what is usually a long, fully
+qualified classname. For example:
+<br><br>
+&lt;typeAlias alias="shortname" type="com.long.class.path.Class"/&gt;-->
+<!ELEMENT typeAlias EMPTY>
+<!ATTLIST typeAlias
+alias CDATA #REQUIRED
+type CDATA #REQUIRED
+>
+
+<!--This element is used to declare a custom TypeHandler in iBATIS. This is necessary
+for iBATIS to know how to handle translations between the stated java type and jdbc type.-->
+<!ELEMENT typeHandler EMPTY>
+<!ATTLIST typeHandler
+javaType CDATA #REQUIRED
+jdbcType CDATA #IMPLIED
+callback CDATA #REQUIRED
+>
+
+<!--The resultObjectFactory element allows you to specify a factory class for creating objects resulting from
+the execution of SQL statements. This element is optional – if you don't specify the element, iBATIS will
+use internal mechanisms to create result objects (class.newInstance()).
+<br><br>
+iBATIS creates result objects in these cases:
+<br>
+1. When mapping rows returned from a ResultSet (the most common case)<br>
+2. When you use a nested select statement on a result element in a resultMap. If the nested select
+statement declares a parameterClass, then iBATIS will create and populate an instance of the class
+before executing the nested select<br>
+3. When executing stored procedures – iBATIS will create objects for OUTPUT parameters<br>
+4. When processing nested result maps. If the nested result map is used in conjunction with the
+groupBy support for avoiding N+1 queries, then the object will typically be an implementation of
+type Collection, List, or Set. You can provide custom implementations of these interfaces through
+the result object factory if you wish. In a 1:1 join with a nested result map, then iBATIS will
+create an instance of the specified domain object through this factory.<br>
+<br>
+If you choose to implement a factory, your factory class must implement the interface
+com.ibatis.sqlmap.engine.mapping.result.ResultObjectFactory, and your class must have a public
+default constructor. The ResultObjectFactory interface has two-->
+<!ELEMENT resultObjectFactory (property*)>
+<!ATTLIST resultObjectFactory
+type CDATA #REQUIRED
+>

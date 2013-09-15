@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<!--在sql-map-2.dtd中sqlMap有个属性xmlns:fo，但是在源代码实现中不用的
+<sqlMap namespace="Account" xmlns:fo="Account"> -->
+
+
+<sqlMap namespace="Account">
+  <!-- Use type aliases to avoid typing the full classname every time. -->
+  <typeAlias alias="Account" type="com.mydomain.domain.Account"/>
+
+  <cacheModel id="account-cache" type="LRU" readOnly="true" serialize="false">
+	  <flushInterval hours="24"/>
+	  <flushOnExecute statement="insertAccount"/>
+	  <flushOnExecute statement="updateAccount"/>
+	  <flushOnExecute statement="deleteAccountById"/>
+	  <property name="size" value="1000" />
+  </cacheModel>
+
+  <cacheModel id="account-cache2" type="LRU" readOnly="true" serialize="false">
+	  <flushInterval hours="24"/>
+	  <flushOnExecute statement="insertAccount"/>
+	  <flushOnExecute statement="updateAccount"/>
+	  <flushOnExecute statement="deleteAccountById"/>
+	  <property name="size" value="1000" />
+  </cacheModel>
+
+  <!-- Result maps describe the mapping between the columns returned
+       from a query, and the class properties.  A result map isn't
+       necessary if the columns (or aliases) match to the properties 
+       exactly. -->
+  <resultMap id="AccountResult" class="Account" groupBy="group1, group2">
+    <result property="id" column="ACC_ID"/>
+    <result property="firstName" column="ACC_FIRST_NAME"/>
+    <result property="lastName" column="ACC_LAST_NAME"/>
+    <result property="emailAddress" column="ACC_EMAIL"/>
+  </resultMap>
+
+  <resultMap id="AccountResult2" class="Account" extends="AccountResult">
+  </resultMap>
+
+  <!-- Select with no parameters using the result map for Account class. -->
+  <select id="selectAllAccounts" resultMap="AccountResult,AccountResult2">
+	select * from ACCOUNT
+    <!-- select * from ACCOUNT where ACC_FIRST_NAME = "#:id#"(有错) -->
+	<!-- select * from ACCOUNT where ACC_FIRST_NAME = "#id:NUMERIC#" -->
+  </select>
+
+  <!-- A simpler select example without the result map.  Note the 
+       aliases to match the properties of the target result class. -->
+  <!-- <select id="selectAccountById" parameterClass="int" resultClass="Account">-->
+  <select id="selectAccountById" resultClass="Account">
+     <!-- select
+      ACC_ID as id,
+      ACC_FIRST_NAME as firstName,
+      ACC_LAST_NAME as lastName,
+      ACC_EMAIL as emailAddress
+    from ACCOUNT
+    where ACC_ID = "#id:NUMERIC#"-->
+	select
+      ACC_ID as id,
+      ACC_FIRST_NAME as firstName,
+      ACC_LAST_NAME as lastName,
+      ACC_EMAIL as emailAddress
+    from ACCOUNT
+    where ACC_ID = #id#
+  </select>
+   
+  <!-- Insert example, using the Account parameter class -->
+  <!-- 原文少了右括号 -->
+  <insert id="insertAccount" parameterClass="Account">
+    <selectKey keyProperty="id" resultClass="int">
+	  select curtime()+0
+	</selectKey>
+
+    insert into ACCOUNT (
+      ACC_ID,
+      ACC_FIRST_NAME,
+      ACC_LAST_NAME,
+      ACC_EMAIL
+	)
+    values (
+      #id#, #firstName#, #lastName#, #emailAddress#
+    )
+  </insert>
+
+  <!-- Update example, using the Account parameter class -->
+  <update id="updateAccount" parameterClass="Account">
+    update ACCOUNT set
+      ACC_FIRST_NAME = #firstName#,
+      ACC_LAST_NAME = #lastName#,
+      ACC_EMAIL = #emailAddress#
+    where
+      ACC_ID = #id#
+  </update>
+
+  <!-- Delete example, using an integer as the parameter class -->
+  <delete id="deleteAccountById" parameterClass="int">
+    delete from ACCOUNT where ACC_ID = #id#
+  </delete>
+
+</sqlMap>
