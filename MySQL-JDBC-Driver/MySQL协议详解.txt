@@ -1,0 +1,20 @@
+client : 是指MySQL JDBC Driver
+server : 是指MySQL 数据库服务器
+
+client与server之间的底层通信协议是TCP/IP
+
+client与server之间消息传送使用包(packet)的形式
+一个packet，前三个字节按小端的形式存放包的长度，
+第4个字节是包号，
+
+前三个字节取出每个字节时，必须进行"& 0xff"运算，
+第4个字节不需要进行"& 0xff"运算
+
+
+client与server之间的交互是这样:
+
+首先，client建立与server的socket连接后，
+server先发问候信息:
+
+bytes        name       desc
+1    protocolVersion    -1表示出错了,取出的字节不用进行"& 0xff"运算
