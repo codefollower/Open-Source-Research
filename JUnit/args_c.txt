@@ -1,0 +1,11 @@
+-d classes\test
+-classpath src;classes;classes\test
+# test\org\junit\samples\SimpleTest.java
+# test\org\junit\samples\IgnoreTest.java
+# test\org\junit\samples\RunWithTest.java
+# test\org\junit\samples\Pre4Test.java
+# test\org\junit\samples\JUnit4ClassRunnerTest.java
+
+# test\org\junit\samples\JUnit4ClassRunnerTestSuper.java
+
+test\org\junit\samples\AssertTest.java

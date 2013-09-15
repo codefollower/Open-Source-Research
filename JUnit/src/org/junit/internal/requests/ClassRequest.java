@@ -1,0 +1,115 @@
+package org.junit.internal.requests;
+
+import org.junit.Ignore;
+import org.junit.internal.runners.InitializationError;
+import org.junit.internal.runners.JUnit38ClassRunner;
+import org.junit.internal.runners.JUnit4ClassRunner;
+import org.junit.runner.Request;
+import org.junit.runner.RunWith;
+import org.junit.runner.Runner;
+import org.junit.runners.AllTests;
+
+public class ClassRequest extends Request {
+	private static my.Debug DEBUG=new my.Debug(my.Debug.JUnitCore);//我加上的
+
+	private static final String CONSTRUCTOR_ERROR_FORMAT= "Custom runner class %s should have a public constructor with signature %s(Class testClass)";
+	private final Class<?> fTestClass;
+	private boolean fCanUseSuiteMethod;
+
+	public ClassRequest(Class<?> testClass, boolean canUseSuiteMethod) {
+		DEBUG.P(this,"ClassRequest(2)");
+		DEBUG.P("testClass="+testClass);
+		DEBUG.P("canUseSuiteMethod="+canUseSuiteMethod);
+
+		fTestClass= testClass;
+		fCanUseSuiteMethod= canUseSuiteMethod;
+
+		DEBUG.P(0,this,"ClassRequest(2)");
+	}
+
+	public ClassRequest(Class<?> testClass) {
+		this(testClass, true);
+	}
+	
+	@Override
+	public Runner getRunner() {
+		try {//我加上的
+		DEBUG.P(this,"getRunner()");
+
+		return buildRunner(getRunnerClass(fTestClass)); 
+
+		}finally{//我加上的
+		DEBUG.P(0,this,"getRunner()");
+		}
+	}
+
+	public Runner buildRunner(Class<? extends Runner> runnerClass) {
+		try {//我加上的
+		DEBUG.P(this,"buildRunner(1)");
+		DEBUG.P("runnerClass="+runnerClass);
+
+		try {
+			return runnerClass.getConstructor(Class.class).newInstance(new Object[] { fTestClass });
+		} catch (NoSuchMethodException e) {
+			String simpleName= runnerClass.getSimpleName();
+			InitializationError error= new InitializationError(String.format(
+					CONSTRUCTOR_ERROR_FORMAT, simpleName, simpleName));
+			return Request.errorReport(fTestClass, error).getRunner();
+		} catch (Exception e) { //可能存在java.lang.SecurityException
+			DEBUG.P("e="+e);
+			e.printStackTrace();
+			return Request.errorReport(fTestClass, e).getRunner();
+		}
+
+		}finally{//我加上的
+		DEBUG.P(0,this,"buildRunner(1)");
+		}
+	}
+
+	Class<? extends Runner> getRunnerClass(final Class<?> testClass) {
+		try {//我加上的
+		DEBUG.P(this,"getRunnerClass(1)");
+		DEBUG.P("testClass="+testClass);
+
+		if (testClass.getAnnotation(Ignore.class) != null)
+			return new IgnoredClassRunner(testClass).getClass();
+		RunWith annotation= testClass.getAnnotation(RunWith.class);
+		if (annotation != null) {
+			DEBUG.P("annotation.value()="+annotation.value());
+			return annotation.value();
+		} else if (hasSuiteMethod() && fCanUseSuiteMethod) {
+			return AllTests.class;
+		} else if (isPre4Test(testClass)) {
+			return JUnit38ClassRunner.class; 
+		} else {
+			return JUnit4ClassRunner.class;
+		}
+
+		}finally{//我加上的
+		DEBUG.P(0,this,"getRunnerClass(1)");
+		}
+	}
+	
+	public boolean hasSuiteMethod() {
+		try {//我加上的
+		DEBUG.P(this,"hasSuiteMethod()");
+		DEBUG.P("fTestClass="+fTestClass);
+
+		try {
+			fTestClass.getMethod("suite");
+			DEBUG.P("hasSuiteMethod=true");
+		} catch (NoSuchMethodException e) {
+			DEBUG.P("hasSuiteMethod=false");
+			return false;
+		}
+		return true;
+
+		}finally{//我加上的
+		DEBUG.P(0,this,"hasSuiteMethod()");
+		}
+	}
+
+	boolean isPre4Test(Class<?> testClass) {
+		return junit.framework.TestCase.class.isAssignableFrom(testClass);
+	}
+}

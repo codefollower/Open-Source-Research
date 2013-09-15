@@ -1,0 +1,1 @@
+javadoc -classpath src;classes -d apidocs -use -author -version -private -sourcepath src  -subpackages junit -subpackages org

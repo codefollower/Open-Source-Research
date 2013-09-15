@@ -1,0 +1,66 @@
+################################################################
+# 说明:  '#'号是一个注释符，用'#'号可以注释一行，              #
+# 单词之间用空格分开，如果一个单词含空格，                     #
+# 用单引号(')或双引号(") 将它括起来。                          #
+################################################################
+
+
+################################################################
+#           以下是编译javac1.7源码时很少变动的选项             #
+################################################################
+
+#-encoding gbk
+
+#-nowarn
+
+#-Xlint:unchecked
+#-Xlint
+
+#-verbose
+
+# 类路径
+#-Xbootclasspath/p:src;classes
+
+
+-classpath src;classes
+
+# 指定存放生成的类文件的位置
+-d classes
+
+# 我自己写的，用于输出Debug信息的一个类文件
+# src\my\Debug.java
+
+
+
+
+
+
+################################################################
+# 下面的类文件都是javac1.7的核心文件，                         #
+# 当分析到下面的某一个类文件时，                               #
+# 如果对该文件修改过，把'#'号去掉，就可以单独编译这个文件。    #
+# 如果下面的核心文件没有修改过，只是修改了其他文件，           #
+# 只要修改的文件被下面的某一个类文件引用，直接编译这           #
+# 个核心文件就可以了，当然把其他文件加进来单独编译也可以。     #
+################################################################
+
+#################
+# main
+#################
+# src\org\junit\runner\JUnitCore.java
+# src\org\junit\Assert.java
+
+# src\org\junit\internal\runners\CompositeRunner.java
+# src\org\junit\internal\runners\ClassRoadie.java
+# src\org\junit\internal\requests\ClassRequest.java
+# src\org\junit\internal\requests\ClassesRequest.java
+# src\org\junit\runners\AllTests.java
+# src\org\junit\internal\runners\JUnit38ClassRunner.java
+ src\org\junit\internal\runners\JUnit4ClassRunner.java
+ src\org\junit\internal\runners\CompositeRunner.java
+ src\org\junit\runner\Description.java
+# src\junit\framework\TestCase.java
+# src\junit\framework\JUnit4TestAdapter.java
+ 
+
+
