@@ -1,0 +1,582 @@
+/*-------------------------------------------------------------------------
+*
+* Copyright (c) 2003-2008, PostgreSQL Global Development Group
+* Copyright (c) 2004, Open Cloud Limited.
+*
+* IDENTIFICATION
+*   $PostgreSQL: pgjdbc/org/postgresql/core/v3/ConnectionFactoryImpl.java,v 1.20 2009/06/02 00:22:58 jurka Exp $
+*
+*-------------------------------------------------------------------------
+*/
+package org.postgresql.core.v3;
+
+import java.util.Properties;
+
+import java.sql.*;
+import java.io.IOException;
+import java.net.ConnectException;
+
+import org.postgresql.Driver;
+import org.postgresql.core.*;
+import org.postgresql.util.PSQLException;
+import org.postgresql.util.PSQLState;
+import org.postgresql.util.PSQLWarning;
+import org.postgresql.util.ServerErrorMessage;
+import org.postgresql.util.UnixCrypt;
+import org.postgresql.util.MD5Digest;
+import org.postgresql.util.GT;
+
+/**
+ * ConnectionFactory implementation for version 3 (7.4+) connections.
+ *
+ * @author Oliver Jowett (oliver@opencloud.com), based on the previous implementation
+ */
+public class ConnectionFactoryImpl extends ConnectionFactory {
+	private static my.Debug DEBUG=new my.Debug(my.Debug.ConnectionFactory);//我加上的
+
+    private static final int AUTH_REQ_OK = 0;
+    private static final int AUTH_REQ_KRB4 = 1;
+    private static final int AUTH_REQ_KRB5 = 2;
+    private static final int AUTH_REQ_PASSWORD = 3;
+    private static final int AUTH_REQ_CRYPT = 4;
+    private static final int AUTH_REQ_MD5 = 5;
+    private static final int AUTH_REQ_SCM = 6;
+    private static final int AUTH_REQ_GSS = 7;
+    private static final int AUTH_REQ_GSS_CONTINUE = 8;
+    private static final int AUTH_REQ_SSPI = 9;
+
+    /** Marker exception; thrown when we want to fall back to using V2. */
+    private static class UnsupportedProtocolException extends IOException {
+    }
+
+    public ProtocolConnection openConnectionImpl(String host, int port, String user, String database, Properties info, Logger logger) throws SQLException {
+        try {//我加上的
+		DEBUG.P(this,"openConnectionImpl(6)");
+		DEBUG.P("host="+host);
+
+		// Extract interesting values from the info properties:
+        //  - the SSL setting
+        boolean requireSSL = (info.getProperty("ssl") != null);
+        boolean trySSL = requireSSL; // XXX temporary until we revisit the ssl property values
+
+        //  - the TCP keep alive setting
+        boolean requireTCPKeepAlive = (Boolean.valueOf(info.getProperty("tcpKeepAlive")).booleanValue());
+
+		DEBUG.P("requireSSL="+requireSSL);
+		DEBUG.P("requireTCPKeepAlive="+requireTCPKeepAlive);
+
+        // NOTE: To simplify this code, it is assumed that if we are
+        // using the V3 protocol, then the database is at least 7.4.  That
+        // eliminates the need to check database versions and maintain
+        // backward-compatible code here.
+        //
+        // Change by Chris Smith <cdsmith@twu.net>
+
+        if (logger.logDebug())
+            logger.debug("Trying to establish a protocol version 3 connection to " + host + ":" + port);
+
+        //
+        // Establish a connection.
+        //
+
+        PGStream newStream = null;
+        try
+        {
+            newStream = new PGStream(host, port);
+
+            // Construct and send an ssl startup packet if requested.
+            if (trySSL)
+                newStream = enableSSL(newStream, requireSSL, info, logger);
+            
+            // Set the socket timeout if the "socketTimeout" property has been set.
+            String socketTimeoutProperty = info.getProperty("socketTimeout", "0");
+            try {
+                int socketTimeout = Integer.parseInt(socketTimeoutProperty);
+                if (socketTimeout > 0) {
+                    newStream.getSocket().setSoTimeout(socketTimeout*1000);
+                }
+            } catch (NumberFormatException nfe) {
+                logger.info("Couldn't parse socketTimeout value:" + socketTimeoutProperty);
+            }
+
+            // Enable TCP keep-alive probe if required.
+            newStream.getSocket().setKeepAlive(requireTCPKeepAlive);
+
+            // Construct and send a startup packet.
+            String[][] params = {
+                                    { "user", user },
+                                    { "database", database },
+                                    { "client_encoding", "UNICODE" },
+                                    { "DateStyle", "ISO" },
+                                    { "extra_float_digits", "2" }
+                                };
+
+            sendStartupPacket(newStream, params, logger);
+
+            // Do authentication (until AuthenticationOk).
+            doAuthentication(newStream, host, user, info, logger);
+
+            // Do final startup.
+            ProtocolConnectionImpl protoConnection = new ProtocolConnectionImpl(newStream, user, database, info, logger);
+            readStartupMessages(newStream, protoConnection, logger);
+
+            // And we're done.
+            return protoConnection;
+        }
+        catch (UnsupportedProtocolException upe)
+        {
+            // Swallow this and return null so ConnectionFactory tries the next protocol.
+            if (logger.logDebug())
+                logger.debug("Protocol not supported, abandoning connection.");
+            try
+            {
+                newStream.close();
+            }
+            catch (IOException e)
+            {
+            }
+            return null;
+        }
+        catch (ConnectException cex)
+        {
+            // Added by Peter Mount <peter@retep.org.uk>
+            // ConnectException is thrown when the connection cannot be made.
+            // we trap this an return a more meaningful message for the end user
+            throw new PSQLException (GT.tr("Connection refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections."), PSQLState.CONNECTION_REJECTED, cex);
+        }
+        catch (IOException ioe)
+        {
+            if (newStream != null)
+            {
+                try
+                {
+                    newStream.close();
+                }
+                catch (IOException e)
+                {
+                }
+            }
+            throw new PSQLException (GT.tr("The connection attempt failed."), PSQLState.CONNECTION_UNABLE_TO_CONNECT, ioe);
+        }
+        catch (SQLException se)
+        {
+            if (newStream != null)
+            {
+                try
+                {
+                    newStream.close();
+                }
+                catch (IOException e)
+                {
+                }
+            }
+            throw se;
+        }
+
+		}finally{//我加上的
+		DEBUG.P(0,this,"openConnectionImpl(6)");
+		}
+    }
+
+    private PGStream enableSSL(PGStream pgStream, boolean requireSSL, Properties info, Logger logger) throws IOException, SQLException {
+        try {//我加上的
+		DEBUG.P(this,"enableSSL(4)");
+		DEBUG.P("requireSSL="+requireSSL);
+
+		if (logger.logDebug())
+            logger.debug(" FE=> SSLRequest");
+
+        // Send SSL request packet
+        pgStream.SendInteger4(8);
+        pgStream.SendInteger2(1234);
+        pgStream.SendInteger2(5679);
+        pgStream.flush();
+
+        // Now get the response from the backend, one of N, E, S.
+        int beresp = pgStream.ReceiveChar();
+		DEBUG.P("beresp="+(char)beresp);
+        switch (beresp)
+        {
+        case 'E':
+            if (logger.logDebug())
+                logger.debug(" <=BE SSLError");
+
+            // Server doesn't even know about the SSL handshake protocol
+            if (requireSSL)
+                throw new PSQLException(GT.tr("The server does not support SSL."), PSQLState.CONNECTION_FAILURE);
+
+            // We have to reconnect to continue.
+            pgStream.close();
+            return new PGStream(pgStream.getHost(), pgStream.getPort());
+
+        case 'N':
+            if (logger.logDebug())
+                logger.debug(" <=BE SSLRefused");
+
+            // Server does not support ssl
+            if (requireSSL)
+                throw new PSQLException(GT.tr("The server does not support SSL."), PSQLState.CONNECTION_FAILURE);
+
+            return pgStream;
+
+        case 'S':
+            if (logger.logDebug())
+                logger.debug(" <=BE SSLOk");
+
+            // Server supports ssl
+            org.postgresql.ssl.MakeSSL.convert(pgStream, info, logger);
+            return pgStream;
+
+        default:
+            throw new PSQLException(GT.tr("An error occured while setting up the SSL connection."), PSQLState.CONNECTION_FAILURE);
+        }
+
+		}finally{//我加上的
+		DEBUG.P(0,this,"enableSSL(4)");
+		}
+    }
+
+    private void sendStartupPacket(PGStream pgStream, String[][] params, Logger logger) throws IOException {
+        try {//我加上的
+		DEBUG.P(this,"sendStartupPacket(3)");
+		for(String[] param : params) {
+			DEBUG.PA("param",param);
+		}
+
+		if (logger.logDebug())
+        {
+            String details = "";
+            for (int i = 0; i < params.length; ++i)
+            {
+                if (i != 0)
+                    details += ", ";
+                details += params[i][0] + "=" + params[i][1];
+            }
+            logger.debug(" FE=> StartupPacket(" + details + ")");
+        }
+
+        /*
+         * Precalculate message length and encode params.
+         */
+        int length = 4 + 4; //4个字节的长度加4个字节的主、次版本号
+
+		//params.length * 2是因为要存放参数名和参数值，
+		//比如user=postgres，encodedParams[0]是user，encodedParams[1]是encodedParams。
+        byte[][] encodedParams = new byte[params.length * 2][];
+        for (int i = 0; i < params.length; ++i)
+        {
+            encodedParams[i*2] = params[i][0].getBytes("UTF-8");
+            encodedParams[i*2 + 1] = params[i][1].getBytes("UTF-8");
+
+			//每个字符串转换成字节数组后都以'\0'结束，所以要加1
+            length += encodedParams[i * 2].length + 1 + encodedParams[i * 2 + 1].length + 1;
+        }
+
+        length += 1; // Terminating \0
+
+		DEBUG.P("length="+length);
+
+        /*
+         * Send the startup message.
+         */
+        pgStream.SendInteger4(length);
+        pgStream.SendInteger2(3); // protocol major
+        pgStream.SendInteger2(0); // protocol minor
+        for (int i = 0; i < encodedParams.length; ++i)
+        {
+            pgStream.Send(encodedParams[i]);
+            pgStream.SendChar(0);
+        }
+
+        pgStream.SendChar(0);
+        pgStream.flush();
+
+		}finally{//我加上的
+		DEBUG.P(0,this,"sendStartupPacket(3)");
+		}
+    }
+
+    private void doAuthentication(PGStream pgStream, String host, String user, Properties info, Logger logger) throws IOException, SQLException
+    {
+		try {//我加上的
+		DEBUG.P(this,"doAuthentication(5)");
+
+        // Now get the response from the backend, either an error message
+        // or an authentication request
+
+        String password = info.getProperty("password");
+		DEBUG.P("password="+password);
+
+        while (true)
+        {
+            int beresp = pgStream.ReceiveChar();
+			DEBUG.P("beresp="+(char)beresp);
+            switch (beresp)
+            {
+			//比如把上面的"pgStream.SendInteger2(3); // protocol major"
+			//改成5之后就会出现
+			//=============================
+			//beresp=E
+			//l_elen=149
+			//errorMsg=FATAL: unsupported frontend protocol 5.0: server supports 1.0 to 3.0
+			//=============================
+            case 'E':
+                // An error occured, so pass the error message to the
+                // user.
+                //
+                // The most common one to be thrown here is:
+                // "User authentication failed"
+                //
+                int l_elen = pgStream.ReceiveInteger4();
+
+				DEBUG.P("l_elen="+l_elen);
+                if (l_elen > 30000)
+                {
+                    // if the error length is > than 30000 we assume this is really a v2 protocol
+                    // server, so trigger fallback.
+                    throw new UnsupportedProtocolException();
+                }
+
+                ServerErrorMessage errorMsg = new ServerErrorMessage(pgStream.ReceiveString(l_elen - 4), logger.getLogLevel());
+                DEBUG.P("errorMsg="+errorMsg);
+
+				if (logger.logDebug())
+                    logger.debug(" <=BE ErrorMessage(" + errorMsg + ")");
+                throw new PSQLException(errorMsg);
+
+            case 'R':
+                // Authentication request.
+                // Get the message length
+                int l_msgLen = pgStream.ReceiveInteger4();
+
+                // Get the type of request
+                int areq = pgStream.ReceiveInteger4();
+
+				DEBUG.P("l_msgLen="+l_msgLen);
+				DEBUG.P("areq="+areq);
+
+                // Process the request.
+                switch (areq)
+                {
+                case AUTH_REQ_CRYPT:
+                    {
+                        byte[] salt = pgStream.Receive(2);
+
+                        if (logger.logDebug())
+                            logger.debug(" <=BE AuthenticationReqCrypt(salt='" + new String(salt, "US-ASCII") + "')");
+
+                        if (password == null)
+                            throw new PSQLException(GT.tr("The server requested password-based authentication, but no password was provided."), PSQLState.CONNECTION_REJECTED);
+
+                        byte[] encodedResult = UnixCrypt.crypt(salt, password.getBytes("UTF-8"));
+
+                        if (logger.logDebug())
+                            logger.debug(" FE=> Password(crypt='" + new String(encodedResult, "US-ASCII") + "')");
+
+                        pgStream.SendChar('p');
+                        pgStream.SendInteger4(4 + encodedResult.length + 1);
+                        pgStream.Send(encodedResult);
+                        pgStream.SendChar(0);
+                        pgStream.flush();
+
+                        break;
+                    }
+
+                case AUTH_REQ_MD5:
+                    {
+                        byte[] md5Salt = pgStream.Receive(4);
+                        if (logger.logDebug())
+                        {
+                            logger.debug(" <=BE AuthenticationReqMD5(salt=" + Utils.toHexString(md5Salt) + ")");
+                        }
+
+                        if (password == null)
+                            throw new PSQLException(GT.tr("The server requested password-based authentication, but no password was provided."), PSQLState.CONNECTION_REJECTED);
+
+                        byte[] digest = MD5Digest.encode(user.getBytes("UTF-8"), password.getBytes("UTF-8"), md5Salt);
+
+                        if (logger.logDebug())
+                        {
+                            logger.debug(" FE=> Password(md5digest=" + new String(digest, "US-ASCII") + ")");
+                        }
+
+                        pgStream.SendChar('p');
+                        pgStream.SendInteger4(4 + digest.length + 1);
+                        pgStream.Send(digest);
+                        pgStream.SendChar(0);
+                        pgStream.flush();
+
+                        break;
+                    }
+
+                case AUTH_REQ_PASSWORD:
+                    {
+                        if (logger.logDebug())
+                        {
+                            logger.debug(" <=BE AuthenticationReqPassword");
+                            logger.debug(" FE=> Password(password=<not shown>)");
+                        }
+
+                        if (password == null)
+                            throw new PSQLException(GT.tr("The server requested password-based authentication, but no password was provided."), PSQLState.CONNECTION_REJECTED);
+
+                        byte[] encodedPassword = password.getBytes("UTF-8");
+
+                        pgStream.SendChar('p');
+                        pgStream.SendInteger4(4 + encodedPassword.length + 1);
+                        pgStream.Send(encodedPassword);
+                        pgStream.SendChar(0);
+                        pgStream.flush();
+
+                        break;
+                    }
+
+                case AUTH_REQ_GSS:
+                    org.postgresql.gss.MakeGSS.authenticate(pgStream, host,
+                            user, password, 
+                            info.getProperty("jaasApplicationName"),
+                            info.getProperty("kerberosServerName"),
+                            logger);
+                    break;
+
+
+                case AUTH_REQ_OK:
+                    if (logger.logDebug())
+                        logger.debug(" <=BE AuthenticationOk");
+
+                    return ; // We're done.
+
+                default:
+                    if (logger.logDebug())
+                        logger.debug(" <=BE AuthenticationReq (unsupported type " + ((int)areq) + ")");
+
+                    throw new PSQLException(GT.tr("The authentication type {0} is not supported. Check that you have configured the pg_hba.conf file to include the client''s IP address or subnet, and that it is using an authentication scheme supported by the driver.", new Integer(areq)), PSQLState.CONNECTION_REJECTED);
+                }
+
+                break;
+
+            default:
+                throw new PSQLException(GT.tr("Protocol error.  Session setup failed."), PSQLState.CONNECTION_UNABLE_TO_CONNECT);
+            }
+        }
+
+		}finally{//我加上的
+		DEBUG.P(0,this,"doAuthentication(5)");
+		}
+    }
+
+    private void readStartupMessages(PGStream pgStream, ProtocolConnectionImpl protoConnection, Logger logger) throws IOException, SQLException {
+        try {//我加上的
+		DEBUG.P(this,"readStartupMessages(3)");
+
+		while (true)
+        {
+            int beresp = pgStream.ReceiveChar();
+			DEBUG.P("beresp="+(char)beresp);
+            switch (beresp)
+            {
+            case 'Z':
+                // Ready For Query; we're done.
+                if (pgStream.ReceiveInteger4() != 5)
+                    throw new IOException("unexpected length of ReadyForQuery packet");
+
+                char tStatus = (char)pgStream.ReceiveChar();
+                if (logger.logDebug())
+                    logger.debug(" <=BE ReadyForQuery(" + tStatus + ")");
+
+                // Update connection state.
+                switch (tStatus)
+                {
+                case 'I':
+                    protoConnection.setTransactionState(ProtocolConnection.TRANSACTION_IDLE);
+                    break;
+                case 'T':
+                    protoConnection.setTransactionState(ProtocolConnection.TRANSACTION_OPEN);
+                    break;
+                case 'E':
+                    protoConnection.setTransactionState(ProtocolConnection.TRANSACTION_FAILED);
+                    break;
+                default:
+                    // Huh?
+                    break;
+                }
+
+                return ;
+
+            case 'K':
+                // BackendKeyData
+                int l_msgLen = pgStream.ReceiveInteger4();
+                if (l_msgLen != 12)
+                    throw new PSQLException(GT.tr("Protocol error.  Session setup failed."), PSQLState.CONNECTION_UNABLE_TO_CONNECT);
+
+                int pid = pgStream.ReceiveInteger4();
+                int ckey = pgStream.ReceiveInteger4();
+
+                if (logger.logDebug())
+                    logger.debug(" <=BE BackendKeyData(pid=" + pid + ",ckey=" + ckey + ")");
+
+                protoConnection.setBackendKeyData(pid, ckey);
+                break;
+
+            case 'E':
+                // Error
+                int l_elen = pgStream.ReceiveInteger4();
+                ServerErrorMessage l_errorMsg = new ServerErrorMessage(pgStream.ReceiveString(l_elen - 4), logger.getLogLevel());
+
+                if (logger.logDebug())
+                    logger.debug(" <=BE ErrorMessage(" + l_errorMsg + ")");
+
+                throw new PSQLException(l_errorMsg);
+
+            case 'N':
+                // Warning
+                int l_nlen = pgStream.ReceiveInteger4();
+                ServerErrorMessage l_warnMsg = new ServerErrorMessage(pgStream.ReceiveString(l_nlen - 4), logger.getLogLevel());
+
+                if (logger.logDebug())
+                    logger.debug(" <=BE NoticeResponse(" + l_warnMsg + ")");
+
+                protoConnection.addWarning(new PSQLWarning(l_warnMsg));
+                break;
+
+            case 'S':
+                // ParameterStatus
+                int l_len = pgStream.ReceiveInteger4();
+                String name = pgStream.ReceiveString();
+                String value = pgStream.ReceiveString();
+
+                if (logger.logDebug())
+                    logger.debug(" <=BE ParameterStatus(" + name + " = " + value + ")");
+
+                if (name.equals("server_version"))
+                    protoConnection.setServerVersion(value);
+                else if (name.equals("client_encoding"))
+                {
+                    if (!value.equals("UNICODE"))
+                        throw new PSQLException(GT.tr("Protocol error.  Session setup failed."), PSQLState.CONNECTION_UNABLE_TO_CONNECT);
+                    pgStream.setEncoding(Encoding.getDatabaseEncoding("UNICODE"));
+                }
+                else if (name.equals("standard_conforming_strings"))
+                {
+                    if (value.equals("on"))
+                        protoConnection.setStandardConformingStrings(true);
+                    else if (value.equals("off"))
+                        protoConnection.setStandardConformingStrings(false);
+                    else
+                        throw new PSQLException(GT.tr("Protocol error.  Session setup failed."), PSQLState.CONNECTION_UNABLE_TO_CONNECT);
+                }
+
+                break;
+
+            default:
+                if (logger.logDebug())
+                    logger.debug("invalid message type=" + (char)beresp);
+                throw new PSQLException(GT.tr("Protocol error.  Session setup failed."), PSQLState.CONNECTION_UNABLE_TO_CONNECT);
+            }
+        }
+
+		}finally{//我加上的
+		DEBUG.P(0,this,"readStartupMessages(3)");
+		}
+    }
+}
