@@ -1,0 +1,19 @@
+org.jboss.netty.channel.Channels类中以fire开头的方法是用来触发Upstream事件的，
+Upstream事件是表地channel完成某一动作后触发的事件，
+比如channel打开后会触发fireChannelOpen，Upstream事件是不会产生ChannelFuture的。
+fireChannelOpen一般在新new出来一个Channel后触发，
+如org.jboss.netty.channel.socket.nio.NioClientSocketChannel的构造函数中有调用fireChannelOpen。
+
+Upstream事件会让Pipline中第0号位置的ChannelUpstreamHandler处理，然后是1号位置，依此类推，
+直到最后一个ChannelUpstreamHandler处理完成，
+而Downstream事件是从Pipline最后一个位置的ChannelDownstreamHandler开始处理的，
+然后不断往前，直到第0个位置的ChannelDownstreamHandler，
+最后再把Downstream事件转给ChannelSink的eventSunk。
+
+
+org.jboss.netty.channel.Channels类中那些非fire开头大多数方法都会触发Upstream事件，
+并且会事先生成一个DefaultChannelFuture，
+然后把当次channel和future及其他值封装到Upstream事件对像中，
+交给ChannelDownstreamHandler处理，最后再交给ChannelSink的eventSunk，
+ChannelSink的eventSunk中干完实际的活后，比如bind、connect Socket后又会调用fire开头的
+方法触发Upstream事件。

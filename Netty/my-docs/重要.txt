@@ -1,0 +1,162 @@
+可以实现org.jboss.netty.buffer.ChannelBufferFactory接口，
+然后调用org.jboss.netty.bootstrap.Bootstrap.setOption("bufferFactory", new MyChannelBufferFactory())，
+这样可以生成自己的ChannelBuffer，这对于ByteOrder.LITTLE_ENDIAN 的情况很有用。
+
+见DefaultChannelConfig.setOption
+
+
+如果实现ChannelPipelineFactory时，
+getPipeline()中调用addLast的ChannelHandler是新new出来的，那么就不存在状态共享，
+如果是外部引用，必须小心，因为可能有多个线程实用到了。
+
+//这样是线程安全的
+import static org.jboss.netty.channel.Channels.*;
+public class FactorialServerPipelineFactory implements
+        ChannelPipelineFactory {
+	FactorialServerHandler factorialServerHandler = new FactorialServerHandler();
+
+    public ChannelPipeline getPipeline() throws Exception {
+        ChannelPipeline pipeline = pipeline();
+	pipeline.addLast("handler", new MyChannelHandler()); //这样是线程安全的
+
+        return pipeline;
+    }
+}
+
+ //这样不是线程安全的
+import static org.jboss.netty.channel.Channels.*;
+public class FactorialServerPipelineFactory implements
+        ChannelPipelineFactory {
+	MyChannelHandler myChannelHandler = new MyChannelHandler();
+
+    public ChannelPipeline getPipeline() throws Exception {
+        ChannelPipeline pipeline = pipeline();
+	pipeline.addLast("handler", myChannelHandler); //这样不是线程安全的
+
+        return pipeline;
+    }
+}
+
+
+处理一次请求的事件序例:
+Server端:
+
+org.jboss.netty.bootstrap.ServerBootstrap$Binder
+    e=NioServerSocketChannel[id: 0x01100d7a] OPEN
+org.jboss.netty.bootstrap.ServerBootstrap$Binder
+    e=NioServerSocketChannel[id: 0x01100d7a, /0.0.0.0:8080] BOUND: /0.0.0.0:8080
+org.jboss.netty.bootstrap.ServerBootstrap$Binder
+    e=NioServerSocketChannel[id: 0x01100d7a, /0.0.0.0:8080] CHILD_OPEN: 14916158
+org.jboss.netty.handler.codec.http.HttpRequestDecoder
+    e=NioAcceptedSocketChannel[id: 0x00e39a3e, /127.0.0.1:1092 => /127.0.0.1:8080] OPEN
+org.jboss.netty.example.http.snoop.HttpRequestHandler
+    e=NioAcceptedSocketChannel[id: 0x00e39a3e, /127.0.0.1:1092 => /127.0.0.1:8080] OPEN
+org.jboss.netty.handler.codec.http.HttpRequestDecoder
+    e=NioAcceptedSocketChannel[id: 0x00e39a3e, /127.0.0.1:1092 => /127.0.0.1:8080] BOUND: /127.0.0.1:8080
+org.jboss.netty.example.http.snoop.HttpRequestHandler
+    e=NioAcceptedSocketChannel[id: 0x00e39a3e, /127.0.0.1:1092 => /127.0.0.1:8080] BOUND: /127.0.0.1:8080
+org.jboss.netty.handler.codec.http.HttpRequestDecoder
+    e=NioAcceptedSocketChannel[id: 0x00e39a3e, /127.0.0.1:1092 => /127.0.0.1:8080] CONNECTED: /127.0.0.1:1092
+org.jboss.netty.example.http.snoop.HttpRequestHandler
+    e=NioAcceptedSocketChannel[id: 0x00e39a3e, /127.0.0.1:1092 => /127.0.0.1:8080] CONNECTED: /127.0.0.1:1092
+org.jboss.netty.handler.codec.http.HttpRequestDecoder
+    e=NioAcceptedSocketChannel[id: 0x00e39a3e, /127.0.0.1:1092 => /127.0.0.1:8080] RECEIVED: BigEndianHeapChannelBuffer(ridx=0, widx=192, cap=192)
+org.jboss.netty.example.http.snoop.HttpRequestHandler
+    e=NioAcceptedSocketChannel[id: 0x00e39a3e, /127.0.0.1:1092 => /127.0.0.1:8080] RECEIVED: DefaultHttpRequest(chunked: false) GET http://127.0.0.1:8080/ HTTP/1.1 Host: 127.0.0.1 Connection: close Accept-Encoding: gzip testHeader: testHeaderVa Cookie: another-cookie=bar;my-cookie=foo
+org.jboss.netty.handler.codec.http.HttpRequestDecoder
+    e=NioAcceptedSocketChannel[id: 0x00e39a3e, /127.0.0.1:1092 => /127.0.0.1:8080] WRITTEN_AMOUNT: 433
+org.jboss.netty.example.http.snoop.HttpRequestHandler
+    e=NioAcceptedSocketChannel[id: 0x00e39a3e, /127.0.0.1:1092 => /127.0.0.1:8080] WRITTEN_AMOUNT: 433
+org.jboss.netty.handler.codec.http.HttpRequestDecoder
+    e=NioAcceptedSocketChannel[id: 0x00e39a3e, /127.0.0.1:1092 => /127.0.0.1:8080] DISCONNECTED
+org.jboss.netty.example.http.snoop.HttpRequestHandler
+    e=NioAcceptedSocketChannel[id: 0x00e39a3e, /127.0.0.1:1092 => /127.0.0.1:8080] DISCONNECTED
+org.jboss.netty.handler.codec.http.HttpRequestDecoder
+    e=NioAcceptedSocketChannel[id: 0x00e39a3e, /127.0.0.1:1092 => /127.0.0.1:8080] UNBOUND
+org.jboss.netty.example.http.snoop.HttpRequestHandler
+    e=NioAcceptedSocketChannel[id: 0x00e39a3e, /127.0.0.1:1092 => /127.0.0.1:8080] UNBOUND
+org.jboss.netty.handler.codec.http.HttpRequestDecoder
+    e=NioAcceptedSocketChannel[id: 0x00e39a3e, /127.0.0.1:1092 => /127.0.0.1:8080] CLOSED
+org.jboss.netty.example.http.snoop.HttpRequestHandler
+    e=NioAcceptedSocketChannel[id: 0x00e39a3e, /127.0.0.1:1092 => /127.0.0.1:8080] CLOSED
+org.jboss.netty.bootstrap.ServerBootstrap$Binder
+    e=NioServerSocketChannel[id: 0x01100d7a, /0.0.0.0:8080] CHILD_CLOSED: 14916158
+
+
+Client端:
+org.jboss.netty.handler.codec.http.HttpClientCodec$Decoder
+    e=NioClientSocketChannel[id: 0x01787038] OPEN
+org.jboss.netty.handler.codec.http.HttpContentDecompressor
+    e=NioClientSocketChannel[id: 0x01787038] OPEN
+org.jboss.netty.example.http.snoop.HttpResponseHandler
+    e=NioClientSocketChannel[id: 0x01787038] OPEN
+org.jboss.netty.handler.codec.http.HttpClientCodec$Decoder
+    e=NioClientSocketChannel[id: 0x01787038, /127.0.0.1:1092 => /127.0.0.1:8080] BOUND: /127.0.0.1:1092
+org.jboss.netty.handler.codec.http.HttpContentDecompressor
+    e=NioClientSocketChannel[id: 0x01787038, /127.0.0.1:1092 => /127.0.0.1:8080] BOUND: /127.0.0.1:1092
+org.jboss.netty.example.http.snoop.HttpResponseHandler
+    e=NioClientSocketChannel[id: 0x01787038, /127.0.0.1:1092 => /127.0.0.1:8080] BOUND: /127.0.0.1:1092
+org.jboss.netty.handler.codec.http.HttpClientCodec$Decoder
+    e=NioClientSocketChannel[id: 0x01787038, /127.0.0.1:1092 => /127.0.0.1:8080] CONNECTED: /127.0.0.1:8080
+org.jboss.netty.handler.codec.http.HttpContentDecompressor
+    e=NioClientSocketChannel[id: 0x01787038, /127.0.0.1:1092 => /127.0.0.1:8080] CONNECTED: /127.0.0.1:8080
+org.jboss.netty.example.http.snoop.HttpResponseHandler
+    e=NioClientSocketChannel[id: 0x01787038, /127.0.0.1:1092 => /127.0.0.1:8080] CONNECTED: /127.0.0.1:8080
+org.jboss.netty.handler.codec.http.HttpClientCodec$Decoder
+    e=NioClientSocketChannel[id: 0x01787038, /127.0.0.1:1092 => /127.0.0.1:8080] WRITTEN_AMOUNT: 192
+org.jboss.netty.handler.codec.http.HttpContentDecompressor
+    e=NioClientSocketChannel[id: 0x01787038, /127.0.0.1:1092 => /127.0.0.1:8080] WRITTEN_AMOUNT: 192
+org.jboss.netty.example.http.snoop.HttpResponseHandler
+    e=NioClientSocketChannel[id: 0x01787038, /127.0.0.1:1092 => /127.0.0.1:8080] WRITTEN_AMOUNT: 192
+org.jboss.netty.handler.codec.http.HttpClientCodec$Decoder
+    e=NioClientSocketChannel[id: 0x01787038, /127.0.0.1:1092 => /127.0.0.1:8080] RECEIVED: BigEndianHeapChannelBuffer(ridx=0, widx=433, cap=433)
+org.jboss.netty.handler.codec.http.HttpContentDecompressor
+    e=NioClientSocketChannel[id: 0x01787038, /127.0.0.1:1092 => /127.0.0.1:8080] RECEIVED: DefaultHttpResponse(chunked: true) HTTP/1.1 200 OK Content-Type: text/plain; charset=UTF-8 Set-Cookie: another-cookie=bar;my-cookie=foo
+org.jboss.netty.example.http.snoop.HttpResponseHandler
+    e=NioClientSocketChannel[id: 0x01787038, /127.0.0.1:1092 => /127.0.0.1:8080] RECEIVED: DefaultHttpResponse(chunked: true) HTTP/1.1 200 OK Content-Type: text/plain; charset=UTF-8 Set-Cookie: another-cookie=bar;my-cookie=foo
+STATUS: 200 OK
+VERSION: HTTP/1.1
+
+HEADER: Content-Type = text/plain; charset=UTF-8
+HEADER: Set-Cookie = another-cookie=bar;my-cookie=foo
+
+CHUNKED CONTENT {
+org.jboss.netty.handler.codec.http.HttpClientCodec$Decoder
+    e=NioClientSocketChannel[id: 0x01787038, /127.0.0.1:1092 => /127.0.0.1:8080] DISCONNECTED
+org.jboss.netty.handler.codec.http.HttpContentDecompressor
+    e=NioClientSocketChannel[id: 0x01787038, /127.0.0.1:1092 => /127.0.0.1:8080] RECEIVED: org.jboss.netty.handler.codec.http.DefaultHttpChunk@1a16869
+org.jboss.netty.example.http.snoop.HttpResponseHandler
+    e=NioClientSocketChannel[id: 0x01787038, /127.0.0.1:1092 => /127.0.0.1:8080] RECEIVED: org.jboss.netty.handler.codec.http.DefaultHttpChunk@1a16869
+WELCOME TO THE WILD WILD WEB SERVER
+===================================
+VERSION: HTTP/1.1
+HOSTNAME: 127.0.0.1
+REQUEST_URI: http://127.0.0.1:8080/
+
+HEADER: Host = 127.0.0.1
+HEADER: Connection = close
+HEADER: Accept-Encoding = gzip
+HEADER: testHeader = testHeaderVa
+HEADER: Cookie = another-cookie=bar;my-cookie=foo
+
+org.jboss.netty.handler.codec.http.HttpContentDecompressor
+    e=NioClientSocketChannel[id: 0x01787038, /127.0.0.1:1092 => /127.0.0.1:8080] RECEIVED: org.jboss.netty.handler.codec.http.HttpChunk$1@16f0472
+org.jboss.netty.example.http.snoop.HttpResponseHandler
+    e=NioClientSocketChannel[id: 0x01787038, /127.0.0.1:1092 => /127.0.0.1:8080] RECEIVED: org.jboss.netty.handler.codec.http.HttpChunk$1@16f0472
+} END OF CHUNKED CONTENT
+org.jboss.netty.handler.codec.http.HttpContentDecompressor
+    e=NioClientSocketChannel[id: 0x01787038, /127.0.0.1:1092 => /127.0.0.1:8080] DISCONNECTED
+org.jboss.netty.example.http.snoop.HttpResponseHandler
+    e=NioClientSocketChannel[id: 0x01787038, /127.0.0.1:1092 => /127.0.0.1:8080] DISCONNECTED
+org.jboss.netty.handler.codec.http.HttpClientCodec$Decoder
+    e=NioClientSocketChannel[id: 0x01787038, /127.0.0.1:1092 => /127.0.0.1:8080] UNBOUND
+org.jboss.netty.handler.codec.http.HttpContentDecompressor
+    e=NioClientSocketChannel[id: 0x01787038, /127.0.0.1:1092 => /127.0.0.1:8080] UNBOUND
+org.jboss.netty.example.http.snoop.HttpResponseHandler
+    e=NioClientSocketChannel[id: 0x01787038, /127.0.0.1:1092 => /127.0.0.1:8080] UNBOUND
+org.jboss.netty.handler.codec.http.HttpClientCodec$Decoder
+    e=NioClientSocketChannel[id: 0x01787038, /127.0.0.1:1092 => /127.0.0.1:8080] CLOSED
+org.jboss.netty.handler.codec.http.HttpContentDecompressor
+    e=NioClientSocketChannel[id: 0x01787038, /127.0.0.1:1092 => /127.0.0.1:8080] CLOSED
+org.jboss.netty.example.http.snoop.HttpResponseHandler
+    e=NioClientSocketChannel[id: 0x01787038, /127.0.0.1:1092 => /127.0.0.1:8080] CLOSED
