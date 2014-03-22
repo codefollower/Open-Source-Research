@@ -44,10 +44,13 @@ import java.sql.Array;
 import java.sql.Clob;
 import java.sql.DatabaseMetaData;
 import java.sql.Date;
+import java.sql.NClob;
 import java.sql.ParameterMetaData;
 import java.sql.Ref;
 import java.sql.ResultSet;
+import java.sql.RowId;
 import java.sql.SQLException;
+import java.sql.SQLXML;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.sql.Types;
@@ -5491,4 +5494,34 @@ public class PreparedStatement extends com.mysql.jdbc.StatementImpl implements j
 				&& StringUtils.indexOfIgnoreCaseRespectMarker(statementStartPos, sql, "SELECT", "\"'`", "\"'`", false) == -1
 				&& rewritableOdku;
 	}
+
+//    @Override
+//    public <T> T unwrap(Class<T> iface) throws SQLException {
+//        // TODO Auto-generated method stub
+//        return null;
+//    }
+//
+//    @Override
+//    public boolean isWrapperFor(Class<?> iface) throws SQLException {
+//        // TODO Auto-generated method stub
+//        return false;
+//    }
+
+    //@Override
+    public void setRowId(int parameterIndex, RowId x) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+    //@Override
+    public void setNClob(int parameterIndex, NClob value) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+    //@Override
+    public void setSQLXML(int parameterIndex, SQLXML xmlObject) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
 }

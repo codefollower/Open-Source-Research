@@ -37,8 +37,11 @@ import java.sql.Blob;
 import java.sql.CallableStatement;
 import java.sql.Clob;
 import java.sql.Date;
+import java.sql.NClob;
 import java.sql.Ref;
+import java.sql.RowId;
 import java.sql.SQLException;
+import java.sql.SQLXML;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.Calendar;
@@ -2637,5 +2640,293 @@ private static final Constructor JDBC_4_CALLABLE_STATEMENT_WRAPPER_CTOR;
 //	public Object unwrap(Class arg0) throws SQLException {
 //		throw SQLError.notImplemented();
 //	}
+
+
+
+//    //@Override
+//    public Object getObject(int parameterIndex, Map<String, Class<?>> map) throws SQLException {
+//        // TODO Auto-generated method stub
+//        return null;
+//    }
+//
+//
+//
+//    //@Override
+//    public Object getObject(String parameterName, Map<String, Class<?>> map) throws SQLException {
+//        // TODO Auto-generated method stub
+//        return null;
+//    }
+
+
+
+    //@Override
+    public RowId getRowId(int parameterIndex) throws SQLException {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+
+
+    //@Override
+    public RowId getRowId(String parameterName) throws SQLException {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+
+
+    //@Override
+    public void setRowId(String parameterName, RowId x) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+
+    //@Override
+    public void setNString(String parameterName, String value) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+
+    //@Override
+    public void setNCharacterStream(String parameterName, Reader value, long length) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+
+    //@Override
+    public void setNClob(String parameterName, NClob value) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+
+    //@Override
+    public void setClob(String parameterName, Reader reader, long length) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+
+    //@Override
+    public void setBlob(String parameterName, InputStream inputStream, long length) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+
+    //@Override
+    public void setNClob(String parameterName, Reader reader, long length) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+
+    //@Override
+    public NClob getNClob(int parameterIndex) throws SQLException {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+
+
+    //@Override
+    public NClob getNClob(String parameterName) throws SQLException {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+
+
+    //@Override
+    public void setSQLXML(String parameterName, SQLXML xmlObject) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+
+    //@Override
+    public SQLXML getSQLXML(int parameterIndex) throws SQLException {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+
+
+    //@Override
+    public SQLXML getSQLXML(String parameterName) throws SQLException {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+
+
+    //@Override
+    public String getNString(int parameterIndex) throws SQLException {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+
+
+    //@Override
+    public String getNString(String parameterName) throws SQLException {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+
+
+    //@Override
+    public Reader getNCharacterStream(int parameterIndex) throws SQLException {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+
+
+    //@Override
+    public Reader getNCharacterStream(String parameterName) throws SQLException {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+
+
+    //@Override
+    public Reader getCharacterStream(int parameterIndex) throws SQLException {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+
+
+    //@Override
+    public Reader getCharacterStream(String parameterName) throws SQLException {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+
+
+    //@Override
+    public void setBlob(String parameterName, Blob x) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+
+    //@Override
+    public void setClob(String parameterName, Clob x) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+
+    //@Override
+    public void setAsciiStream(String parameterName, InputStream x, long length) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+
+    //@Override
+    public void setBinaryStream(String parameterName, InputStream x, long length) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+
+    //@Override
+    public void setCharacterStream(String parameterName, Reader reader, long length) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+
+    //@Override
+    public void setAsciiStream(String parameterName, InputStream x) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+
+    //@Override
+    public void setBinaryStream(String parameterName, InputStream x) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+
+    //@Override
+    public void setCharacterStream(String parameterName, Reader reader) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+
+    //@Override
+    public void setNCharacterStream(String parameterName, Reader value) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+
+    //@Override
+    public void setClob(String parameterName, Reader reader) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+
+    //@Override
+    public void setBlob(String parameterName, InputStream inputStream) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+
+    //@Override
+    public void setNClob(String parameterName, Reader reader) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+
+    //@Override
+    public <T> T getObject(int parameterIndex, Class<T> type) throws SQLException {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+
+
+    //@Override
+    public <T> T getObject(String parameterName, Class<T> type) throws SQLException {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
 }

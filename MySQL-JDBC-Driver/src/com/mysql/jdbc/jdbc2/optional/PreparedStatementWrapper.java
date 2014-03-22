@@ -36,12 +36,15 @@ import java.sql.Array;
 import java.sql.Blob;
 import java.sql.Clob;
 import java.sql.Date;
+import java.sql.NClob;
 import java.sql.ParameterMetaData;
 import java.sql.PreparedStatement;
 import java.sql.Ref;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.sql.RowId;
 import java.sql.SQLException;
+import java.sql.SQLXML;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.Calendar;
@@ -1226,4 +1229,112 @@ public class PreparedStatementWrapper extends StatementWrapper implements
 //	public Object unwrap(Class arg0) throws SQLException {
 //		throw SQLError.notImplemented();
 //	}
+
+    //@Override
+    public void setRowId(int parameterIndex, RowId x) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+    //@Override
+    public void setNString(int parameterIndex, String value) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+    //@Override
+    public void setNCharacterStream(int parameterIndex, Reader value, long length) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+    //@Override
+    public void setNClob(int parameterIndex, NClob value) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+    //@Override
+    public void setClob(int parameterIndex, Reader reader, long length) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+    //@Override
+    public void setBlob(int parameterIndex, InputStream inputStream, long length) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+    //@Override
+    public void setNClob(int parameterIndex, Reader reader, long length) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+    //@Override
+    public void setSQLXML(int parameterIndex, SQLXML xmlObject) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+    //@Override
+    public void setAsciiStream(int parameterIndex, InputStream x, long length) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+    //@Override
+    public void setBinaryStream(int parameterIndex, InputStream x, long length) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+    //@Override
+    public void setCharacterStream(int parameterIndex, Reader reader, long length) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+    //@Override
+    public void setAsciiStream(int parameterIndex, InputStream x) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+    //@Override
+    public void setBinaryStream(int parameterIndex, InputStream x) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+    //@Override
+    public void setCharacterStream(int parameterIndex, Reader reader) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+    //@Override
+    public void setNCharacterStream(int parameterIndex, Reader value) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+    //@Override
+    public void setClob(int parameterIndex, Reader reader) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+    //@Override
+    public void setBlob(int parameterIndex, InputStream inputStream) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+    //@Override
+    public void setNClob(int parameterIndex, Reader reader) throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
 }

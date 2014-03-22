@@ -36,6 +36,7 @@ import java.util.Map;
 import javax.sql.ConnectionEvent;
 import javax.sql.ConnectionEventListener;
 import javax.sql.PooledConnection;
+import javax.sql.StatementEventListener;
 
 import com.mysql.jdbc.ConnectionImpl;
 import com.mysql.jdbc.ExceptionInterceptor;
@@ -262,4 +263,16 @@ public class MysqlPooledConnection implements PooledConnection {
 	protected ExceptionInterceptor getExceptionInterceptor() {
 		return this.exceptionInterceptor;
 	}
+
+    //@Override
+    public void addStatementEventListener(StatementEventListener listener) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    //@Override
+    public void removeStatementEventListener(StatementEventListener listener) {
+        // TODO Auto-generated method stub
+        
+    }
 }

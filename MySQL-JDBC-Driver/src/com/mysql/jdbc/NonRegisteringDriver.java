@@ -31,11 +31,13 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.sql.DriverPropertyInfo;
 import java.sql.SQLException;
+import java.sql.SQLFeatureNotSupportedException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
 import java.util.StringTokenizer;
+import java.util.logging.Logger;
 /**
  * The Java SQL framework allows for multiple database drivers. Each driver
  * should supply a class that implements the Driver interface
@@ -915,4 +917,10 @@ public class NonRegisteringDriver implements java.sql.Driver {
 	public String property(String name, Properties props) {
 		return props.getProperty(name);
 	}
+
+    //@Override
+    public Logger getParentLogger() throws SQLFeatureNotSupportedException {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }

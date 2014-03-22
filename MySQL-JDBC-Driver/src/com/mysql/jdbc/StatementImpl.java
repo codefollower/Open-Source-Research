@@ -2990,4 +2990,28 @@ public class StatementImpl implements Statement {
 		return StringUtils.indexOfIgnoreCaseRespectMarker(0, sql, " ON DUPLICATE KEY UPDATE ", "\"'`", "\"'`",
 				!this.connection.isNoBackslashEscapesSet());
 	}
+
+    //@Override
+    public void closeOnCompletion() throws SQLException {
+        // TODO Auto-generated method stub
+        
+    }
+
+    //@Override
+    public boolean isCloseOnCompletion() throws SQLException {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+//    @Override
+//    public <T> T unwrap(Class<T> iface) throws SQLException {
+//        // TODO Auto-generated method stub
+//        return null;
+//    }
+//
+//    @Override
+//    public boolean isWrapperFor(Class<?> iface) throws SQLException {
+//        // TODO Auto-generated method stub
+//        return false;
+//    }
 }
