@@ -1,0 +1,224 @@
+################################
+#        javac命令行参数       #
+################################
+
+#标准错误err重定向到out
+#-XDstdout
+
+#同一处出现的错误都汇报
+#-XDmultipleErrors
+
+-XDmoreInfo
+#-XDcompilePolicy=check
+
+-Xjcov
+-d target\classes
+#-Xlint:deprecation,path
+#-Xlint:path
+-Xlint
+-classpath .;src;target\classes
+#-classpath .;classes;test\jar\JarTest.jar
+
+#-classpath .;classes;src;classes;D:\ava\jdk1.6.0_10\jre\lib\resources.jar;D:\ava\jdk1.6.0_10\jre\lib\rt.jar;D:\ava\jdk1.6.0_10\jre\lib\sunrsasign.jar;D:\ava\jdk1.6.0_10\jre\lib\jsse.jar;D:\ava\jdk1.6.0_10\jre\lib\jce.jar;D:\ava\jdk1.6.0_10\jre\lib\charsets.jar;D:\ava\jdk1.6.0_10\jre\classes;src;classes
+
+
+#-source 1.4
+#-target 1.4
+
+#-encoding
+#-d err.dir.not.found
+#-d args.txt
+#-source 1.1
+#-source 1.8
+#-target 1.0
+#-target 1.8
+
+#-target 1.4
+#-source 1.4
+
+#-target jsr14
+
+#-source 1.7
+
+#-fullversion
+
+#-encoding gbk
+#-g:{lines,vars}
+#-Xbootclasspath/a:src;classes
+
+#-XDrawDiagnostics #见Log
+#-XD-checkclassfile
+
+#-Xprefer:newer
+
+###############################################
+# 要编译的类文件
+###############################################
+#true.my
+#-proc:only
+#-Xprint
+#-Aaaa=bbb -Accc -Addd= 
+#my.MyProcessor
+
+#################
+# Parser
+#################
+#test/parser/package-info.java
+#test/parser/ParserTest.java
+#test/parser/TermTest.java
+
+
+#################
+# Enter
+#################
+#test/enter/Package-Info.java
+#test/enter/package-info.java
+#test/enter/pkg_annotations_sb_in_package_info_java.java
+#test/enter/class_public_should_be_in_file.java
+#test/enter/UnnamedPackage.java
+#test/enter/EnterTest.java
+
+#################
+# Types
+#################
+# test\types\substBound.java
+
+
+#################
+# MemberEnter
+#################
+#test/memberEnter/clash1/clash2/ClashTest.java
+#test/memberEnter/package-info.java
+#test/memberEnter/subdir/package-info.java
+#test/memberEnter/ImportTest.java
+#test/memberEnter/MemberEnterTest.java
+#test/memberEnter/VisitMethodDefTest.java
+#test/memberEnter/AnnotateTest.java
+#test/memberEnter/EnumTest.java
+#test/memberEnter/com/sun/tools/CompilerBootstrapEnumTest.java
+#test/memberEnter/Clash/ClassA.java
+#test/memberEnter/PointTree.java
+#test/memberEnter/EnterAnnotationTest.java
+#test/memberEnter/UnnamedPackage.java
+#test/memberEnter/CheckCanonical.java
+#test/memberEnter/NotAllowGenerics.java
+
+
+#################
+# Attr
+#################
+#test/attr/warning/missing_deprecated_annotation.java
+
+#test/attr/AttrTests.java
+#test/attr/AttrTest.java
+#test/attr/CheckOverride.java
+#test/attr/NOOUTERTHIS.java
+#test/attr/SubstTest.java
+#test/attr/VisitApplyTest.java
+#test/attr/VisitNewClassTest.java
+#test/attr/VisitMethodDefTest.java
+#test/attr/VisitSelectTest.java
+#test/attr/Test.java
+
+#test/attr/CaptureTest.java
+#test/attr/error/enum_no_subclassing.java
+#test/attr/error/enum_types_not_extensible.java
+#test/attr/error/duplicate_annotation_member_value.java
+#test/attr/error/annotation_missing_default_value.java
+#test/attr/error/
+#test/attr/error/
+#test/attr/error/
+#test/attr/error/
+#test/attr/error/repeated_annotation_target.java
+#test/attr/error/annotation_type_not_applicable.java
+#test/attr/error/method_does_not_override_superclass.java
+#test/attr/error/UpperBoundTest.java
+#test/attr/error/cant_inherit_diff_arg.java
+
+#test/attr/error/enum_no_finalize.java
+#test/attr/error/override_static.java
+
+
+#################
+# Resolve
+#################
+# test\resolve\isInitializer.java
+# test\resolve\findField.java
+
+# test\resolve\findVar.java
+# test\resolve\findField.java
+# test\resolve\findField.java
+# test\resolve\findField.java
+# test\resolve\findField.java
+
+
+#################
+# Flow
+#################
+#test/flow/test.java
+#test/flow/test01.java
+#test/flow/AnonInnerException_1.java
+#test/flow/AnonInnerException_2.java
+#test/flow/AnonInnerException_3.java
+
+
+
+#################
+# Jvm
+#################
+#test/jvm/package-info.java
+#test/jvm/GenTest.java
+#test/jvm/ClassWriterTest.java
+#test/jvm/ClassReaderTest.java
+
+#################
+# tmp
+#################
+#test/tmp/Closure1.java
+
+
+#tmp.java
+
+
+#src/my/test/ClassReaderTest.java
+#src/my/test/Test.java
+
+#src/my/test/TestExist.java
+
+#src/com/sun/tools/javac/Main.java
+
+
+#src/my/test/ParserTest.java
+
+#src/my/test/package-info.java
+
+#src/my/test/ComputeAnnotationSetTest.java
+
+
+#src/my/test/EnterTest.java
+#src/my/test/AttrTest.java
+
+#src/my/test/GenTest.java
+
+
+#src/my/test/TopLevelClass.java
+#src/my/test/Frequency.java
+#src/my/test/GenericsTest.java
+
+#src/my/test/BoxTest.java
+#src/my/test/BoxWithBoundTest.java
+#src/my/test/Storage.java
+#src/my/test/EnhancedForLoopAutoboxingUnboxing.java
+#src/my/test/Varargs.java
+#src/my/test/NonStaticImport.java
+#src/my/test/StaticImport.java
+#src/my/test/BoundKind.java
+#src/my/test/Version.java
+#src/my/test/List2.java
+#src/my/test/ClassA.java
+
+#src/my/test/ClassReaderTest.java
+#src/my/test/ScannerTest.java
+
+
+ src/my/test/Test.java

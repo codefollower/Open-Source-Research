@@ -1,0 +1,75 @@
+Compiled from "GenTest.java"
+public abstract class test.jvm.GenTest extends java.lang.Object
+  Signature: length = 0x2
+   00 0C 
+  SourceFile: "GenTest.java"
+  SourceID: length = 0x2
+   00 10 
+  CompilationID: length = 0x2
+   00 12 
+  minor version: 0
+  major version: 50
+  Constant pool:
+const #1 = Method	#4.#19;	//  java/lang/Object."<init>":()V
+const #2 = class	#20;	//  java/lang/String
+const #3 = class	#21;	//  test/jvm/GenTest
+const #4 = class	#22;	//  java/lang/Object
+const #5 = Asciz	<init>;
+const #6 = Asciz	()V;
+const #7 = Asciz	Code;
+const #8 = Asciz	LineNumberTable;
+const #9 = Asciz	CharacterRangeTable;
+const #10 = Asciz	method02;
+const #11 = Asciz	Signature;
+const #12 = Asciz	<T:Ljava/lang/Object;>Ljava/lang/Object;;
+const #13 = Asciz	SourceFile;
+const #14 = Asciz	GenTest.java;
+const #15 = Asciz	SourceID;
+const #16 = Asciz	1227491062000;
+const #17 = Asciz	CompilationID;
+const #18 = Asciz	1227491065218;
+const #19 = NameAndType	#5:#6;//  "<init>":()V
+const #20 = Asciz	java/lang/String;
+const #21 = Asciz	test/jvm/GenTest;
+const #22 = Asciz	java/lang/Object;
+
+{
+public test.jvm.GenTest();
+  Code:
+   Stack=1, Locals=1, Args_size=1
+   0:	aload_0
+   1:	invokespecial	#1; //Method java/lang/Object."<init>":()V
+   4:	return
+  LineNumberTable: 
+   line 4: 0
+
+  CharacterRangeTable: length = 0x2
+   00 00 
+
+void method02();
+  Code:
+   Stack=1, Locals=4, Args_size=1
+   0:	iconst_2
+   1:	newarray int
+   3:	astore_1
+   4:	iconst_3
+   5:	anewarray	#2; //class java/lang/String
+   8:	astore_2
+   9:	iconst_4
+   10:	anewarray	#3; //class test/jvm/GenTest
+   13:	astore_3
+   14:	return
+  LineNumberTable: 
+   line 196: 0
+   line 197: 4
+   line 198: 9
+   line 200: 14
+
+  CharacterRangeTable: length = 0x3A
+   00 04 00 00 00 03 00 03 10 09 00 03 10 19 00 01
+   00 04 00 08 00 03 14 0C 00 03 14 20 00 01 00 09
+   00 0D 00 03 18 0D 00 03 18 20 00 01 00 00 00 0E
+   00 02 FFFFFFEC 12 00 03 20 02 00 02 
+
+}
+

@@ -1,0 +1,2375 @@
+com.sun.tools.javac.comp.Enter===>Enter(1)
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>Enter(1)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>main(1)
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>complete(2)
+-------------------------------------------------------------------------
+完成Enter前List<JCCompilationUnit> trees的内容: trees.size=2
+------------------------------------------------------------------------------
+package test.enter;
+,package test.enter;
+
+0x0class EnterTest<TA extends EnterTestB, TB extends EnterTestC, TC extends EnterTestB & EnterTestC, TD> {
+    
+    0x0class ClassA {
+    }
+    
+    0x8 static class ClassB {
+    }
+    
+    0x0interface InterfaceA {
+    }
+    
+    0x8 static interface InterfaceB {
+    }
+    
+    0x8 static void methodA() 0x0{
+        
+        0x0class LocalClass {
+        }
+    }
+    
+    0x0void methodB() 0x0{
+        
+        0x0class LocalClass {
+        }
+    }
+}
+0x0class EnterTestB {
+    
+    0x8 static class ClassB {
+    }
+}
+0x0interface EnterTestC {
+    
+    0x0class ClassA {
+    }
+    
+    0x8 static class ClassB {
+    }
+    
+    0x0interface InterfaceA {
+    }
+    
+    0x8 static interface InterfaceB {
+    }
+}
+------------------------------------------------------------------------------
+
+Env总数: 0
+--------------------------
+
+memberEnter.completionEnabled=true
+ListBuffer<ClassSymbol> uncompleted.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=2
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=TOPLEVEL visitTopLevel
+先前Env=null
+当前Env=null
+com.sun.tools.javac.comp.Enter===>visitTopLevel(1)
+-------------------------------------------------------------------------
+JCCompilationUnit tree.sourcefile=test\enter\package-info.java
+JCCompilationUnit tree.packge=null
+JCCompilationUnit tree.pid=test.enter
+isPkgInfo=true
+tree.packageAnnotations=
+JCCompilationUnit tree.packge=test.enter
+JCCompilationUnit tree.packge.members_field=null
+syms.classes.size=34 keySet=[java.lang.Exception, java.io.Serializable, java.lang.NoClassDefFoundError, java.util.Iterator, java.lang.annotation.Inherited, java.lang.Deprecated, java.lang.StringBuffer, java.lang.CloneNotSupportedException, java.lang.ClassLoader, java.lang.annotation.Annotation, java.util.List, java.lang.Cloneable, java.lang.String, java.lang.Override, java.lang.ClassNotFoundException, java.lang.Comparable, java.lang.IllegalArgumentException, java.lang.SuppressWarnings, java.lang.Iterable, java.lang.RuntimeException, java.lang.Class, java.lang.NoSuchFieldError, java.lang.Enum, java.lang.StringBuilder, java.util.Collections, java.lang.annotation.Target, java.lang.Error, java.lang.Object, sun.Proprietary+Annotation, java.util.Arrays, java.lang.AssertionError, , java.lang.annotation.Retention, java.lang.Throwable]
+syms.packages.size=9 keySet=[sun, java.util, java.lang.annotation, test.enter, , java, java.io, java.lang, test]
+
+
+
+test.enter包中的所有成员装载完成(Enter)
+JCCompilationUnit tree.packge.members_field=Scope[(entries=15 nelems=15 owner=enter)PackageAnnotations, ClassG, ClassF, ClassE, ClassD, ClassC, ClassA, EnterTestC, EnterTestB, EnterTestB$ClassB, EnterTest, EnterTest$2LocalClass, EnterTest$1LocalClass, EnterTest$ClassB, EnterTest$ClassA]
+syms.classes.size=50 keySet=[java.lang.Exception, test.enter.EnterTest$1LocalClass, java.lang.NoClassDefFoundError, test.enter.ClassC, java.util.Iterator, java.lang.Deprecated, java.lang.CloneNotSupportedException, java.lang.ClassLoader, test.enter.EnterTestB$ClassB, java.util.List, java.lang.SuppressWarnings, java.lang.Class, java.util.Collections, test.enter.EnterTest$ClassB, java.lang.annotation.Target, java.lang.Object, test.enter.EnterTest, java.lang.AssertionError, , test.enter.ClassA, java.lang.Throwable, java.io.Serializable, test.enter.EnterTest$2LocalClass, test.enter.EnterTestC, java.lang.annotation.Inherited, java.lang.StringBuffer, test.enter.EnterTest$ClassA, java.lang.annotation.Annotation, java.lang.String, java.lang.Cloneable, java.lang.Comparable, java.lang.ClassNotFoundException, java.lang.Override, test.enter.ClassF, test.enter.package-info, java.lang.IllegalArgumentException, test.enter.ClassG, java.lang.Iterable, java.lang.RuntimeException, java.lang.NoSuchFieldError, test.enter.ClassD, java.lang.Enum, java.lang.StringBuilder, test.enter.PackageAnnotations, test.enter.EnterTestB, java.lang.Error, test.enter.ClassE, sun.Proprietary+Annotation, java.util.Arrays, java.lang.annotation.Retention]
+syms.packages.size=9 keySet=[sun, java.util, java.lang.annotation, test.enter, , java, java.io, java.lang, test]
+
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***第一阶段Enter完成***
+-----------------------------------------------
+包名: test.enter
+--------------------------
+tree.packge.members_field: Scope[(entries=15 nelems=15 owner=enter)PackageAnnotations, ClassG, ClassF, ClassE, ClassD, ClassC, ClassA, EnterTestC, EnterTestB, EnterTestB$ClassB, EnterTest, EnterTest$2LocalClass, EnterTest$1LocalClass, EnterTest$ClassB, EnterTest$ClassA]
+tree.namedImportScope    : Scope[(entries=0 nelems=0 owner=enter)]
+tree.starImportScope     : Scope[(entries=0 nelems=0 owner=enter)]
+
+等待编译的类的总数: 0
+--------------------------
+
+Env总数: 1
+--------------------------
+test.enter=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=0 nelems=0 owner=enter)]]
+    outer=null
+    next =null
+
+
+Todo总数: 0
+--------------------------
+
+
+syms.classes.size=50 keySet=[java.lang.Exception, test.enter.EnterTest$1LocalClass, java.lang.NoClassDefFoundError, test.enter.ClassC, java.util.Iterator, java.lang.Deprecated, java.lang.CloneNotSupportedException, java.lang.ClassLoader, test.enter.EnterTestB$ClassB, java.util.List, java.lang.SuppressWarnings, java.lang.Class, java.util.Collections, test.enter.EnterTest$ClassB, java.lang.annotation.Target, java.lang.Object, test.enter.EnterTest, java.lang.AssertionError, , test.enter.ClassA, java.lang.Throwable, java.io.Serializable, test.enter.EnterTest$2LocalClass, test.enter.EnterTestC, java.lang.annotation.Inherited, java.lang.StringBuffer, test.enter.EnterTest$ClassA, java.lang.annotation.Annotation, java.lang.String, java.lang.Cloneable, java.lang.Comparable, java.lang.ClassNotFoundException, java.lang.Override, test.enter.ClassF, test.enter.package-info, java.lang.IllegalArgumentException, test.enter.ClassG, java.lang.Iterable, java.lang.RuntimeException, java.lang.NoSuchFieldError, test.enter.ClassD, java.lang.Enum, java.lang.StringBuilder, test.enter.PackageAnnotations, test.enter.EnterTestB, java.lang.Error, test.enter.ClassE, sun.Proprietary+Annotation, java.util.Arrays, java.lang.annotation.Retention]
+syms.packages.size=9 keySet=[sun, java.util, java.lang.annotation, test.enter, , java, java.io, java.lang, test]
+
+
+com.sun.tools.javac.comp.Enter===>visitTopLevel(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=TOPLEVEL visitTopLevel
+先前Env=null
+当前Env=null
+com.sun.tools.javac.comp.Enter===>visitTopLevel(1)
+-------------------------------------------------------------------------
+JCCompilationUnit tree.sourcefile=test\enter\EnterTest.java
+JCCompilationUnit tree.packge=null
+JCCompilationUnit tree.pid=test.enter
+isPkgInfo=false
+tree.packageAnnotations=
+JCCompilationUnit tree.packge=test.enter
+JCCompilationUnit tree.packge.members_field=Scope[(entries=15 nelems=15 owner=enter)PackageAnnotations, ClassG, ClassF, ClassE, ClassD, ClassC, ClassA, EnterTestC, EnterTestB, EnterTestB$ClassB, EnterTest, EnterTest$2LocalClass, EnterTest$1LocalClass, EnterTest$ClassB, EnterTest$ClassA]
+syms.classes.size=50 keySet=[java.lang.Exception, test.enter.EnterTest$1LocalClass, java.lang.NoClassDefFoundError, test.enter.ClassC, java.util.Iterator, java.lang.Deprecated, java.lang.CloneNotSupportedException, java.lang.ClassLoader, test.enter.EnterTestB$ClassB, java.util.List, java.lang.SuppressWarnings, java.lang.Class, java.util.Collections, test.enter.EnterTest$ClassB, java.lang.annotation.Target, java.lang.Object, test.enter.EnterTest, java.lang.AssertionError, , test.enter.ClassA, java.lang.Throwable, java.io.Serializable, test.enter.EnterTest$2LocalClass, test.enter.EnterTestC, java.lang.annotation.Inherited, java.lang.StringBuffer, test.enter.EnterTest$ClassA, java.lang.annotation.Annotation, java.lang.String, java.lang.Cloneable, java.lang.Comparable, java.lang.ClassNotFoundException, java.lang.Override, test.enter.ClassF, test.enter.package-info, java.lang.IllegalArgumentException, test.enter.ClassG, java.lang.Iterable, java.lang.RuntimeException, java.lang.NoSuchFieldError, test.enter.ClassD, java.lang.Enum, java.lang.StringBuilder, test.enter.PackageAnnotations, test.enter.EnterTestB, java.lang.Error, test.enter.ClassE, sun.Proprietary+Annotation, java.util.Arrays, java.lang.annotation.Retention]
+syms.packages.size=9 keySet=[sun, java.util, java.lang.annotation, test.enter, , java, java.io, java.lang, test]
+
+
+
+test.enter包中的所有成员装载完成(Enter)
+JCCompilationUnit tree.packge.members_field=Scope[(entries=15 nelems=15 owner=enter)PackageAnnotations, ClassG, ClassF, ClassE, ClassD, ClassC, ClassA, EnterTestC, EnterTestB, EnterTestB$ClassB, EnterTest, EnterTest$2LocalClass, EnterTest$1LocalClass, EnterTest$ClassB, EnterTest$ClassA]
+syms.classes.size=50 keySet=[java.lang.Exception, test.enter.EnterTest$1LocalClass, java.lang.NoClassDefFoundError, test.enter.ClassC, java.util.Iterator, java.lang.Deprecated, java.lang.CloneNotSupportedException, java.lang.ClassLoader, test.enter.EnterTestB$ClassB, java.util.List, java.lang.SuppressWarnings, java.lang.Class, java.util.Collections, test.enter.EnterTest$ClassB, java.lang.annotation.Target, java.lang.Object, test.enter.EnterTest, java.lang.AssertionError, , test.enter.ClassA, java.lang.Throwable, java.io.Serializable, test.enter.EnterTest$2LocalClass, test.enter.EnterTestC, java.lang.annotation.Inherited, java.lang.StringBuffer, test.enter.EnterTest$ClassA, java.lang.annotation.Annotation, java.lang.String, java.lang.Cloneable, java.lang.Comparable, java.lang.ClassNotFoundException, java.lang.Override, test.enter.ClassF, test.enter.package-info, java.lang.IllegalArgumentException, test.enter.ClassG, java.lang.Iterable, java.lang.RuntimeException, java.lang.NoSuchFieldError, test.enter.ClassD, java.lang.Enum, java.lang.StringBuilder, test.enter.PackageAnnotations, test.enter.EnterTestB, java.lang.Error, test.enter.ClassE, sun.Proprietary+Annotation, java.util.Arrays, java.lang.annotation.Retention]
+syms.packages.size=9 keySet=[sun, java.util, java.lang.annotation, test.enter, , java, java.io, java.lang, test]
+
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=3
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=CLASSDEF visitClassDef
+先前Env=null
+当前Env=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=0 nelems=0 owner=enter)]]
+    outer=null
+    next =null
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)
+-------------------------------------------------------------------------
+JCClassDecl tree.sym=null
+JCClassDecl tree.name=EnterTest
+Symbol owner.kind=PCK 
+Symbol owner=test.enter
+Scope enclScope=Scope[(entries=0 nelems=0 owner=enter)]
+PackageSymbol packge.flags_field(1)=8388608(0x800000 exists )
+PackageSymbol packge.name=test.enter
+PackageSymbol packge.flags_field(2)=8388608(0x800000 exists )
+packge.members()前=Scope[(entries=15 nelems=15 owner=enter)PackageAnnotations, ClassG, ClassF, ClassE, ClassD, ClassC, ClassA, EnterTestC, EnterTestB, EnterTestB$ClassB, EnterTest, EnterTest$2LocalClass, EnterTest$1LocalClass, EnterTest$ClassB, EnterTest$ClassA]
+packge.members()后=Scope[(entries=15 nelems=15 owner=enter)PackageAnnotations, ClassG, ClassF, ClassE, ClassD, ClassC, ClassA, EnterTestC, EnterTestB, EnterTestB$ClassB, EnterTest, EnterTest$2LocalClass, EnterTest$1LocalClass, EnterTest$ClassB, EnterTest$ClassA]
+
+
+JCClassDecl tree.sym=test.enter.EnterTest
+JCClassDecl tree.sym.members_field=null
+ClassSymbol c.sourcefile=null
+ClassSymbol c.classfile=.\test\enter\EnterTest.java
+if (chk.compiled.get(c.flatname) != null)=false
+Scope enclScope=Scope[(entries=1 nelems=1 owner=enter)EnterTest]
+env=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+    outer=null
+    next =null
+c.flags_field=0x6000000 class_seen source_seen 
+tree.mods.flags=0x0 
+ClassSymbol c.sourcefile=test\enter\EnterTest.java
+c.flags_field=0x0 
+owner.kind=PCK 
+ct.getEnclosingType()=<none>
+ct.getEnclosingType()=<none>
+ct.typarams_field=null
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=4
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=TYPEPARAMETER visitTypeParameter
+先前Env=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+    outer=null
+    next =null
+当前Env=Env(BC=false TK=CLASS EC=EnterTest EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=0 nelems=0 owner=EnterTest)]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+        outer=null
+        next =null
+com.sun.tools.javac.comp.Enter===>visitTypeParameter(JCTypeParameter tree)
+-------------------------------------------------------------------------
+tree.name=TA
+tree.type=null
+env.info.scope.owner=test.enter.EnterTest
+env.info.scope.owner.members_field=Scope[(entries=0 nelems=0 owner=EnterTest)]
+env.info.scope=Scope[(entries=0 nelems=0 owner=EnterTest)]
+env.info.scope.owner.members_field=Scope[(entries=0 nelems=0 owner=EnterTest)]
+env.info.scope=Scope[(entries=1 nelems=1 owner=EnterTest)TA]
+com.sun.tools.javac.comp.Enter===>visitTypeParameter(JCTypeParameter tree)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=TYPEPARAMETER visitTypeParameter
+先前Env=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+    outer=null
+    next =null
+当前Env=Env(BC=false TK=CLASS EC=EnterTest EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=1 nelems=1 owner=EnterTest)TA]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+        outer=null
+        next =null
+com.sun.tools.javac.comp.Enter===>visitTypeParameter(JCTypeParameter tree)
+-------------------------------------------------------------------------
+tree.name=TB
+tree.type=null
+env.info.scope.owner=test.enter.EnterTest
+env.info.scope.owner.members_field=Scope[(entries=0 nelems=0 owner=EnterTest)]
+env.info.scope=Scope[(entries=1 nelems=1 owner=EnterTest)TA]
+env.info.scope.owner.members_field=Scope[(entries=0 nelems=0 owner=EnterTest)]
+env.info.scope=Scope[(entries=2 nelems=2 owner=EnterTest)TB, TA]
+com.sun.tools.javac.comp.Enter===>visitTypeParameter(JCTypeParameter tree)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=TYPEPARAMETER visitTypeParameter
+先前Env=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+    outer=null
+    next =null
+当前Env=Env(BC=false TK=CLASS EC=EnterTest EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=2 nelems=2 owner=EnterTest)TB, TA]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+        outer=null
+        next =null
+com.sun.tools.javac.comp.Enter===>visitTypeParameter(JCTypeParameter tree)
+-------------------------------------------------------------------------
+tree.name=TC
+tree.type=null
+env.info.scope.owner=test.enter.EnterTest
+env.info.scope.owner.members_field=Scope[(entries=0 nelems=0 owner=EnterTest)]
+env.info.scope=Scope[(entries=2 nelems=2 owner=EnterTest)TB, TA]
+env.info.scope.owner.members_field=Scope[(entries=0 nelems=0 owner=EnterTest)]
+env.info.scope=Scope[(entries=3 nelems=3 owner=EnterTest)TC, TB, TA]
+com.sun.tools.javac.comp.Enter===>visitTypeParameter(JCTypeParameter tree)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=TYPEPARAMETER visitTypeParameter
+先前Env=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+    outer=null
+    next =null
+当前Env=Env(BC=false TK=CLASS EC=EnterTest EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=3 nelems=3 owner=EnterTest)TC, TB, TA]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+        outer=null
+        next =null
+com.sun.tools.javac.comp.Enter===>visitTypeParameter(JCTypeParameter tree)
+-------------------------------------------------------------------------
+tree.name=TD
+tree.type=null
+env.info.scope.owner=test.enter.EnterTest
+env.info.scope.owner.members_field=Scope[(entries=0 nelems=0 owner=EnterTest)]
+env.info.scope=Scope[(entries=3 nelems=3 owner=EnterTest)TC, TB, TA]
+env.info.scope.owner.members_field=Scope[(entries=0 nelems=0 owner=EnterTest)]
+env.info.scope=Scope[(entries=4 nelems=4 owner=EnterTest)TD, TC, TB, TA]
+com.sun.tools.javac.comp.Enter===>visitTypeParameter(JCTypeParameter tree)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+ct.typarams_field=TA,TB,TC,TD
+
+
+***Enter完Type Parameter***
+-----------------------------------------------
+类名: test.enter.EnterTest
+成员: Scope[(entries=0 nelems=0 owner=EnterTest)]
+Type Parameter: Scope[(entries=4 nelems=4 owner=EnterTest)TD, TC, TB, TA]
+
+
+if (!c.isLocal() && uncompleted != null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=6
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=CLASSDEF visitClassDef
+先前Env=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+    outer=null
+    next =null
+当前Env=Env(BC=false TK=CLASS EC=EnterTest EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=4 nelems=4 owner=EnterTest)TD, TC, TB, TA]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+        outer=null
+        next =null
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)
+-------------------------------------------------------------------------
+JCClassDecl tree.sym=null
+JCClassDecl tree.name=ClassA
+Symbol owner.kind=TYP 
+Symbol owner=test.enter.EnterTest
+Scope enclScope=Scope[(entries=0 nelems=0 owner=EnterTest)]
+owner.flags_field=0x0 
+tree.mods.flags=0x0 
+tree.mods.flags=0x0 
+
+
+JCClassDecl tree.sym=test.enter.EnterTest.ClassA
+JCClassDecl tree.sym.members_field=null
+ClassSymbol c.sourcefile=null
+ClassSymbol c.classfile=classes\test\enter\EnterTest$ClassA.class
+if (chk.compiled.get(c.flatname) != null)=false
+Scope enclScope=Scope[(entries=1 nelems=1 owner=EnterTest)ClassA]
+env=Env(BC=false TK=CLASS EC=EnterTest EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=4 nelems=4 owner=EnterTest)TD, TC, TB, TA]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+        outer=null
+        next =null
+c.flags_field=0x2000000 class_seen 
+tree.mods.flags=0x0 
+ClassSymbol c.sourcefile=test\enter\EnterTest.java
+c.flags_field=0x0 
+owner.kind=TYP 
+ct.getEnclosingType()=<none>
+ClassType ct.getEnclosingType()=test.enter.EnterTest<TA,TB,TC,TD>
+ct.getEnclosingType()=test.enter.EnterTest<TA,TB,TC,TD>
+ct.typarams_field=null
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+ct.typarams_field=
+
+
+***Enter完Type Parameter***
+-----------------------------------------------
+类名: test.enter.EnterTest.ClassA
+成员: Scope[(entries=0 nelems=0 owner=ClassA)]
+Type Parameter: Scope[(entries=0 nelems=0 owner=ClassA)]
+
+
+if (!c.isLocal() && uncompleted != null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***类的所有成员Enter完成***
+-----------------------------------------------
+类名: test.enter.EnterTest.ClassA
+成员: Scope[(entries=0 nelems=0 owner=ClassA)]
+Type Parameter: Scope[(entries=0 nelems=0 owner=ClassA)]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=CLASSDEF visitClassDef
+先前Env=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+    outer=null
+    next =null
+当前Env=Env(BC=false TK=CLASS EC=EnterTest EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=4 nelems=4 owner=EnterTest)TD, TC, TB, TA]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+        outer=null
+        next =null
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)
+-------------------------------------------------------------------------
+JCClassDecl tree.sym=null
+JCClassDecl tree.name=ClassB
+Symbol owner.kind=TYP 
+Symbol owner=test.enter.EnterTest
+Scope enclScope=Scope[(entries=1 nelems=1 owner=EnterTest)ClassA]
+owner.flags_field=0x0 
+tree.mods.flags=0x8 static 
+tree.mods.flags=0x8 static 
+
+
+JCClassDecl tree.sym=test.enter.EnterTest.ClassB
+JCClassDecl tree.sym.members_field=null
+ClassSymbol c.sourcefile=null
+ClassSymbol c.classfile=classes\test\enter\EnterTest$ClassB.class
+if (chk.compiled.get(c.flatname) != null)=false
+Scope enclScope=Scope[(entries=2 nelems=2 owner=EnterTest)ClassB, ClassA]
+env=Env(BC=false TK=CLASS EC=EnterTest EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=4 nelems=4 owner=EnterTest)TD, TC, TB, TA]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+        outer=null
+        next =null
+c.flags_field=0x2000000 class_seen 
+tree.mods.flags=0x8 static 
+ClassSymbol c.sourcefile=test\enter\EnterTest.java
+c.flags_field=0x8 static 
+owner.kind=TYP 
+ct.getEnclosingType()=<none>
+ct.getEnclosingType()=<none>
+ct.typarams_field=null
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+ct.typarams_field=
+
+
+***Enter完Type Parameter***
+-----------------------------------------------
+类名: test.enter.EnterTest.ClassB
+成员: Scope[(entries=0 nelems=0 owner=ClassB)]
+Type Parameter: Scope[(entries=0 nelems=0 owner=ClassB)]
+
+
+if (!c.isLocal() && uncompleted != null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***类的所有成员Enter完成***
+-----------------------------------------------
+类名: test.enter.EnterTest.ClassB
+成员: Scope[(entries=0 nelems=0 owner=ClassB)]
+Type Parameter: Scope[(entries=0 nelems=0 owner=ClassB)]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=CLASSDEF visitClassDef
+先前Env=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+    outer=null
+    next =null
+当前Env=Env(BC=false TK=CLASS EC=EnterTest EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=4 nelems=4 owner=EnterTest)TD, TC, TB, TA]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+        outer=null
+        next =null
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)
+-------------------------------------------------------------------------
+JCClassDecl tree.sym=null
+JCClassDecl tree.name=InterfaceA
+Symbol owner.kind=TYP 
+Symbol owner=test.enter.EnterTest
+Scope enclScope=Scope[(entries=2 nelems=2 owner=EnterTest)ClassB, ClassA]
+owner.flags_field=0x0 
+tree.mods.flags=0x200 interface 
+tree.mods.flags=0x200 interface 
+
+
+JCClassDecl tree.sym=test.enter.EnterTest.InterfaceA
+JCClassDecl tree.sym.members_field=null
+ClassSymbol c.sourcefile=null
+ClassSymbol c.classfile=null
+if (chk.compiled.get(c.flatname) != null)=false
+Scope enclScope=Scope[(entries=3 nelems=3 owner=EnterTest)InterfaceA, ClassB, ClassA]
+env=Env(BC=false TK=CLASS EC=EnterTest EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=4 nelems=4 owner=EnterTest)TD, TC, TB, TA]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+        outer=null
+        next =null
+c.flags_field=0x0 
+tree.mods.flags=0x200 interface 
+ClassSymbol c.sourcefile=test\enter\EnterTest.java
+c.flags_field=0x608 static interface abstract 
+owner.kind=TYP 
+ct.getEnclosingType()=<none>
+ct.getEnclosingType()=<none>
+ct.typarams_field=null
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+ct.typarams_field=
+
+
+***Enter完Type Parameter***
+-----------------------------------------------
+类名: test.enter.EnterTest.InterfaceA
+成员: Scope[(entries=0 nelems=0 owner=InterfaceA)]
+Type Parameter: Scope[(entries=0 nelems=0 owner=InterfaceA)]
+
+
+if (!c.isLocal() && uncompleted != null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***类的所有成员Enter完成***
+-----------------------------------------------
+类名: test.enter.EnterTest.InterfaceA
+成员: Scope[(entries=0 nelems=0 owner=InterfaceA)]
+Type Parameter: Scope[(entries=0 nelems=0 owner=InterfaceA)]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=CLASSDEF visitClassDef
+先前Env=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+    outer=null
+    next =null
+当前Env=Env(BC=false TK=CLASS EC=EnterTest EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=4 nelems=4 owner=EnterTest)TD, TC, TB, TA]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+        outer=null
+        next =null
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)
+-------------------------------------------------------------------------
+JCClassDecl tree.sym=null
+JCClassDecl tree.name=InterfaceB
+Symbol owner.kind=TYP 
+Symbol owner=test.enter.EnterTest
+Scope enclScope=Scope[(entries=3 nelems=3 owner=EnterTest)InterfaceA, ClassB, ClassA]
+owner.flags_field=0x0 
+tree.mods.flags=0x208 static interface 
+tree.mods.flags=0x208 static interface 
+
+
+JCClassDecl tree.sym=test.enter.EnterTest.InterfaceB
+JCClassDecl tree.sym.members_field=null
+ClassSymbol c.sourcefile=null
+ClassSymbol c.classfile=null
+if (chk.compiled.get(c.flatname) != null)=false
+Scope enclScope=Scope[(entries=4 nelems=4 owner=EnterTest)InterfaceB, InterfaceA, ClassB, ClassA]
+env=Env(BC=false TK=CLASS EC=EnterTest EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=4 nelems=4 owner=EnterTest)TD, TC, TB, TA]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+        outer=null
+        next =null
+c.flags_field=0x0 
+tree.mods.flags=0x208 static interface 
+ClassSymbol c.sourcefile=test\enter\EnterTest.java
+c.flags_field=0x608 static interface abstract 
+owner.kind=TYP 
+ct.getEnclosingType()=<none>
+ct.getEnclosingType()=<none>
+ct.typarams_field=null
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+ct.typarams_field=
+
+
+***Enter完Type Parameter***
+-----------------------------------------------
+类名: test.enter.EnterTest.InterfaceB
+成员: Scope[(entries=0 nelems=0 owner=InterfaceB)]
+Type Parameter: Scope[(entries=0 nelems=0 owner=InterfaceB)]
+
+
+if (!c.isLocal() && uncompleted != null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***类的所有成员Enter完成***
+-----------------------------------------------
+类名: test.enter.EnterTest.InterfaceB
+成员: Scope[(entries=0 nelems=0 owner=InterfaceB)]
+Type Parameter: Scope[(entries=0 nelems=0 owner=InterfaceB)]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=METHODDEF visitMethodDef
+先前Env=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+    outer=null
+    next =null
+当前Env=Env(BC=false TK=CLASS EC=EnterTest EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=4 nelems=4 owner=EnterTest)TD, TC, TB, TA]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+        outer=null
+        next =null
+com.sun.tools.javac.comp.Enter===>visitTree(1)
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>visitTree(1)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=METHODDEF visitMethodDef
+先前Env=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+    outer=null
+    next =null
+当前Env=Env(BC=false TK=CLASS EC=EnterTest EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=4 nelems=4 owner=EnterTest)TD, TC, TB, TA]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+        outer=null
+        next =null
+com.sun.tools.javac.comp.Enter===>visitTree(1)
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>visitTree(1)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***类的所有成员Enter完成***
+-----------------------------------------------
+类名: test.enter.EnterTest
+成员: Scope[(entries=4 nelems=4 owner=EnterTest)InterfaceB, InterfaceA, ClassB, ClassA]
+Type Parameter: Scope[(entries=4 nelems=4 owner=EnterTest)TD, TC, TB, TA]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=CLASSDEF visitClassDef
+先前Env=null
+当前Env=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=1 nelems=1 owner=enter)EnterTest]]
+    outer=null
+    next =null
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)
+-------------------------------------------------------------------------
+JCClassDecl tree.sym=null
+JCClassDecl tree.name=EnterTestB
+Symbol owner.kind=PCK 
+Symbol owner=test.enter
+Scope enclScope=Scope[(entries=1 nelems=1 owner=enter)EnterTest]
+PackageSymbol packge.flags_field(1)=8388608(0x800000 exists )
+PackageSymbol packge.name=test.enter
+PackageSymbol packge.flags_field(2)=8388608(0x800000 exists )
+packge.members()前=Scope[(entries=13 nelems=15 owner=enter)PackageAnnotations, ClassG, ClassF, ClassE, ClassD, ClassC, ClassA, EnterTestC, EnterTestB, EnterTestB$ClassB, EnterTest, EnterTest$2LocalClass, EnterTest$1LocalClass]
+packge.members()后=Scope[(entries=13 nelems=15 owner=enter)PackageAnnotations, ClassG, ClassF, ClassE, ClassD, ClassC, ClassA, EnterTestC, EnterTestB, EnterTestB$ClassB, EnterTest, EnterTest$2LocalClass, EnterTest$1LocalClass]
+
+
+JCClassDecl tree.sym=test.enter.EnterTestB
+JCClassDecl tree.sym.members_field=null
+ClassSymbol c.sourcefile=null
+ClassSymbol c.classfile=classes\test\enter\EnterTestB.class
+if (chk.compiled.get(c.flatname) != null)=false
+Scope enclScope=Scope[(entries=2 nelems=2 owner=enter)EnterTestB, EnterTest]
+env=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=2 nelems=2 owner=enter)EnterTestB, EnterTest]]
+    outer=null
+    next =null
+c.flags_field=0x2000000 class_seen 
+tree.mods.flags=0x0 
+ClassSymbol c.sourcefile=test\enter\EnterTest.java
+c.flags_field=0x0 
+owner.kind=PCK 
+ct.getEnclosingType()=<none>
+ct.getEnclosingType()=<none>
+ct.typarams_field=null
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+ct.typarams_field=
+
+
+***Enter完Type Parameter***
+-----------------------------------------------
+类名: test.enter.EnterTestB
+成员: Scope[(entries=0 nelems=0 owner=EnterTestB)]
+Type Parameter: Scope[(entries=0 nelems=0 owner=EnterTestB)]
+
+
+if (!c.isLocal() && uncompleted != null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=1
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=CLASSDEF visitClassDef
+先前Env=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=2 nelems=2 owner=enter)EnterTestB, EnterTest]]
+    outer=null
+    next =null
+当前Env=Env(BC=false TK=CLASS EC=EnterTestB EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=0 nelems=0 owner=EnterTestB)]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=2 nelems=2 owner=enter)EnterTestB, EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=2 nelems=2 owner=enter)EnterTestB, EnterTest]]
+        outer=null
+        next =null
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)
+-------------------------------------------------------------------------
+JCClassDecl tree.sym=null
+JCClassDecl tree.name=ClassB
+Symbol owner.kind=TYP 
+Symbol owner=test.enter.EnterTestB
+Scope enclScope=Scope[(entries=0 nelems=0 owner=EnterTestB)]
+owner.flags_field=0x0 
+tree.mods.flags=0x8 static 
+tree.mods.flags=0x8 static 
+
+
+JCClassDecl tree.sym=test.enter.EnterTestB.ClassB
+JCClassDecl tree.sym.members_field=null
+ClassSymbol c.sourcefile=null
+ClassSymbol c.classfile=classes\test\enter\EnterTestB$ClassB.class
+if (chk.compiled.get(c.flatname) != null)=false
+Scope enclScope=Scope[(entries=1 nelems=1 owner=EnterTestB)ClassB]
+env=Env(BC=false TK=CLASS EC=EnterTestB EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=0 nelems=0 owner=EnterTestB)]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=2 nelems=2 owner=enter)EnterTestB, EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=2 nelems=2 owner=enter)EnterTestB, EnterTest]]
+        outer=null
+        next =null
+c.flags_field=0x2000000 class_seen 
+tree.mods.flags=0x8 static 
+ClassSymbol c.sourcefile=test\enter\EnterTest.java
+c.flags_field=0x8 static 
+owner.kind=TYP 
+ct.getEnclosingType()=<none>
+ct.getEnclosingType()=<none>
+ct.typarams_field=null
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+ct.typarams_field=
+
+
+***Enter完Type Parameter***
+-----------------------------------------------
+类名: test.enter.EnterTestB.ClassB
+成员: Scope[(entries=0 nelems=0 owner=ClassB)]
+Type Parameter: Scope[(entries=0 nelems=0 owner=ClassB)]
+
+
+if (!c.isLocal() && uncompleted != null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***类的所有成员Enter完成***
+-----------------------------------------------
+类名: test.enter.EnterTestB.ClassB
+成员: Scope[(entries=0 nelems=0 owner=ClassB)]
+Type Parameter: Scope[(entries=0 nelems=0 owner=ClassB)]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***类的所有成员Enter完成***
+-----------------------------------------------
+类名: test.enter.EnterTestB
+成员: Scope[(entries=1 nelems=1 owner=EnterTestB)ClassB]
+Type Parameter: Scope[(entries=0 nelems=0 owner=EnterTestB)]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=CLASSDEF visitClassDef
+先前Env=null
+当前Env=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=2 nelems=2 owner=enter)EnterTestB, EnterTest]]
+    outer=null
+    next =null
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)
+-------------------------------------------------------------------------
+JCClassDecl tree.sym=null
+JCClassDecl tree.name=EnterTestC
+Symbol owner.kind=PCK 
+Symbol owner=test.enter
+Scope enclScope=Scope[(entries=2 nelems=2 owner=enter)EnterTestB, EnterTest]
+PackageSymbol packge.flags_field(1)=8388608(0x800000 exists )
+PackageSymbol packge.name=test.enter
+PackageSymbol packge.flags_field(2)=8388608(0x800000 exists )
+packge.members()前=Scope[(entries=12 nelems=15 owner=enter)PackageAnnotations, ClassG, ClassF, ClassE, ClassD, ClassC, ClassA, EnterTestC, EnterTestB, EnterTest, EnterTest$2LocalClass, EnterTest$1LocalClass]
+packge.members()后=Scope[(entries=12 nelems=15 owner=enter)PackageAnnotations, ClassG, ClassF, ClassE, ClassD, ClassC, ClassA, EnterTestC, EnterTestB, EnterTest, EnterTest$2LocalClass, EnterTest$1LocalClass]
+
+
+JCClassDecl tree.sym=test.enter.EnterTestC
+JCClassDecl tree.sym.members_field=null
+ClassSymbol c.sourcefile=null
+ClassSymbol c.classfile=classes\test\enter\EnterTestC.class
+if (chk.compiled.get(c.flatname) != null)=false
+Scope enclScope=Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]
+env=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+    outer=null
+    next =null
+c.flags_field=0x2000000 class_seen 
+tree.mods.flags=0x200 interface 
+ClassSymbol c.sourcefile=test\enter\EnterTest.java
+c.flags_field=0x600 interface abstract 
+owner.kind=PCK 
+ct.getEnclosingType()=<none>
+ct.getEnclosingType()=<none>
+ct.typarams_field=null
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+ct.typarams_field=
+
+
+***Enter完Type Parameter***
+-----------------------------------------------
+类名: test.enter.EnterTestC
+成员: Scope[(entries=0 nelems=0 owner=EnterTestC)]
+Type Parameter: Scope[(entries=0 nelems=0 owner=EnterTestC)]
+
+
+if (!c.isLocal() && uncompleted != null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=4
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=CLASSDEF visitClassDef
+先前Env=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+    outer=null
+    next =null
+当前Env=Env(BC=false TK=CLASS EC=EnterTestC EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=0 nelems=0 owner=EnterTestC)]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+        outer=null
+        next =null
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)
+-------------------------------------------------------------------------
+JCClassDecl tree.sym=null
+JCClassDecl tree.name=ClassA
+Symbol owner.kind=TYP 
+Symbol owner=test.enter.EnterTestC
+Scope enclScope=Scope[(entries=0 nelems=0 owner=EnterTestC)]
+owner.flags_field=0x600 interface abstract 
+tree.mods.flags=0x0 
+tree.mods.flags=0x9 public static 
+
+
+JCClassDecl tree.sym=test.enter.EnterTestC.ClassA
+JCClassDecl tree.sym.members_field=null
+ClassSymbol c.sourcefile=null
+ClassSymbol c.classfile=null
+if (chk.compiled.get(c.flatname) != null)=false
+Scope enclScope=Scope[(entries=1 nelems=1 owner=EnterTestC)ClassA]
+env=Env(BC=false TK=CLASS EC=EnterTestC EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=0 nelems=0 owner=EnterTestC)]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+        outer=null
+        next =null
+c.flags_field=0x0 
+tree.mods.flags=0x9 public static 
+ClassSymbol c.sourcefile=test\enter\EnterTest.java
+c.flags_field=0x9 public static 
+owner.kind=TYP 
+ct.getEnclosingType()=<none>
+ct.getEnclosingType()=<none>
+ct.typarams_field=null
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+ct.typarams_field=
+
+
+***Enter完Type Parameter***
+-----------------------------------------------
+类名: test.enter.EnterTestC.ClassA
+成员: Scope[(entries=0 nelems=0 owner=ClassA)]
+Type Parameter: Scope[(entries=0 nelems=0 owner=ClassA)]
+
+
+if (!c.isLocal() && uncompleted != null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***类的所有成员Enter完成***
+-----------------------------------------------
+类名: test.enter.EnterTestC.ClassA
+成员: Scope[(entries=0 nelems=0 owner=ClassA)]
+Type Parameter: Scope[(entries=0 nelems=0 owner=ClassA)]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=CLASSDEF visitClassDef
+先前Env=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+    outer=null
+    next =null
+当前Env=Env(BC=false TK=CLASS EC=EnterTestC EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=0 nelems=0 owner=EnterTestC)]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+        outer=null
+        next =null
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)
+-------------------------------------------------------------------------
+JCClassDecl tree.sym=null
+JCClassDecl tree.name=ClassB
+Symbol owner.kind=TYP 
+Symbol owner=test.enter.EnterTestC
+Scope enclScope=Scope[(entries=1 nelems=1 owner=EnterTestC)ClassA]
+owner.flags_field=0x600 interface abstract 
+tree.mods.flags=0x8 static 
+tree.mods.flags=0x9 public static 
+
+
+JCClassDecl tree.sym=test.enter.EnterTestC.ClassB
+JCClassDecl tree.sym.members_field=null
+ClassSymbol c.sourcefile=null
+ClassSymbol c.classfile=null
+if (chk.compiled.get(c.flatname) != null)=false
+Scope enclScope=Scope[(entries=2 nelems=2 owner=EnterTestC)ClassB, ClassA]
+env=Env(BC=false TK=CLASS EC=EnterTestC EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=0 nelems=0 owner=EnterTestC)]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+        outer=null
+        next =null
+c.flags_field=0x0 
+tree.mods.flags=0x9 public static 
+ClassSymbol c.sourcefile=test\enter\EnterTest.java
+c.flags_field=0x9 public static 
+owner.kind=TYP 
+ct.getEnclosingType()=<none>
+ct.getEnclosingType()=<none>
+ct.typarams_field=null
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+ct.typarams_field=
+
+
+***Enter完Type Parameter***
+-----------------------------------------------
+类名: test.enter.EnterTestC.ClassB
+成员: Scope[(entries=0 nelems=0 owner=ClassB)]
+Type Parameter: Scope[(entries=0 nelems=0 owner=ClassB)]
+
+
+if (!c.isLocal() && uncompleted != null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***类的所有成员Enter完成***
+-----------------------------------------------
+类名: test.enter.EnterTestC.ClassB
+成员: Scope[(entries=0 nelems=0 owner=ClassB)]
+Type Parameter: Scope[(entries=0 nelems=0 owner=ClassB)]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=CLASSDEF visitClassDef
+先前Env=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+    outer=null
+    next =null
+当前Env=Env(BC=false TK=CLASS EC=EnterTestC EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=0 nelems=0 owner=EnterTestC)]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+        outer=null
+        next =null
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)
+-------------------------------------------------------------------------
+JCClassDecl tree.sym=null
+JCClassDecl tree.name=InterfaceA
+Symbol owner.kind=TYP 
+Symbol owner=test.enter.EnterTestC
+Scope enclScope=Scope[(entries=2 nelems=2 owner=EnterTestC)ClassB, ClassA]
+owner.flags_field=0x600 interface abstract 
+tree.mods.flags=0x200 interface 
+tree.mods.flags=0x209 public static interface 
+
+
+JCClassDecl tree.sym=test.enter.EnterTestC.InterfaceA
+JCClassDecl tree.sym.members_field=null
+ClassSymbol c.sourcefile=null
+ClassSymbol c.classfile=null
+if (chk.compiled.get(c.flatname) != null)=false
+Scope enclScope=Scope[(entries=3 nelems=3 owner=EnterTestC)InterfaceA, ClassB, ClassA]
+env=Env(BC=false TK=CLASS EC=EnterTestC EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=0 nelems=0 owner=EnterTestC)]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+        outer=null
+        next =null
+c.flags_field=0x0 
+tree.mods.flags=0x209 public static interface 
+ClassSymbol c.sourcefile=test\enter\EnterTest.java
+c.flags_field=0x609 public static interface abstract 
+owner.kind=TYP 
+ct.getEnclosingType()=<none>
+ct.getEnclosingType()=<none>
+ct.typarams_field=null
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+ct.typarams_field=
+
+
+***Enter完Type Parameter***
+-----------------------------------------------
+类名: test.enter.EnterTestC.InterfaceA
+成员: Scope[(entries=0 nelems=0 owner=InterfaceA)]
+Type Parameter: Scope[(entries=0 nelems=0 owner=InterfaceA)]
+
+
+if (!c.isLocal() && uncompleted != null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***类的所有成员Enter完成***
+-----------------------------------------------
+类名: test.enter.EnterTestC.InterfaceA
+成员: Scope[(entries=0 nelems=0 owner=InterfaceA)]
+Type Parameter: Scope[(entries=0 nelems=0 owner=InterfaceA)]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=CLASSDEF visitClassDef
+先前Env=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+    outer=null
+    next =null
+当前Env=Env(BC=false TK=CLASS EC=EnterTestC EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=0 nelems=0 owner=EnterTestC)]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+        outer=null
+        next =null
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)
+-------------------------------------------------------------------------
+JCClassDecl tree.sym=null
+JCClassDecl tree.name=InterfaceB
+Symbol owner.kind=TYP 
+Symbol owner=test.enter.EnterTestC
+Scope enclScope=Scope[(entries=3 nelems=3 owner=EnterTestC)InterfaceA, ClassB, ClassA]
+owner.flags_field=0x600 interface abstract 
+tree.mods.flags=0x208 static interface 
+tree.mods.flags=0x209 public static interface 
+
+
+JCClassDecl tree.sym=test.enter.EnterTestC.InterfaceB
+JCClassDecl tree.sym.members_field=null
+ClassSymbol c.sourcefile=null
+ClassSymbol c.classfile=null
+if (chk.compiled.get(c.flatname) != null)=false
+Scope enclScope=Scope[(entries=4 nelems=4 owner=EnterTestC)InterfaceB, InterfaceA, ClassB, ClassA]
+env=Env(BC=false TK=CLASS EC=EnterTestC EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=0 nelems=0 owner=EnterTestC)]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+        outer=null
+        next =null
+c.flags_field=0x0 
+tree.mods.flags=0x209 public static interface 
+ClassSymbol c.sourcefile=test\enter\EnterTest.java
+c.flags_field=0x609 public static interface abstract 
+owner.kind=TYP 
+ct.getEnclosingType()=<none>
+ct.getEnclosingType()=<none>
+ct.typarams_field=null
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+ct.typarams_field=
+
+
+***Enter完Type Parameter***
+-----------------------------------------------
+类名: test.enter.EnterTestC.InterfaceB
+成员: Scope[(entries=0 nelems=0 owner=InterfaceB)]
+Type Parameter: Scope[(entries=0 nelems=0 owner=InterfaceB)]
+
+
+if (!c.isLocal() && uncompleted != null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***类的所有成员Enter完成***
+-----------------------------------------------
+类名: test.enter.EnterTestC.InterfaceB
+成员: Scope[(entries=0 nelems=0 owner=InterfaceB)]
+Type Parameter: Scope[(entries=0 nelems=0 owner=InterfaceB)]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***类的所有成员Enter完成***
+-----------------------------------------------
+类名: test.enter.EnterTestC
+成员: Scope[(entries=4 nelems=4 owner=EnterTestC)InterfaceB, InterfaceA, ClassB, ClassA]
+Type Parameter: Scope[(entries=0 nelems=0 owner=EnterTestC)]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***第一阶段Enter完成***
+-----------------------------------------------
+包名: test.enter
+--------------------------
+tree.packge.members_field: Scope[(entries=12 nelems=15 owner=enter)PackageAnnotations, ClassG, ClassF, ClassE, ClassD, ClassC, ClassA, EnterTestC, EnterTestB, EnterTest, EnterTest$2LocalClass, EnterTest$1LocalClass]
+tree.namedImportScope    : Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]
+tree.starImportScope     : Scope[(entries=0 nelems=0 owner=enter)]
+
+等待编译的类的总数: 12
+--------------------------
+类名             : test.enter.EnterTest
+members_field    : Scope[(entries=4 nelems=4 owner=EnterTest)InterfaceB, InterfaceA, ClassB, ClassA]
+flags            : 0x0 
+sourcefile       : test\enter\EnterTest.java
+classfile        : .\test\enter\EnterTest.java
+completer        : com.sun.tools.javac.comp.MemberEnter@a9c09e
+type             : test.enter.EnterTest<TA,TB,TC,TD>
+outer_field      : <none>
+supertype_field  : null
+interfaces_field : null
+typarams_field   : TA,TB,TC,TD
+allparams_field  : null
+
+类名             : test.enter.EnterTest.ClassA
+members_field    : Scope[(entries=0 nelems=0 owner=ClassA)]
+flags            : 0x0 
+sourcefile       : test\enter\EnterTest.java
+classfile        : classes\test\enter\EnterTest$ClassA.class
+completer        : com.sun.tools.javac.comp.MemberEnter@a9c09e
+type             : test.enter.EnterTest<TA,TB,TC,TD>.ClassA
+outer_field      : test.enter.EnterTest<TA,TB,TC,TD>
+supertype_field  : null
+interfaces_field : null
+typarams_field   : 
+allparams_field  : null
+
+类名             : test.enter.EnterTest.ClassB
+members_field    : Scope[(entries=0 nelems=0 owner=ClassB)]
+flags            : 0x8 static 
+sourcefile       : test\enter\EnterTest.java
+classfile        : classes\test\enter\EnterTest$ClassB.class
+completer        : com.sun.tools.javac.comp.MemberEnter@a9c09e
+type             : test.enter.EnterTest.ClassB
+outer_field      : <none>
+supertype_field  : null
+interfaces_field : null
+typarams_field   : 
+allparams_field  : null
+
+类名             : test.enter.EnterTest.InterfaceA
+members_field    : Scope[(entries=0 nelems=0 owner=InterfaceA)]
+flags            : 0x608 static interface abstract 
+sourcefile       : test\enter\EnterTest.java
+classfile        : null
+completer        : com.sun.tools.javac.comp.MemberEnter@a9c09e
+type             : test.enter.EnterTest.InterfaceA
+outer_field      : <none>
+supertype_field  : null
+interfaces_field : null
+typarams_field   : 
+allparams_field  : null
+
+类名             : test.enter.EnterTest.InterfaceB
+members_field    : Scope[(entries=0 nelems=0 owner=InterfaceB)]
+flags            : 0x608 static interface abstract 
+sourcefile       : test\enter\EnterTest.java
+classfile        : null
+completer        : com.sun.tools.javac.comp.MemberEnter@a9c09e
+type             : test.enter.EnterTest.InterfaceB
+outer_field      : <none>
+supertype_field  : null
+interfaces_field : null
+typarams_field   : 
+allparams_field  : null
+
+类名             : test.enter.EnterTestB
+members_field    : Scope[(entries=1 nelems=1 owner=EnterTestB)ClassB]
+flags            : 0x0 
+sourcefile       : test\enter\EnterTest.java
+classfile        : classes\test\enter\EnterTestB.class
+completer        : com.sun.tools.javac.comp.MemberEnter@a9c09e
+type             : test.enter.EnterTestB
+outer_field      : <none>
+supertype_field  : null
+interfaces_field : null
+typarams_field   : 
+allparams_field  : null
+
+类名             : test.enter.EnterTestB.ClassB
+members_field    : Scope[(entries=0 nelems=0 owner=ClassB)]
+flags            : 0x8 static 
+sourcefile       : test\enter\EnterTest.java
+classfile        : classes\test\enter\EnterTestB$ClassB.class
+completer        : com.sun.tools.javac.comp.MemberEnter@a9c09e
+type             : test.enter.EnterTestB.ClassB
+outer_field      : <none>
+supertype_field  : null
+interfaces_field : null
+typarams_field   : 
+allparams_field  : null
+
+类名             : test.enter.EnterTestC
+members_field    : Scope[(entries=4 nelems=4 owner=EnterTestC)InterfaceB, InterfaceA, ClassB, ClassA]
+flags            : 0x600 interface abstract 
+sourcefile       : test\enter\EnterTest.java
+classfile        : classes\test\enter\EnterTestC.class
+completer        : com.sun.tools.javac.comp.MemberEnter@a9c09e
+type             : test.enter.EnterTestC
+outer_field      : <none>
+supertype_field  : null
+interfaces_field : null
+typarams_field   : 
+allparams_field  : null
+
+类名             : test.enter.EnterTestC.ClassA
+members_field    : Scope[(entries=0 nelems=0 owner=ClassA)]
+flags            : 0x9 public static 
+sourcefile       : test\enter\EnterTest.java
+classfile        : null
+completer        : com.sun.tools.javac.comp.MemberEnter@a9c09e
+type             : test.enter.EnterTestC.ClassA
+outer_field      : <none>
+supertype_field  : null
+interfaces_field : null
+typarams_field   : 
+allparams_field  : null
+
+类名             : test.enter.EnterTestC.ClassB
+members_field    : Scope[(entries=0 nelems=0 owner=ClassB)]
+flags            : 0x9 public static 
+sourcefile       : test\enter\EnterTest.java
+classfile        : null
+completer        : com.sun.tools.javac.comp.MemberEnter@a9c09e
+type             : test.enter.EnterTestC.ClassB
+outer_field      : <none>
+supertype_field  : null
+interfaces_field : null
+typarams_field   : 
+allparams_field  : null
+
+类名             : test.enter.EnterTestC.InterfaceA
+members_field    : Scope[(entries=0 nelems=0 owner=InterfaceA)]
+flags            : 0x609 public static interface abstract 
+sourcefile       : test\enter\EnterTest.java
+classfile        : null
+completer        : com.sun.tools.javac.comp.MemberEnter@a9c09e
+type             : test.enter.EnterTestC.InterfaceA
+outer_field      : <none>
+supertype_field  : null
+interfaces_field : null
+typarams_field   : 
+allparams_field  : null
+
+类名             : test.enter.EnterTestC.InterfaceB
+members_field    : Scope[(entries=0 nelems=0 owner=InterfaceB)]
+flags            : 0x609 public static interface abstract 
+sourcefile       : test\enter\EnterTest.java
+classfile        : null
+completer        : com.sun.tools.javac.comp.MemberEnter@a9c09e
+type             : test.enter.EnterTestC.InterfaceB
+outer_field      : <none>
+supertype_field  : null
+interfaces_field : null
+typarams_field   : 
+allparams_field  : null
+
+
+Env总数: 13
+--------------------------
+test.enter.EnterTestC.ClassA=Env(BC=false TK=CLASS EC=ClassA EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=0 nelems=0 owner=ClassA)]]
+    outer=Env(BC=false TK=CLASS EC=EnterTestC EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=0 nelems=0 owner=EnterTestC)]]
+        outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+        next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+    next =Env(BC=false TK=CLASS EC=EnterTestC EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=0 nelems=0 owner=EnterTestC)]]
+        outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+        next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+test.enter.EnterTest=Env(BC=false TK=CLASS EC=EnterTest EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=4 nelems=4 owner=EnterTest)TD, TC, TB, TA]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+        outer=null
+        next =null
+test.enter.EnterTest.ClassB=Env(BC=false TK=CLASS EC=ClassB EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=0 nelems=0 owner=ClassB)]]
+    outer=Env(BC=false TK=CLASS EC=EnterTest EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=4 nelems=4 owner=EnterTest)TD, TC, TB, TA]]
+        outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+        next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+    next =Env(BC=false TK=CLASS EC=EnterTest EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=4 nelems=4 owner=EnterTest)TD, TC, TB, TA]]
+        outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+        next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+test.enter=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=0 nelems=0 owner=enter)]]
+    outer=null
+    next =null
+test.enter.EnterTestC=Env(BC=false TK=CLASS EC=EnterTestC EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=0 nelems=0 owner=EnterTestC)]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+        outer=null
+        next =null
+test.enter.EnterTest.ClassA=Env(BC=false TK=CLASS EC=ClassA EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=0 nelems=0 owner=ClassA)]]
+    outer=Env(BC=false TK=CLASS EC=EnterTest EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=4 nelems=4 owner=EnterTest)TD, TC, TB, TA]]
+        outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+        next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+    next =Env(BC=false TK=CLASS EC=EnterTest EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=4 nelems=4 owner=EnterTest)TD, TC, TB, TA]]
+        outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+        next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+test.enter.EnterTestC.InterfaceB=Env(BC=false TK=CLASS EC=InterfaceB EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=0 nelems=0 owner=InterfaceB)]]
+    outer=Env(BC=false TK=CLASS EC=EnterTestC EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=0 nelems=0 owner=EnterTestC)]]
+        outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+        next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+    next =Env(BC=false TK=CLASS EC=EnterTestC EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=0 nelems=0 owner=EnterTestC)]]
+        outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+        next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+test.enter.EnterTestB.ClassB=Env(BC=false TK=CLASS EC=ClassB EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=0 nelems=0 owner=ClassB)]]
+    outer=Env(BC=false TK=CLASS EC=EnterTestB EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=0 nelems=0 owner=EnterTestB)]]
+        outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+        next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+    next =Env(BC=false TK=CLASS EC=EnterTestB EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=0 nelems=0 owner=EnterTestB)]]
+        outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+        next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+test.enter.EnterTestC.InterfaceA=Env(BC=false TK=CLASS EC=InterfaceA EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=0 nelems=0 owner=InterfaceA)]]
+    outer=Env(BC=false TK=CLASS EC=EnterTestC EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=0 nelems=0 owner=EnterTestC)]]
+        outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+        next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+    next =Env(BC=false TK=CLASS EC=EnterTestC EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=0 nelems=0 owner=EnterTestC)]]
+        outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+        next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+test.enter.EnterTest.InterfaceA=Env(BC=false TK=CLASS EC=InterfaceA EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=0 nelems=0 owner=InterfaceA)]]
+    outer=Env(BC=false TK=CLASS EC=EnterTest EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=4 nelems=4 owner=EnterTest)TD, TC, TB, TA]]
+        outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+        next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+    next =Env(BC=false TK=CLASS EC=EnterTest EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=4 nelems=4 owner=EnterTest)TD, TC, TB, TA]]
+        outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+        next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+test.enter.EnterTestB=Env(BC=false TK=CLASS EC=EnterTestB EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=0 nelems=0 owner=EnterTestB)]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+        outer=null
+        next =null
+test.enter.EnterTest.InterfaceB=Env(BC=false TK=CLASS EC=InterfaceB EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=0 nelems=0 owner=InterfaceB)]]
+    outer=Env(BC=false TK=CLASS EC=EnterTest EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=4 nelems=4 owner=EnterTest)TD, TC, TB, TA]]
+        outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+        next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+    next =Env(BC=false TK=CLASS EC=EnterTest EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=4 nelems=4 owner=EnterTest)TD, TC, TB, TA]]
+        outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+        next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+test.enter.EnterTestC.ClassB=Env(BC=false TK=CLASS EC=ClassB EM=null TP=test.enter)
+    info =AC[SL=0, Scope[(entries=0 nelems=0 owner=ClassB)]]
+    outer=Env(BC=false TK=CLASS EC=EnterTestC EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=0 nelems=0 owner=EnterTestC)]]
+        outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+        next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+    next =Env(BC=false TK=CLASS EC=EnterTestC EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=0 nelems=0 owner=EnterTestC)]]
+        outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+        next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+
+
+Todo总数: 0
+--------------------------
+
+
+syms.classes.size=56 keySet=[java.lang.Exception, test.enter.EnterTestC$InterfaceB, test.enter.EnterTestC$ClassB, test.enter.EnterTest$1LocalClass, java.lang.NoClassDefFoundError, test.enter.ClassC, java.util.Iterator, java.lang.Deprecated, java.lang.CloneNotSupportedException, java.lang.ClassLoader, test.enter.EnterTestB$ClassB, java.util.List, java.lang.SuppressWarnings, test.enter.EnterTest$InterfaceA, java.lang.Class, java.util.Collections, test.enter.EnterTest$ClassB, java.lang.annotation.Target, java.lang.Object, test.enter.EnterTest, java.lang.AssertionError, , test.enter.ClassA, java.lang.Throwable, java.io.Serializable, test.enter.EnterTestC$InterfaceA, test.enter.EnterTest$2LocalClass, test.enter.EnterTestC, java.lang.annotation.Inherited, java.lang.StringBuffer, test.enter.EnterTest$ClassA, java.lang.annotation.Annotation, java.lang.String, java.lang.Cloneable, java.lang.Comparable, java.lang.ClassNotFoundException, java.lang.Override, test.enter.ClassF, test.enter.package-info, test.enter.EnterTestC$ClassA, java.lang.IllegalArgumentException, test.enter.ClassG, java.lang.Iterable, java.lang.RuntimeException, java.lang.NoSuchFieldError, test.enter.EnterTest$InterfaceB, test.enter.ClassD, java.lang.Enum, java.lang.StringBuilder, test.enter.PackageAnnotations, test.enter.EnterTestB, java.lang.Error, test.enter.ClassE, sun.Proprietary+Annotation, java.util.Arrays, java.lang.annotation.Retention]
+syms.packages.size=9 keySet=[sun, java.util, java.lang.annotation, test.enter, , java, java.io, java.lang, test]
+
+
+com.sun.tools.javac.comp.Enter===>visitTopLevel(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+
+
+
+***进入第二阶段MemberEnter***
+-----------------------------------------------
+memberEnter.completionEnabled=true
+uncompleted=12 test.enter.EnterTest,test.enter.EnterTest.ClassA,test.enter.EnterTest.ClassB,test.enter.EnterTest.InterfaceA,test.enter.EnterTest.InterfaceB,test.enter.EnterTestB,test.enter.EnterTestB.ClassB,test.enter.EnterTestC,test.enter.EnterTestC.ClassA,test.enter.EnterTestC.ClassB,test.enter.EnterTestC.InterfaceA,test.enter.EnterTestC.InterfaceB
+Uncompleted SymbolName=test.enter.EnterTest
+clazz.completer=com.sun.tools.javac.comp.MemberEnter@a9c09e
+(c == null)=true
+(c == clazz)=false
+(prevUncompleted == null)=true
+com.sun.tools.javac.jvm.ClassReader===>loadClass(Name flatname)
+-------------------------------------------------------------------------
+flatname=test.enter.EnterTestB
+absent=false
+com.sun.tools.javac.jvm.ClassReader===>enterClass(1)
+-------------------------------------------------------------------------
+ClassSymbol(test.enter.EnterTestB)已存在
+com.sun.tools.javac.jvm.ClassReader===>enterClass(1)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.jvm.ClassReader===>loadClass(Name flatname)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.jvm.ClassReader===>loadClass(Name flatname)
+-------------------------------------------------------------------------
+flatname=test.enter.EnterTestC
+absent=false
+com.sun.tools.javac.jvm.ClassReader===>enterClass(1)
+-------------------------------------------------------------------------
+ClassSymbol(test.enter.EnterTestC)已存在
+com.sun.tools.javac.jvm.ClassReader===>enterClass(1)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.jvm.ClassReader===>loadClass(Name flatname)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.jvm.ClassReader===>loadClass(Name flatname)
+-------------------------------------------------------------------------
+flatname=test.enter.EnterTestB
+absent=false
+com.sun.tools.javac.jvm.ClassReader===>enterClass(1)
+-------------------------------------------------------------------------
+ClassSymbol(test.enter.EnterTestB)已存在
+com.sun.tools.javac.jvm.ClassReader===>enterClass(1)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.jvm.ClassReader===>loadClass(Name flatname)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.jvm.ClassReader===>loadClass(Name flatname)
+-------------------------------------------------------------------------
+flatname=test.enter.EnterTestC
+absent=false
+com.sun.tools.javac.jvm.ClassReader===>enterClass(1)
+-------------------------------------------------------------------------
+ClassSymbol(test.enter.EnterTestC)已存在
+com.sun.tools.javac.jvm.ClassReader===>enterClass(1)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.jvm.ClassReader===>loadClass(Name flatname)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+Uncompleted SymbolName=test.enter.EnterTest.ClassA
+clazz.completer=com.sun.tools.javac.comp.MemberEnter@a9c09e
+(c == null)=true
+(c == clazz)=false
+(prevUncompleted == null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+Uncompleted SymbolName=test.enter.EnterTest.ClassB
+clazz.completer=com.sun.tools.javac.comp.MemberEnter@a9c09e
+(c == null)=true
+(c == clazz)=false
+(prevUncompleted == null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+Uncompleted SymbolName=test.enter.EnterTest.InterfaceA
+clazz.completer=com.sun.tools.javac.comp.MemberEnter@a9c09e
+(c == null)=true
+(c == clazz)=false
+(prevUncompleted == null)=true
+
+Uncompleted SymbolName=test.enter.EnterTest.InterfaceB
+clazz.completer=com.sun.tools.javac.comp.MemberEnter@a9c09e
+(c == null)=true
+(c == clazz)=false
+(prevUncompleted == null)=true
+
+Uncompleted SymbolName=test.enter.EnterTestB
+clazz.completer=null
+(c == null)=true
+(c == clazz)=false
+(prevUncompleted == null)=true
+
+Uncompleted SymbolName=test.enter.EnterTestB.ClassB
+clazz.completer=com.sun.tools.javac.comp.MemberEnter@a9c09e
+(c == null)=true
+(c == clazz)=false
+(prevUncompleted == null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+Uncompleted SymbolName=test.enter.EnterTestC
+clazz.completer=null
+(c == null)=true
+(c == clazz)=false
+(prevUncompleted == null)=true
+
+Uncompleted SymbolName=test.enter.EnterTestC.ClassA
+clazz.completer=com.sun.tools.javac.comp.MemberEnter@a9c09e
+(c == null)=true
+(c == clazz)=false
+(prevUncompleted == null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+Uncompleted SymbolName=test.enter.EnterTestC.ClassB
+clazz.completer=com.sun.tools.javac.comp.MemberEnter@a9c09e
+(c == null)=true
+(c == clazz)=false
+(prevUncompleted == null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+Uncompleted SymbolName=test.enter.EnterTestC.InterfaceA
+clazz.completer=com.sun.tools.javac.comp.MemberEnter@a9c09e
+(c == null)=true
+(c == clazz)=false
+(prevUncompleted == null)=true
+
+Uncompleted SymbolName=test.enter.EnterTestC.InterfaceB
+clazz.completer=com.sun.tools.javac.comp.MemberEnter@a9c09e
+(c == null)=true
+(c == clazz)=false
+(prevUncompleted == null)=true
+
+
+
+tree.starImportScope=Scope[(entries=0 nelems=0 owner=enter)]
+tree.namedImportScope=Scope[(entries=0 nelems=0 owner=enter)]
+tree.starImportScope.elems=null
+env=null
+
+
+tree.starImportScope=Scope[(entries=133 nelems=133 owner=enter)Void, VirtualMachineError, VerifyError, UnsupportedOperationException, UnsupportedClassVersionError, UnsatisfiedLinkError, UnknownError, TypeNotPresentException, Throwable, ThreadLocal, ThreadLocal$ThreadLocalMap, ThreadLocal$ThreadLocalMap$Entry, ThreadGroup, ThreadDeath, Thread, Thread$UncaughtExceptionHandler, Thread$State, Terminator, SystemClassLoaderAction, System, SuppressWarnings, StringIndexOutOfBoundsException, StringCoding, StringCoding$StringEncoder, StringCoding$StringDecoder, StringBuilder, StringBuffer, String, String$CaseInsensitiveComparator, StrictMath, StackTraceElement, StackOverflowError, Shutdown, Shutdown$Lock, Short, Short$ShortCache, SecurityManager, SecurityException, RuntimePermission, RuntimeException, Runtime, Runnable, Readable, ProcessImpl, ProcessEnvironment, ProcessEnvironment$NameComparator, ProcessEnvironment$EntryComparator, ProcessEnvironment$CheckedValues, ProcessEnvironment$CheckedKeySet, ProcessEnvironment$CheckedEntrySet, ProcessEnvironment$CheckedEntry, ProcessBuilder, Process, Package, Override, OutOfMemoryError, Object, NumberFormatException, Number, NullPointerException, NoSuchMethodException, NoSuchMethodError, NoSuchFieldException, NoSuchFieldError, NoClassDefFoundError, NegativeArraySizeException, Math, Long, Long$LongCache, LinkageError, Iterable, InterruptedException, InternalError, Integer, Integer$IntegerCache, InstantiationException, InstantiationError, InheritableThreadLocal, IndexOutOfBoundsException, IncompatibleClassChangeError, IllegalThreadStateException, IllegalStateException, IllegalMonitorStateException, IllegalArgumentException, IllegalAccessException, IllegalAccessError, Float, ExceptionInInitializerError, Exception, Error, EnumConstantNotPresentException, Enum, Double, Deprecated, ConditionalSpecialCasing, ConditionalSpecialCasing$Entry, Compiler, Comparable, CloneNotSupportedException, Cloneable, ClassNotFoundException, ClassLoader, ClassLoader$NativeLibrary, ClassFormatError, ClassCircularityError, ClassCastException, Class, Class$MethodArray, Class$EnclosingMethodInfo, CharSequence, CharacterDataUndefined, CharacterDataPrivateUse, CharacterDataLatin1, CharacterData0E, CharacterData02, CharacterData01, CharacterData00, Character, Character$UnicodeBlock, Character$Subset, Character$CharacterCache, Byte, Byte$ByteCache, Boolean, AssertionStatusDirectives, AssertionError, ArrayStoreException, ArrayIndexOutOfBoundsException, ArithmeticException, ApplicationShutdownHooks, Appendable, AbstractStringBuilder, AbstractMethodError]
+tree.namedImportScope=Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]
+tree.starImportScope.elems=com.sun.tools.javac.code.Scope$ImportScope$ImportEntry@120d62b
+uncompleted=null
+
+
+完成Enter后List<JCCompilationUnit> trees的内容: trees.size=2
+------------------------------------------------------------------------------
+package test.enter;
+,package test.enter;
+
+0x0class EnterTest<TA extends EnterTestB, TB extends EnterTestC, TC extends EnterTestB & EnterTestC, TD> {
+    
+    0x0EnterTest() 0x0{
+        super();
+    }
+    
+    0x0class ClassA {
+        
+        0x0ClassA() 0x0{
+            super();
+        }
+    }
+    
+    0x8 static class ClassB {
+        
+        0x0ClassB() 0x0{
+            super();
+        }
+    }
+    
+    0x0interface InterfaceA {
+    }
+    
+    0x8 static interface InterfaceB {
+    }
+    
+    0x8 static void methodA() 0x0{
+        
+        0x0class LocalClass {
+        }
+    }
+    
+    0x0void methodB() 0x0{
+        
+        0x0class LocalClass {
+        }
+    }
+}
+0x0class EnterTestB {
+    
+    0x0EnterTestB() 0x0{
+        super();
+    }
+    
+    0x8 static class ClassB {
+        
+        0x0ClassB() 0x0{
+            super();
+        }
+    }
+}
+0x0interface EnterTestC {
+    
+    0x9 public static class ClassA {
+        
+        0x1 public ClassA() 0x0{
+            super();
+        }
+    }
+    
+    0x9 public static class ClassB {
+        
+        0x1 public ClassB() 0x0{
+            super();
+        }
+    }
+    
+    0x9 public static interface InterfaceA {
+    }
+    
+    0x9 public static interface InterfaceB {
+    }
+}
+------------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>complete(2)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>main(1)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=CLASSDEF visitClassDef
+先前Env=null
+当前Env=Env(BC=false TK=BLOCK EC=EnterTest EM=methodA() TP=test.enter)
+    info =AC[SL=1, Scope[(entries=0 nelems=0 owner=methodA()) | (entries=0 nelems=0 owner=methodA()) | (entries=6 nelems=6 owner=EnterTest)super, this, TD, TC, TB, TA]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=METHOD EC=EnterTest EM=methodA() TP=test.enter)
+        info =AC[SL=1, Scope[(entries=0 nelems=0 owner=methodA()) | (entries=6 nelems=6 owner=EnterTest)super, this, TD, TC, TB, TA]]
+        outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+        next =Env(BC=false TK=CLASS EC=EnterTest EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=6 nelems=6 owner=EnterTest)super, this, TD, TC, TB, TA]]
+            outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+                info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+                outer=null
+                next =null
+            next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+                info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+                outer=null
+                next =null
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)
+-------------------------------------------------------------------------
+JCClassDecl tree.sym=null
+JCClassDecl tree.name=LocalClass
+Symbol owner.kind=MTH 
+Symbol owner=methodA()
+Scope enclScope=Scope[(entries=0 nelems=0 owner=methodA()) | (entries=0 nelems=0 owner=methodA()) | (entries=6 nelems=6 owner=EnterTest)super, this, TD, TC, TB, TA]
+owner.kind!=TYP(注意)
+c.flatname=test.enter.EnterTest$1LocalClass
+
+
+JCClassDecl tree.sym=LocalClass
+JCClassDecl tree.sym.members_field=null
+ClassSymbol c.sourcefile=null
+ClassSymbol c.classfile=null
+if (chk.compiled.get(c.flatname) != null)=false
+Scope enclScope=Scope[(entries=1 nelems=1 owner=methodA())LocalClass | (entries=0 nelems=0 owner=methodA()) | (entries=6 nelems=6 owner=EnterTest)super, this, TD, TC, TB, TA]
+env=Env(BC=false TK=BLOCK EC=EnterTest EM=methodA() TP=test.enter)
+    info =AC[SL=1, Scope[(entries=1 nelems=1 owner=methodA())LocalClass | (entries=0 nelems=0 owner=methodA()) | (entries=6 nelems=6 owner=EnterTest)super, this, TD, TC, TB, TA]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=METHOD EC=EnterTest EM=methodA() TP=test.enter)
+        info =AC[SL=1, Scope[(entries=0 nelems=0 owner=methodA()) | (entries=6 nelems=6 owner=EnterTest)super, this, TD, TC, TB, TA]]
+        outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+        next =Env(BC=false TK=CLASS EC=EnterTest EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=6 nelems=6 owner=EnterTest)super, this, TD, TC, TB, TA]]
+            outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+                info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+                outer=null
+                next =null
+            next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+                info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+                outer=null
+                next =null
+c.flags_field=0x0 
+tree.mods.flags=0x0 
+ClassSymbol c.sourcefile=test\enter\EnterTest.java
+c.flags_field=0x0 
+owner.kind=MTH 
+ct.getEnclosingType()=<none>
+ClassType ct.getEnclosingType()=<none>
+ct.getEnclosingType()=<none>
+ct.typarams_field=null
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+ct.typarams_field=
+
+
+***Enter完Type Parameter***
+-----------------------------------------------
+类名: LocalClass
+成员: Scope[(entries=0 nelems=0 owner=LocalClass)]
+Type Parameter: Scope[(entries=0 nelems=0 owner=LocalClass)]
+
+
+if (!c.isLocal() && uncompleted != null)=false
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***类的所有成员Enter完成***
+-----------------------------------------------
+类名: LocalClass
+成员: Scope[(entries=0 nelems=0 owner=LocalClass)]
+Type Parameter: Scope[(entries=0 nelems=0 owner=LocalClass)]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=CLASSDEF visitClassDef
+先前Env=null
+当前Env=Env(BC=false TK=BLOCK EC=EnterTest EM=methodB() TP=test.enter)
+    info =AC[SL=0, Scope[(entries=0 nelems=0 owner=methodB()) | (entries=0 nelems=0 owner=methodB()) | (entries=6 nelems=6 owner=EnterTest)super, this, TD, TC, TB, TA]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=METHOD EC=EnterTest EM=methodB() TP=test.enter)
+        info =AC[SL=0, Scope[(entries=0 nelems=0 owner=methodB()) | (entries=6 nelems=6 owner=EnterTest)super, this, TD, TC, TB, TA]]
+        outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+        next =Env(BC=false TK=CLASS EC=EnterTest EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=6 nelems=6 owner=EnterTest)super, this, TD, TC, TB, TA]]
+            outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+                info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+                outer=null
+                next =null
+            next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+                info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+                outer=null
+                next =null
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)
+-------------------------------------------------------------------------
+JCClassDecl tree.sym=null
+JCClassDecl tree.name=LocalClass
+Symbol owner.kind=MTH 
+Symbol owner=methodB()
+Scope enclScope=Scope[(entries=0 nelems=0 owner=methodB()) | (entries=0 nelems=0 owner=methodB()) | (entries=6 nelems=6 owner=EnterTest)super, this, TD, TC, TB, TA]
+owner.kind!=TYP(注意)
+c.flatname=test.enter.EnterTest$2LocalClass
+
+
+JCClassDecl tree.sym=LocalClass
+JCClassDecl tree.sym.members_field=null
+ClassSymbol c.sourcefile=null
+ClassSymbol c.classfile=null
+if (chk.compiled.get(c.flatname) != null)=false
+Scope enclScope=Scope[(entries=1 nelems=1 owner=methodB())LocalClass | (entries=0 nelems=0 owner=methodB()) | (entries=6 nelems=6 owner=EnterTest)super, this, TD, TC, TB, TA]
+env=Env(BC=false TK=BLOCK EC=EnterTest EM=methodB() TP=test.enter)
+    info =AC[SL=0, Scope[(entries=1 nelems=1 owner=methodB())LocalClass | (entries=0 nelems=0 owner=methodB()) | (entries=6 nelems=6 owner=EnterTest)super, this, TD, TC, TB, TA]]
+    outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+        info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+        outer=null
+        next =null
+    next =Env(BC=false TK=METHOD EC=EnterTest EM=methodB() TP=test.enter)
+        info =AC[SL=0, Scope[(entries=0 nelems=0 owner=methodB()) | (entries=6 nelems=6 owner=EnterTest)super, this, TD, TC, TB, TA]]
+        outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+            outer=null
+            next =null
+        next =Env(BC=false TK=CLASS EC=EnterTest EM=null TP=test.enter)
+            info =AC[SL=0, Scope[(entries=6 nelems=6 owner=EnterTest)super, this, TD, TC, TB, TA]]
+            outer=Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+                info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+                outer=null
+                next =null
+            next =Env(BC=false TK=COMPILATION_UNIT EC= EM=null TP=test.enter)
+                info =AC[SL=0, Scope[(entries=3 nelems=3 owner=enter)EnterTestC, EnterTestB, EnterTest]]
+                outer=null
+                next =null
+c.flags_field=0x0 
+tree.mods.flags=0x0 
+ClassSymbol c.sourcefile=test\enter\EnterTest.java
+c.flags_field=0x0 
+owner.kind=MTH 
+ct.getEnclosingType()=<none>
+ClassType ct.getEnclosingType()=test.enter.EnterTest<TA,TB,TC,TD>
+ct.getEnclosingType()=test.enter.EnterTest<TA,TB,TC,TD>
+ct.typarams_field=null
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+ct.typarams_field=
+
+
+***Enter完Type Parameter***
+-----------------------------------------------
+类名: LocalClass
+成员: Scope[(entries=0 nelems=0 owner=LocalClass)]
+Type Parameter: Scope[(entries=0 nelems=0 owner=LocalClass)]
+
+
+if (!c.isLocal() && uncompleted != null)=false
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***类的所有成员Enter完成***
+-----------------------------------------------
+类名: LocalClass
+成员: Scope[(entries=0 nelems=0 owner=LocalClass)]
+Type Parameter: Scope[(entries=0 nelems=0 owner=LocalClass)]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+

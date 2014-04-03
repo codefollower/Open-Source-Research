@@ -1,0 +1,140 @@
+E:\Javac138\src\my\test\HaHa.java
+
+
+package my.test;
+
+public class HaHa {
+	public static void main(String[] args) {
+		
+	}
+	static int aaa;
+	int aa;
+	void m(int a,int b) {
+		int c =10;
+		a = c+b;
+		m2();
+		
+		int d = 10;
+		a = d+c;
+	}
+	
+	void m2() {
+		for(int i: new int[0]){}
+	}
+	
+	enum MyEnum1{}
+	
+	enum MyEnum2 implements Cloneable{
+		A("sss"),B,C;
+		
+		String s=null;
+		MyEnum2(String s){}
+		MyEnum2(){}
+	}
+}
+
+void com.sun.tools.javac.comp.Lower.visitEnumDef(JCClassDecl tree)
+
+//结果
+enum HaHa$MyEnum2 extends Enum<HaHa$MyEnum2> implements Cloneable {
+    /*public static final*/ A /* = new HaHa$MyEnum2("A", 0, "sss") */,
+    /*public static final*/ B /* = new HaHa$MyEnum2("B", 1) */,
+    /*public static final*/ C /* = new HaHa$MyEnum2("C", 2) */;
+    /*synthetic*/ private static final HaHa$MyEnum2[] $VALUES = new HaHa$MyEnum2[]{HaHa$MyEnum2.A, HaHa$MyEnum2.B, HaHa$MyEnum2.C};
+    
+    public static HaHa$MyEnum2[] values() {
+        return (HaHa$MyEnum2[])$VALUES.clone();
+    }
+    
+    public static HaHa$MyEnum2 valueOf(String name) {
+        return (HaHa$MyEnum2)Enum.valueOf(HaHa.MyEnum2.class, name);
+    }
+    String s = null;
+    
+    HaHa$MyEnum2(/*synthetic*/ String $enum$name, /*synthetic*/ int $enum$ordinal, String s) {
+        super($enum$name, $enum$ordinal);
+    }
+    
+    HaHa$MyEnum2(/*synthetic*/ String $enum$name, /*synthetic*/ int $enum$ordinal) {
+        super($enum$name, $enum$ordinal);
+    }
+}
+
+
+
+public enum BoundKind {
+    /*public static final*/ EXTENDS /* = new BoundKind("? extends ") */,
+    /*public static final*/ SUPER /* = new BoundKind("? super ") */,
+    /*public static final*/ UNBOUND /* = new BoundKind("?") */;
+    private final String name;
+    
+    BoundKind(String name) {
+        super();
+        this.name = name;
+    }
+    
+    public String toString() {
+        return name;
+    }
+    
+    /*synthetic*/ public int compareTo(Object x0) {
+        return this.compareTo((BoundKind)x0);
+    }
+}
+
+
+
+public enum BoundKind extends Object {
+    /*public static final*/ EXTENDS /* = new BoundKind("EXTENDS", 0, "? extends ") */,
+    /*public static final*/ SUPER /* = new BoundKind("SUPER", 1, "? super ") */,
+    /*public static final*/ UNBOUND /* = new BoundKind("UNBOUND", 2, "?") */;
+    /*synthetic*/ private final String $name;
+    /*synthetic*/ private final int $ordinal;
+    /*synthetic*/ private static final BoundKind[] $VALUES = new BoundKind[]{BoundKind.EXTENDS, BoundKind.SUPER, BoundKind.UNBOUND};
+    
+    public static BoundKind[] values() {
+        return (BoundKind[])$VALUES.clone();
+    }
+    
+    public static BoundKind valueOf(String name) {
+        return (BoundKind)Enum.valueOf(class$com$sun$tools$javac$code$BoundKind == null ? (class$com$sun$tools$javac$code$BoundKind = class$("com.sun.tools.javac.code.BoundKind")) : class$com$sun$tools$javac$code$BoundKind, name);
+    }
+    
+    /*synthetic*/ static Class class$(String x0) {
+        try {
+            return Class.forName(x0);
+        } catch (ClassNotFoundException x1) {
+            throw new NoClassDefFoundError().initCause(x1);
+        }
+    }
+    /*synthetic*/ static Class class$com$sun$tools$javac$code$BoundKind;
+    private final String name;
+    
+    BoundKind(/*synthetic*/ String $enum$name, /*synthetic*/ int $enum$ordinal, String name) {
+        $ordinal = $enum$ordinal;
+        $name = $enum$name;
+        super();
+        this.name = name;
+    }
+    
+    public String toString() {
+        return name;
+    }
+    
+    /*synthetic*/ public int compareTo(Object x0) {
+        return this.compareTo((BoundKind)x0);
+    }
+    
+    public final int ordinal() {
+        return $ordinal;
+    }
+    
+    public final String name() {
+        return $name;
+    }
+    
+    public int compareTo(BoundKind o) {
+        BoundKind other = (BoundKind)o;
+        return $ordinal - other.$ordinal;
+    }
+}

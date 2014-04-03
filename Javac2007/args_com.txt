@@ -1,0 +1,125 @@
+################################################################
+# 说明:  '#'号是一个注释符，用'#'号可以注释一行，               #
+# 单词之间用空格分开，如果一个单词含空格，                     #
+# 用单引号(')或双引号(") 将它括起来。                                       #
+################################################################
+
+
+################################################################
+#           以下是编译javac1.7源码时很少变动的选项             #
+################################################################
+# -Xjcov
+
+#-encoding gbk
+
+#-nowarn
+
+#-Xlint:unchecked
+ -Xlint
+# 类路径
+#-Xbootclasspath/p:src;classes
+
+-classpath src;classes
+
+# 指定存放生成的类文件的位置
+-d classes
+
+
+# 我自己写的，用于输出Debug信息的一个类文件
+# src\my\Debug.java
+# src\my\MyProcessor.java
+
+################################################################
+# 下面的类文件都是自定义的测试文件，                         #
+################################################################
+# src\my\test\ListTest.java
+
+# src\my\test\JavacToolTest.java
+
+
+
+
+
+################################################################
+# 下面的类文件都是javac1.7的核心文件，                         #
+# 当分析到下面的某一个类文件时，                               #
+# 如果对该文件修改过，把'#'号去掉，就可以单独编译这个文件。    #
+# 如果下面的核心文件没有修改过，只是修改了其他文件，           #
+# 只要修改的文件被下面的某一个类文件引用，直接编译这           #
+# 个核心文件就可以了，当然把其他文件加进来单独编译也可以。     #
+################################################################
+
+# src\javax\tools\ToolProvider.java
+
+
+# src\com\sun\tools\javac\Main.java
+# src\com\sun\tools\javac\Launcher.java
+
+# src\com\sun\tools\javac\main\Main.java
+# src\com\sun\tools\javac\main\JavaCompiler.java
+
+
+
+# src\com\sun\tools\javac\util\Context.java
+
+# src\com\sun\tools\javac\util\Log.java
+
+# src\com\sun\tools\javac\util\paths.java
+# src\com\sun\tools\javac\util\JavacFileManager.java
+
+
+
+
+# src\com\sun\tools\javac\sym\CreateSymbols.java
+
+
+# src\sun\misc\Service.java
+# src\com\sun\tools\javac\processing\printingProcessor.java
+
+# src\com\sun\tools\javac\processing\JavacProcessingEnvironment.java
+
+
+
+# src\com\sun\tools\javac\parser\parser.java
+
+# src\com\sun\tools\javac\parser\EndPosParser.java
+# src\com\sun\tools\javac\parser\Scanner.java
+# src\com\sun\tools\javac\parser\DocCommentScanner.java
+
+
+
+
+#################
+# code
+#################
+# src\com\sun\tools\javac\code\Attribute.java
+
+# src\com\sun\tools\javac\code\Type.java
+# src\com\sun\tools\javac\code\Types.java
+# src\com\sun\tools\javac\code\Symbol.java
+# src\com\sun\tools\javac\code\Symtab.java
+
+#################
+# comp
+#################
+
+# src\com\sun\tools\javac\comp\Enter.java
+
+# src\com\sun\tools\javac\comp\Annotate.java
+# src\com\sun\tools\javac\comp\MemberEnter.java
+# src\com\sun\tools\javac\comp\Attr.java
+# src\com\sun\tools\javac\comp\Flow.java
+# src\com\sun\tools\javac\comp\TransTypes.java
+# src\com\sun\tools\javac\comp\Lower.java
+# src\com\sun\tools\javac\comp\Env.java
+# src\com\sun\tools\javac\comp\Resolve.java
+
+#################
+# jvm
+#################
+
+# src\com\sun\tools\javac\jvm\Gen.java
+ src\com\sun\tools\javac\jvm\ClassWriter.java
+# src\com\sun\tools\javac\jvm\ClassReader.java
+
+

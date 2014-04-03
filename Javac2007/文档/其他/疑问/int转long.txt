@@ -1,0 +1,35 @@
+int adjustFlags(final long flags) {
+    	DEBUG.P(this,"adjustFlags(1)");
+		DEBUG.P("flags ="+Flags.toString(flags));
+
+        int result = (int)flags;//从32bit开始的标志位将被丢弃
+		//DEBUG.P("result ="+Flags.toString(result));
+		//DEBUG.P("result ="+Flags.toString(0xff));
+        if ((flags & SYNTHETIC) != 0  && !target.useSyntheticFlag())
+            result &= ~SYNTHETIC;
+        if ((flags & ENUM) != 0  && !target.useEnumFlag())
+            result &= ~ENUM;
+        if ((flags & ANNOTATION) != 0  && !target.useAnnotationFlag())
+            result &= ~ANNOTATION;
+
+        if ((flags & BRIDGE) != 0  && target.useBridgeFlag())
+            result |= ACC_BRIDGE;
+        if ((flags & VARARGS) != 0  && target.useVarargsFlag())
+            result |= ACC_VARARGS;
+        
+        
+        //DEBUG.P("result="+Flags.toString(result));
+		DEBUG.P("result="+Flags.toString(result&0x0ffffffff));
+        DEBUG.P(0,this,"adjustFlags(1)");
+		
+        return result;
+    }
+
+com.sun.tools.javac.jvm.ClassWriter===>adjustFlags(1)
+-------------------------------------------------------------------------
+flags =80001000 bridge synthetic 
+result =ffffffff80001000 bridge synthetic parameter varargs acyclic_ann generatedconstr hypothetical proprietary 
+result =ff public private protected static final synchronized volatile transient 
+result=ffffffff80001040 volatile bridge synthetic parameter varargs acyclic_ann generatedconstr hypothetical proprietary 
+com.sun.tools.javac.jvm.ClassWriter===>adjustFlags(1)  END
+-------------------------------------------------------------------------

@@ -1,0 +1,2269 @@
+com.sun.tools.javac.comp.Enter===>Enter(1)
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>Enter(1)  END
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>main(1)
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>complete(2)
+-------------------------------------------------------------------------
+完成Enter前List<JCCompilationUnit> trees的内容: trees.size=1
+------------------------------------------------------------------------------
+package my.test;
+
+import static my.StaticImportTest.MyInnerClassStaticPublic;
+import static my.StaticImportTest.*;
+import my.StaticImportTest.MyInnerClass;
+import my.*;
+
+public class Test<S, T extends ExtendsTest, E extends ExtendsTest & InterfaceTest> extends ExtendsTest implements InterfaceTest {
+    
+    public int myInterfaceMethod(0int i, 0char c) 0{
+        return field;
+    }
+    
+    public class MyTestInnerClass {
+        
+        0MyTestInnerClass(0int intInner) 0{
+        }
+    }
+    
+    @Deprecated()
+    public <M extends T, S>int[][] myMethod(final M m, 0S[][] s, 0int i, 0String s2, 0int... ii) throws Exception, Error 0{
+        ;
+        if (i + 1 / 2 * 3 - 4 > 5) i++; else i--;
+        for (final int dd : ii) ;
+        for (; i < 10; i++, i += 2) ;
+        for (0int n = 0, n2 = {10, 20}; n < 10; n++) ;
+        while (i < 10) ;
+        do i++;         while (i < 10);
+        try 0{
+            i++;
+        } catch (0RuntimeException e) 0{
+        } catch (0Exception e) 0{
+        } finally 0{
+            i = 0;
+        }
+        switch (i) {
+        case 0: 
+            i++;
+            break;
+        
+        default: 
+            i--;
+        
+        }
+        synchronized (s) 0{
+        }
+        assert (i < 10) : "message";
+        myLable: i++;
+        0int[] myIntArray = new int[10];
+        myIntArray[1] = 10;
+        0int[] myIntArray2 = {1, 2};
+        i++;
+        field <<= 2;
+        
+        @Deprecated()
+        final class MyLocalClass1 {
+            
+            0MyLocalClass1() 0{
+                Test.this.field = 10;
+            }
+        }
+        return new int[0][0];
+    }
+    0int field = 10;
+}
+------------------------------------------------------------------------------
+
+Env总数: 0
+--------------------------
+
+memberEnter.completionEnabled=true
+ListBuffer<ClassSymbol> uncompleted.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=1
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=TOPLEVEL visitTopLevel
+先前Env=null
+当前Env=null
+com.sun.tools.javac.comp.Enter===>visitTopLevel(1)
+-------------------------------------------------------------------------
+JCCompilationUnit tree.sourcefile=bin\mysrc\my\test\Test.java
+JCCompilationUnit tree.packge=null
+JCCompilationUnit tree.packge=my.test
+JCCompilationUnit tree.packge.members_field=null
+syms.classes.size=34 keySet=[java.lang.annotation.Retention, java.lang.annotation.Inherited, java.lang.ClassLoader, java.lang.Object, java.lang.StringBuilder, java.lang.RuntimeException, java.util.Collections, java.lang.annotation.Target, java.util.Arrays, java.lang.Class, java.lang.annotation.Annotation, java.lang.CloneNotSupportedException, java.lang.Enum, java.lang.SuppressWarnings, java.lang.String, java.lang.Override, java.lang.ClassNotFoundException, java.lang.NoClassDefFoundError, java.lang.AssertionError, java.lang.StringBuffer, java.util.Iterator, java.lang.Deprecated, java.lang.Cloneable, , sun.Proprietary+Annotation, java.util.List, java.lang.Exception, java.lang.Error, java.lang.Comparable, java.lang.NoSuchFieldError, java.lang.Throwable, java.lang.Iterable, java.io.Serializable, java.lang.IllegalArgumentException]
+syms.packages.size=9 keySet=[java.lang, sun, java.lang.annotation, my.test, java.io, , java.util, my, java]
+
+
+
+my.test包中的所有成员装载完成(Enter)
+JCCompilationUnit tree.packge.members_field=Scope[(nelems=26 owner=test)MyUncompletedClass, Test07, Test06, Test05, Test01, Test04, Test03, ExtendsTestBound, TestBound, TestOhter2, Test02, MyInterfaceB, TestOhter, Test$TestInner, Test$1, Test, Test$1MyLocalClass1, Test$MyTestInnerClass, Test$MyInnerEnum, Test$MyInnerInterface, Test$MyInnerClassStatic, Test$MyInnerClass, MyInterfaceA, MyInterfaceA$MyInnerInterface, MyInterfaceA$MyInnerClassStatic, MyInterfaceA$MyInnerClass]
+syms.classes.size=61 keySet=[java.lang.annotation.Inherited, my.test.Test02, java.util.Collections, java.lang.RuntimeException, my.test.Test$TestInner, my.test.Test04, java.lang.annotation.Target, my.test.Test$MyInnerClass, my.test.TestOhter2, java.lang.annotation.Annotation, my.test.Test01, java.lang.Enum, java.lang.SuppressWarnings, java.lang.String, java.lang.ClassNotFoundException, java.lang.StringBuffer, java.util.Iterator, java.lang.Deprecated, , java.util.List, sun.Proprietary+Annotation, my.test.MyInterfaceA$MyInnerClassStatic, my.test.TestOhter, java.lang.Error, java.lang.NoSuchFieldError, my.test.Test05, java.lang.Iterable, java.lang.IllegalArgumentException, my.test.TestBound, my.test.Test$MyTestInnerClass, my.test.Test$1MyLocalClass1, my.test.package-info, java.lang.annotation.Retention, my.test.MyUncompletedClass, java.lang.ClassLoader, java.lang.Object, java.lang.StringBuilder, java.util.Arrays, my.test.ExtendsTestBound, java.lang.Class, java.lang.CloneNotSupportedException, my.test.MyInterfaceA, my.test.Test$MyInnerInterface, my.test.MyInterfaceB, java.lang.Override, java.lang.AssertionError, java.lang.NoClassDefFoundError, my.test.Test07, my.test.Test$MyInnerEnum, java.lang.Cloneable, my.test.MyInterfaceA$MyInnerInterface, java.lang.Exception, my.test.Test$1, java.lang.Comparable, my.test.MyInterfaceA$MyInnerClass, my.test.Test03, java.lang.Throwable, java.io.Serializable, my.test.Test$MyInnerClassStatic, my.test.Test, my.test.Test06]
+syms.packages.size=9 keySet=[java.lang, sun, java.lang.annotation, my.test, java.io, , java.util, my, java]
+
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=5
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=IMPORT visitImport
+先前Env=null
+当前Env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=0 owner=test)]]]
+com.sun.tools.javac.comp.Enter===>visitTree(1)
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>visitTree(1)  END
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=IMPORT visitImport
+先前Env=null
+当前Env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=0 owner=test)]]]
+com.sun.tools.javac.comp.Enter===>visitTree(1)
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>visitTree(1)  END
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=IMPORT visitImport
+先前Env=null
+当前Env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=0 owner=test)]]]
+com.sun.tools.javac.comp.Enter===>visitTree(1)
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>visitTree(1)  END
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=IMPORT visitImport
+先前Env=null
+当前Env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=0 owner=test)]]]
+com.sun.tools.javac.comp.Enter===>visitTree(1)
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>visitTree(1)  END
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=CLASSDEF visitClassDef
+先前Env=null
+当前Env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=0 owner=test)]]]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)
+-------------------------------------------------------------------------
+JCClassDecl tree.sym=null
+JCClassDecl tree.name=Test
+Symbol owner.kind=PCK 
+Symbol owner=my.test
+Scope enclScope=Scope[(nelems=0 owner=test)]
+PackageSymbol packge.flags_field(1)=8388608(exists )
+PackageSymbol packge.name=my.test
+PackageSymbol packge.flags_field(2)=8388608(exists )
+packge.members()前=Scope[(nelems=26 owner=test)MyUncompletedClass, Test07, Test06, Test05, Test01, Test04, Test03, ExtendsTestBound, TestBound, TestOhter2, Test02, MyInterfaceB, TestOhter, Test$TestInner, Test$1, Test, Test$1MyLocalClass1, Test$MyTestInnerClass, Test$MyInnerEnum, Test$MyInnerInterface, Test$MyInnerClassStatic, Test$MyInnerClass, MyInterfaceA, MyInterfaceA$MyInnerInterface, MyInterfaceA$MyInnerClassStatic, MyInterfaceA$MyInnerClass]
+packge.members()后=Scope[(nelems=26 owner=test)MyUncompletedClass, Test07, Test06, Test05, Test01, Test04, Test03, ExtendsTestBound, TestBound, TestOhter2, Test02, MyInterfaceB, TestOhter, Test$TestInner, Test$1, Test, Test$1MyLocalClass1, Test$MyTestInnerClass, Test$MyInnerEnum, Test$MyInnerInterface, Test$MyInnerClassStatic, Test$MyInnerClass, MyInterfaceA, MyInterfaceA$MyInnerInterface, MyInterfaceA$MyInnerClassStatic, MyInterfaceA$MyInnerClass]
+
+
+JCClassDecl tree.sym=my.test.Test
+JCClassDecl tree.sym.members_field=null
+ClassSymbol c.sourcefile=null
+ClassSymbol c.classfile=bin\mysrc\my\test\Test.java
+if (chk.compiled.get(c.flatname) != null)=false
+Scope enclScope=Scope[(nelems=1 owner=test)Test]
+env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=test)Test]]]
+c.flags_field=class_seen source_seen 
+tree.mods.flags=public 
+ClassSymbol c.sourcefile=bin\mysrc\my\test\Test.java
+c.flags_field=public 
+owner.kind=PCK 
+ct.getEnclosingType()=<none>
+ct.getEnclosingType()=<none>
+ct.typarams_field=null
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=3
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=TYPEPARAMETER visitTypeParameter
+先前Env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=test)Test]]]
+当前Env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=Test)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=test)Test]]]]
+com.sun.tools.javac.comp.Enter===>visitTypeParameter(JCTypeParameter tree)
+-------------------------------------------------------------------------
+tree.name=S
+tree.type=null
+env.info.scope.owner=my.test.Test
+env.info.scope.owner.members_field=Scope[(nelems=0 owner=Test)]
+env.info.scope=Scope[(nelems=0 owner=Test)]
+env.info.scope.owner.members_field=Scope[(nelems=0 owner=Test)]
+env.info.scope=Scope[(nelems=1 owner=Test)S]
+com.sun.tools.javac.comp.Enter===>visitTypeParameter(JCTypeParameter tree)  END
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=TYPEPARAMETER visitTypeParameter
+先前Env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=test)Test]]]
+当前Env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=1 owner=Test)S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=test)Test]]]]
+com.sun.tools.javac.comp.Enter===>visitTypeParameter(JCTypeParameter tree)
+-------------------------------------------------------------------------
+tree.name=T
+tree.type=null
+env.info.scope.owner=my.test.Test
+env.info.scope.owner.members_field=Scope[(nelems=0 owner=Test)]
+env.info.scope=Scope[(nelems=1 owner=Test)S]
+env.info.scope.owner.members_field=Scope[(nelems=0 owner=Test)]
+env.info.scope=Scope[(nelems=2 owner=Test)T, S]
+com.sun.tools.javac.comp.Enter===>visitTypeParameter(JCTypeParameter tree)  END
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=TYPEPARAMETER visitTypeParameter
+先前Env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=test)Test]]]
+当前Env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=Test)T, S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=test)Test]]]]
+com.sun.tools.javac.comp.Enter===>visitTypeParameter(JCTypeParameter tree)
+-------------------------------------------------------------------------
+tree.name=E
+tree.type=null
+env.info.scope.owner=my.test.Test
+env.info.scope.owner.members_field=Scope[(nelems=0 owner=Test)]
+env.info.scope=Scope[(nelems=2 owner=Test)T, S]
+env.info.scope.owner.members_field=Scope[(nelems=0 owner=Test)]
+env.info.scope=Scope[(nelems=3 owner=Test)E, T, S]
+com.sun.tools.javac.comp.Enter===>visitTypeParameter(JCTypeParameter tree)  END
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+ct.typarams_field=S30426707,T12122157,E28145575
+
+
+***Enter完Type Parameter***
+-----------------------------------------------
+类名: my.test.Test
+成员: Scope[(nelems=0 owner=Test)]
+Type Parameter: Scope[(nelems=3 owner=Test)E, T, S]
+
+
+if (!c.isLocal() && uncompleted != null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=4
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=METHODDEF visitMethodDef
+先前Env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=test)Test]]]
+当前Env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=3 owner=Test)E, T, S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=test)Test]]]]
+com.sun.tools.javac.comp.Enter===>visitTree(1)
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>visitTree(1)  END
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=CLASSDEF visitClassDef
+先前Env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=test)Test]]]
+当前Env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=3 owner=Test)E, T, S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=test)Test]]]]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)
+-------------------------------------------------------------------------
+JCClassDecl tree.sym=null
+JCClassDecl tree.name=MyTestInnerClass
+Symbol owner.kind=TYP 
+Symbol owner=my.test.Test
+Scope enclScope=Scope[(nelems=0 owner=Test)]
+owner.flags_field=public 
+tree.mods.flags=public 
+tree.mods.flags=public 
+
+
+JCClassDecl tree.sym=my.test.Test.MyTestInnerClass
+JCClassDecl tree.sym.members_field=null
+ClassSymbol c.sourcefile=null
+ClassSymbol c.classfile=bin\mybin\my\test\Test$MyTestInnerClass.class
+if (chk.compiled.get(c.flatname) != null)=false
+Scope enclScope=Scope[(nelems=1 owner=Test)MyTestInnerClass]
+env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=3 owner=Test)E, T, S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=test)Test]]]]
+c.flags_field=class_seen 
+tree.mods.flags=public 
+ClassSymbol c.sourcefile=bin\mysrc\my\test\Test.java
+c.flags_field=public 
+owner.kind=TYP 
+ct.getEnclosingType()=<none>
+ClassType ct.getEnclosingType()=my.test.Test<S30426707,T12122157,E28145575>
+ct.getEnclosingType()=my.test.Test<S30426707,T12122157,E28145575>
+ct.typarams_field=null
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+ct.typarams_field=
+
+
+***Enter完Type Parameter***
+-----------------------------------------------
+类名: my.test.Test.MyTestInnerClass
+成员: Scope[(nelems=0 owner=MyTestInnerClass)]
+Type Parameter: Scope[(nelems=0 owner=MyTestInnerClass)]
+
+
+if (!c.isLocal() && uncompleted != null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=1
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=METHODDEF visitMethodDef
+先前Env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=3 owner=Test)E, T, S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=test)Test]]]]
+当前Env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=MyTestInnerClass)]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=3 owner=Test)E, T, S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=test)Test]]]]]
+com.sun.tools.javac.comp.Enter===>visitTree(1)
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>visitTree(1)  END
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***类的所有成员Enter完成***
+-----------------------------------------------
+类名: my.test.Test.MyTestInnerClass
+成员: Scope[(nelems=0 owner=MyTestInnerClass)]
+Type Parameter: Scope[(nelems=0 owner=MyTestInnerClass)]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=METHODDEF visitMethodDef
+先前Env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=test)Test]]]
+当前Env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=3 owner=Test)E, T, S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=test)Test]]]]
+com.sun.tools.javac.comp.Enter===>visitTree(1)
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>visitTree(1)  END
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=VARDEF visitVarDef
+先前Env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=test)Test]]]
+当前Env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=3 owner=Test)E, T, S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=test)Test]]]]
+com.sun.tools.javac.comp.Enter===>visitTree(1)
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>visitTree(1)  END
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***类的所有成员Enter完成***
+-----------------------------------------------
+类名: my.test.Test
+成员: Scope[(nelems=1 owner=Test)MyTestInnerClass]
+Type Parameter: Scope[(nelems=3 owner=Test)E, T, S]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***第一阶段Enter完成***
+-----------------------------------------------
+包名: my.test
+--------------------------
+tree.packge.members_field: Scope[(nelems=26 owner=test)MyUncompletedClass, Test07, Test06, Test05, Test01, Test04, Test03, ExtendsTestBound, TestBound, TestOhter2, Test02, MyInterfaceB, TestOhter, Test$TestInner, Test$1, Test, Test$1MyLocalClass1, Test$MyInnerEnum, Test$MyInnerInterface, Test$MyInnerClassStatic, Test$MyInnerClass, MyInterfaceA, MyInterfaceA$MyInnerInterface, MyInterfaceA$MyInnerClassStatic, MyInterfaceA$MyInnerClass]
+tree.namedImportScope    : Scope[(nelems=1 owner=test)Test]
+tree.starImportScope     : Scope[(nelems=0 owner=test)]
+
+等待编译的类的总数: 2
+--------------------------
+类名             : my.test.Test
+members_field    : Scope[(nelems=1 owner=Test)MyTestInnerClass]
+flags            : public 
+sourcefile       : bin\mysrc\my\test\Test.java
+classfile        : bin\mysrc\my\test\Test.java
+type             : my.test.Test<S30426707,T12122157,E28145575>
+outer_field      : <none>
+supertype_field  : null
+interfaces_field : null
+typarams_field   : S30426707,T12122157,E28145575
+allparams_field  : null
+
+类名             : my.test.Test.MyTestInnerClass
+members_field    : Scope[(nelems=0 owner=MyTestInnerClass)]
+flags            : public 
+sourcefile       : bin\mysrc\my\test\Test.java
+classfile        : bin\mybin\my\test\Test$MyTestInnerClass.class
+type             : my.test.Test<S30426707,T12122157,E28145575>.MyTestInnerClass
+outer_field      : my.test.Test<S30426707,T12122157,E28145575>
+supertype_field  : null
+interfaces_field : null
+typarams_field   : 
+allparams_field  : null
+
+
+Env总数: 2
+--------------------------
+my.test.Test.MyTestInnerClass=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=MyTestInnerClass)]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=3 owner=Test)E, T, S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=test)Test]]]]]
+my.test.Test=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=3 owner=Test)E, T, S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=test)Test]]]]
+
+
+syms.classes.size=61 keySet=[java.lang.annotation.Inherited, my.test.Test02, java.util.Collections, java.lang.RuntimeException, my.test.Test$TestInner, my.test.Test04, java.lang.annotation.Target, my.test.Test$MyInnerClass, my.test.TestOhter2, java.lang.annotation.Annotation, my.test.Test01, java.lang.Enum, java.lang.SuppressWarnings, java.lang.String, java.lang.ClassNotFoundException, java.lang.StringBuffer, java.util.Iterator, java.lang.Deprecated, , java.util.List, sun.Proprietary+Annotation, my.test.MyInterfaceA$MyInnerClassStatic, my.test.TestOhter, java.lang.Error, java.lang.NoSuchFieldError, my.test.Test05, java.lang.Iterable, java.lang.IllegalArgumentException, my.test.TestBound, my.test.Test$MyTestInnerClass, my.test.Test$1MyLocalClass1, my.test.package-info, java.lang.annotation.Retention, my.test.MyUncompletedClass, java.lang.ClassLoader, java.lang.Object, java.lang.StringBuilder, java.util.Arrays, my.test.ExtendsTestBound, java.lang.Class, java.lang.CloneNotSupportedException, my.test.MyInterfaceA, my.test.Test$MyInnerInterface, my.test.MyInterfaceB, java.lang.Override, java.lang.AssertionError, java.lang.NoClassDefFoundError, my.test.Test07, my.test.Test$MyInnerEnum, java.lang.Cloneable, my.test.MyInterfaceA$MyInnerInterface, java.lang.Exception, my.test.Test$1, java.lang.Comparable, my.test.MyInterfaceA$MyInnerClass, my.test.Test03, java.lang.Throwable, java.io.Serializable, my.test.Test$MyInnerClassStatic, my.test.Test, my.test.Test06]
+syms.packages.size=9 keySet=[java.lang, sun, java.lang.annotation, my.test, java.io, , java.util, my, java]
+
+
+com.sun.tools.javac.comp.Enter===>visitTopLevel(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+
+
+
+***进入第二阶段MemberEnter***
+-----------------------------------------------
+memberEnter.completionEnabled=true
+uncompleted=2 my.test.Test,my.test.Test.MyTestInnerClass
+Uncompleted SymbolName=my.test.Test
+clazz.completer=com.sun.tools.javac.comp.MemberEnter@a6aeed
+(c == null)=true
+(c == clazz)=false
+(prevUncompleted == null)=true
+com.sun.tools.javac.comp.Enter===>complete(2)
+-------------------------------------------------------------------------
+完成Enter前List<JCCompilationUnit> trees的内容: trees.size=1
+------------------------------------------------------------------------------
+package my;
+
+public class StaticImportTest {
+    
+    public class MyInnerClass {
+    }
+    
+    private static class MyInnerClassStaticPrivate {
+    }
+    
+    public static class MyInnerClassStaticPublic {
+        public int field;
+    }
+    
+    protected static class MyInnerClassStaticProtected {
+    }
+    public static int staticField = 1;
+    
+    public static void staticMethod() 0{
+    }
+}
+------------------------------------------------------------------------------
+
+Env总数: 2
+--------------------------
+my.test.Test.MyTestInnerClass=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=MyTestInnerClass)]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=3 owner=Test)E, T, S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=test)Test]]]]]
+my.test.Test=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=3 owner=Test)E, T, S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=test)Test]]]]
+
+memberEnter.completionEnabled=true
+ListBuffer<ClassSymbol> uncompleted.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=1
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=TOPLEVEL visitTopLevel
+先前Env=null
+当前Env=null
+com.sun.tools.javac.comp.Enter===>visitTopLevel(1)
+-------------------------------------------------------------------------
+JCCompilationUnit tree.sourcefile=bin\mysrc\my\StaticImportTest.java
+JCCompilationUnit tree.packge=null
+JCCompilationUnit tree.packge=my
+JCCompilationUnit tree.packge.members_field=Scope[(nelems=15 owner=my)Debug, testClash, StaticImportTest, StaticImportTest$MyInnerClassStaticProtected, StaticImportTest$MyInnerClassStaticPublic, StaticImportTest$MyInnerClassStaticPrivate, StaticImportTest$MyInnerClass, InterfaceTest, InterfaceTest$InterfaceInnerEnum, InterfaceTest$InterfaceInnerInterface, InterfaceTest$InterfaceInnerClass, ExtendsTest, Test$TestInner, Test$1, Test]
+syms.classes.size=209 keySet=[java.lang.Character$UnicodeBlock, java.lang.UnsupportedOperationException, my.test.Test$TestInner, java.lang.ClassLoader$3, java.lang.Process, java.lang.System, java.lang.ClassLoader$1, java.lang.IndexOutOfBoundsException, java.lang.annotation.Annotation, java.lang.String, java.lang.ConditionalSpecialCasing$Entry, java.lang.ProcessEnvironment, java.lang.StringBuffer, java.lang.ProcessEnvironment$EntryComparator, java.lang.Readable, , my.test.TestOhter, my.InterfaceTest$InterfaceInnerClass, java.lang.ThreadLocal$ThreadLocalMap, java.lang.Thread$1, java.lang.ThreadGroup, java.lang.ProcessBuilder, java.lang.CharSequence, my.test.Test$1MyLocalClass1, java.lang.StrictMath, java.lang.Runtime, java.lang.Boolean, java.lang.Object, java.lang.ProcessEnvironment$1, java.lang.SecurityManager$1, java.lang.ProcessImpl, java.lang.Appendable, java.lang.SystemClassLoaderAction, java.lang.ArrayIndexOutOfBoundsException, java.lang.LinkageError, java.lang.Class, java.lang.Class$1, java.lang.CloneNotSupportedException, java.lang.ProcessEnvironment$NameComparator, java.lang.AssertionError, my.ExtendsTest, java.lang.StringCoding, java.lang.SecurityManager, java.lang.ClassCircularityError, java.lang.Cloneable, java.lang.Void, my.test.Test$1, my.test.MyInterfaceA$MyInnerClass, java.lang.Character$Subset, my.Test$TestInner, java.lang.Math, java.lang.ThreadDeath, java.io.Serializable, my.test.Test, java.lang.AbstractStringBuilder, java.lang.ProcessImpl$1, java.lang.Package, java.lang.ArrayStoreException, java.lang.StackTraceElement, java.lang.Terminator$1, java.lang.annotation.Inherited, java.lang.Shutdown$1, my.Test, my.Test$1, java.util.Collections, java.lang.Class$MethodArray, java.lang.Enum, java.lang.Byte$ByteCache, java.lang.NegativeArraySizeException, java.lang.StringIndexOutOfBoundsException, java.lang.Package$1, java.lang.StringCoding$StringDecoder, java.lang.Terminator, java.lang.Character$CharacterCache, java.lang.IllegalAccessException, java.util.List, sun.Proprietary+Annotation, java.lang.Error, java.lang.ClassCastException, java.lang.SecurityManager$2, java.lang.IllegalArgumentException, java.lang.IllegalStateException, my.test.Test$MyTestInnerClass, my.test.MyUncompletedClass, java.lang.ClassLoader, java.lang.AssertionStatusDirectives, java.lang.ClassLoader$2, java.lang.StringBuilder, java.lang.Class$EnclosingMethodInfo, java.lang.Number, java.lang.ClassLoader$NativeLibrary, java.lang.VirtualMachineError, java.lang.InstantiationException, my.test.Test$MyInnerInterface, java.lang.StringCoding$1, java.lang.ExceptionInInitializerError, my.test.Test07, my.test.Test$MyInnerEnum, java.lang.Short$ShortCache, java.lang.ProcessEnvironment$CheckedValues, java.lang.Package$1PackageInfoProxy, java.lang.Throwable, java.lang.Class$2, my.test.Test06, java.lang.ThreadLocal$ThreadLocalMap$Entry, java.lang.String$1, java.lang.InternalError, java.lang.ThreadLocal$1, java.lang.CharacterDataUndefined, java.lang.Integer$IntegerCache, my.StaticImportTest$MyInnerClassStaticPrivate, java.lang.RuntimeException, java.lang.Compiler$1, my.test.Test04, java.lang.annotation.Target, my.test.Test$MyInnerClass, java.lang.OutOfMemoryError, java.lang.IllegalThreadStateException, java.lang.String$CaseInsensitiveComparator, java.lang.ApplicationShutdownHooks, java.lang.ProcessEnvironment$CheckedEntrySet, my.test.Test01, java.lang.CharacterDataLatin1, java.lang.ClassNotFoundException, java.lang.ClassFormatError, java.lang.System$1, java.util.Iterator, my.test.Test05, java.lang.Class$4, java.lang.Iterable, java.lang.StackOverflowError, java.lang.System$2, my.StaticImportTest$MyInnerClass, java.lang.CharacterDataPrivateUse, java.lang.Byte, java.util.Arrays, java.lang.ProcessEnvironment$CheckedKeySet, java.lang.UnsatisfiedLinkError, my.test.ExtendsTestBound, java.lang.ArithmeticException, java.lang.InstantiationError, java.lang.NoSuchMethodException, java.lang.SecurityException, java.lang.AbstractMethodError, my.StaticImportTest$MyInnerClassStaticPublic, java.lang.NullPointerException, java.lang.Compiler, java.lang.Exception, java.lang.NoSuchFieldException, java.lang.Comparable, my.test.Test03, java.lang.TypeNotPresentException, my.test.Test$MyInnerClassStatic, java.lang.IllegalMonitorStateException, java.lang.NumberFormatException, java.lang.Integer, my.test.Test02, java.lang.Shutdown$Lock, java.lang.CharacterData0E, java.lang.StringCoding$StringEncoder, java.lang.ThreadLocal, java.lang.ConditionalSpecialCasing, my.test.TestOhter2, java.lang.NoSuchMethodError, my.InterfaceTest, java.lang.SuppressWarnings, java.lang.UnsupportedClassVersionError, java.lang.Character, java.lang.Runnable, java.lang.Deprecated, java.lang.UnknownError, my.test.MyInterfaceA$MyInnerClassStatic, java.lang.Shutdown, java.lang.Thread, my.StaticImportTest$MyInnerClassStaticProtected, java.lang.Short, java.lang.NoSuchFieldError, java.lang.ProcessEnvironment$CheckedEntry, java.lang.CharacterData02, my.InterfaceTest$InterfaceInnerEnum, my.test.TestBound, java.lang.Class$3, my.test.package-info, java.lang.CharacterData01, java.lang.annotation.Retention, java.lang.Long$LongCache, java.lang.ProcessEnvironment$CheckedEntrySet$1, my.testClash, java.lang.Double, java.lang.VerifyError, java.lang.Thread$State, java.lang.RuntimePermission, java.lang.EnumConstantNotPresentException, java.lang.Float, my.Debug, my.test.MyInterfaceA, java.lang.InterruptedException, my.test.MyInterfaceB, java.lang.Override, java.lang.NoClassDefFoundError, java.lang.IncompatibleClassChangeError, java.lang.InheritableThreadLocal, java.lang.Thread$UncaughtExceptionHandler, my.StaticImportTest, my.InterfaceTest$InterfaceInnerInterface, java.lang.IllegalAccessError, my.test.MyInterfaceA$MyInnerInterface, java.lang.CharacterData00, java.lang.Long]
+syms.packages.size=9 keySet=[java.lang, sun, java.lang.annotation, my.test, java.io, , java.util, my, java]
+
+
+
+my包中的所有成员装载完成(Enter)
+JCCompilationUnit tree.packge.members_field=Scope[(nelems=15 owner=my)Debug, testClash, StaticImportTest, StaticImportTest$MyInnerClassStaticProtected, StaticImportTest$MyInnerClassStaticPublic, StaticImportTest$MyInnerClassStaticPrivate, StaticImportTest$MyInnerClass, InterfaceTest, InterfaceTest$InterfaceInnerEnum, InterfaceTest$InterfaceInnerInterface, InterfaceTest$InterfaceInnerClass, ExtendsTest, Test$TestInner, Test$1, Test]
+syms.classes.size=209 keySet=[java.lang.Character$UnicodeBlock, java.lang.UnsupportedOperationException, my.test.Test$TestInner, java.lang.ClassLoader$3, java.lang.Process, java.lang.System, java.lang.ClassLoader$1, java.lang.IndexOutOfBoundsException, java.lang.annotation.Annotation, java.lang.String, java.lang.ConditionalSpecialCasing$Entry, java.lang.ProcessEnvironment, java.lang.StringBuffer, java.lang.ProcessEnvironment$EntryComparator, java.lang.Readable, , my.test.TestOhter, my.InterfaceTest$InterfaceInnerClass, java.lang.ThreadLocal$ThreadLocalMap, java.lang.Thread$1, java.lang.ThreadGroup, java.lang.ProcessBuilder, java.lang.CharSequence, my.test.Test$1MyLocalClass1, java.lang.StrictMath, java.lang.Runtime, java.lang.Boolean, java.lang.Object, java.lang.ProcessEnvironment$1, java.lang.SecurityManager$1, java.lang.ProcessImpl, java.lang.Appendable, java.lang.SystemClassLoaderAction, java.lang.ArrayIndexOutOfBoundsException, java.lang.LinkageError, java.lang.Class, java.lang.Class$1, java.lang.CloneNotSupportedException, java.lang.ProcessEnvironment$NameComparator, java.lang.AssertionError, my.ExtendsTest, java.lang.StringCoding, java.lang.SecurityManager, java.lang.ClassCircularityError, java.lang.Cloneable, java.lang.Void, my.test.Test$1, my.test.MyInterfaceA$MyInnerClass, java.lang.Character$Subset, my.Test$TestInner, java.lang.Math, java.lang.ThreadDeath, java.io.Serializable, my.test.Test, java.lang.AbstractStringBuilder, java.lang.ProcessImpl$1, java.lang.Package, java.lang.ArrayStoreException, java.lang.StackTraceElement, java.lang.Terminator$1, java.lang.annotation.Inherited, java.lang.Shutdown$1, my.Test, my.Test$1, java.util.Collections, java.lang.Class$MethodArray, java.lang.Enum, java.lang.Byte$ByteCache, java.lang.NegativeArraySizeException, java.lang.StringIndexOutOfBoundsException, java.lang.Package$1, java.lang.StringCoding$StringDecoder, java.lang.Terminator, java.lang.Character$CharacterCache, java.lang.IllegalAccessException, java.util.List, sun.Proprietary+Annotation, java.lang.Error, java.lang.ClassCastException, java.lang.SecurityManager$2, java.lang.IllegalArgumentException, java.lang.IllegalStateException, my.test.Test$MyTestInnerClass, my.test.MyUncompletedClass, java.lang.ClassLoader, java.lang.AssertionStatusDirectives, java.lang.ClassLoader$2, java.lang.StringBuilder, java.lang.Class$EnclosingMethodInfo, java.lang.Number, java.lang.ClassLoader$NativeLibrary, java.lang.VirtualMachineError, java.lang.InstantiationException, my.test.Test$MyInnerInterface, java.lang.StringCoding$1, java.lang.ExceptionInInitializerError, my.test.Test07, my.test.Test$MyInnerEnum, java.lang.Short$ShortCache, java.lang.ProcessEnvironment$CheckedValues, java.lang.Package$1PackageInfoProxy, java.lang.Throwable, java.lang.Class$2, my.test.Test06, java.lang.ThreadLocal$ThreadLocalMap$Entry, java.lang.String$1, java.lang.InternalError, java.lang.ThreadLocal$1, java.lang.CharacterDataUndefined, java.lang.Integer$IntegerCache, my.StaticImportTest$MyInnerClassStaticPrivate, java.lang.RuntimeException, java.lang.Compiler$1, my.test.Test04, java.lang.annotation.Target, my.test.Test$MyInnerClass, java.lang.OutOfMemoryError, java.lang.IllegalThreadStateException, java.lang.String$CaseInsensitiveComparator, java.lang.ApplicationShutdownHooks, java.lang.ProcessEnvironment$CheckedEntrySet, my.test.Test01, java.lang.CharacterDataLatin1, java.lang.ClassNotFoundException, java.lang.ClassFormatError, java.lang.System$1, java.util.Iterator, my.test.Test05, java.lang.Class$4, java.lang.Iterable, java.lang.StackOverflowError, java.lang.System$2, my.StaticImportTest$MyInnerClass, java.lang.CharacterDataPrivateUse, java.lang.Byte, java.util.Arrays, java.lang.ProcessEnvironment$CheckedKeySet, java.lang.UnsatisfiedLinkError, my.test.ExtendsTestBound, java.lang.ArithmeticException, java.lang.InstantiationError, java.lang.NoSuchMethodException, java.lang.SecurityException, java.lang.AbstractMethodError, my.StaticImportTest$MyInnerClassStaticPublic, java.lang.NullPointerException, java.lang.Compiler, java.lang.Exception, java.lang.NoSuchFieldException, java.lang.Comparable, my.test.Test03, java.lang.TypeNotPresentException, my.test.Test$MyInnerClassStatic, java.lang.IllegalMonitorStateException, java.lang.NumberFormatException, java.lang.Integer, my.test.Test02, java.lang.Shutdown$Lock, java.lang.CharacterData0E, java.lang.StringCoding$StringEncoder, java.lang.ThreadLocal, java.lang.ConditionalSpecialCasing, my.test.TestOhter2, java.lang.NoSuchMethodError, my.InterfaceTest, java.lang.SuppressWarnings, java.lang.UnsupportedClassVersionError, java.lang.Character, java.lang.Runnable, java.lang.Deprecated, java.lang.UnknownError, my.test.MyInterfaceA$MyInnerClassStatic, java.lang.Shutdown, java.lang.Thread, my.StaticImportTest$MyInnerClassStaticProtected, java.lang.Short, java.lang.NoSuchFieldError, java.lang.ProcessEnvironment$CheckedEntry, java.lang.CharacterData02, my.InterfaceTest$InterfaceInnerEnum, my.test.TestBound, java.lang.Class$3, my.test.package-info, java.lang.CharacterData01, java.lang.annotation.Retention, java.lang.Long$LongCache, java.lang.ProcessEnvironment$CheckedEntrySet$1, my.testClash, java.lang.Double, java.lang.VerifyError, java.lang.Thread$State, java.lang.RuntimePermission, java.lang.EnumConstantNotPresentException, java.lang.Float, my.Debug, my.test.MyInterfaceA, java.lang.InterruptedException, my.test.MyInterfaceB, java.lang.Override, java.lang.NoClassDefFoundError, java.lang.IncompatibleClassChangeError, java.lang.InheritableThreadLocal, java.lang.Thread$UncaughtExceptionHandler, my.StaticImportTest, my.InterfaceTest$InterfaceInnerInterface, java.lang.IllegalAccessError, my.test.MyInterfaceA$MyInnerInterface, java.lang.CharacterData00, java.lang.Long]
+syms.packages.size=9 keySet=[java.lang, sun, java.lang.annotation, my.test, java.io, , java.util, my, java]
+
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=1
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=CLASSDEF visitClassDef
+先前Env=null
+当前Env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=0 owner=my)]]]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)
+-------------------------------------------------------------------------
+JCClassDecl tree.sym=null
+JCClassDecl tree.name=StaticImportTest
+Symbol owner.kind=PCK 
+Symbol owner=my
+Scope enclScope=Scope[(nelems=0 owner=my)]
+PackageSymbol packge.flags_field(1)=8388608(exists )
+PackageSymbol packge.name=my
+PackageSymbol packge.flags_field(2)=8388608(exists )
+packge.members()前=Scope[(nelems=15 owner=my)Debug, testClash, StaticImportTest, StaticImportTest$MyInnerClassStaticProtected, StaticImportTest$MyInnerClassStaticPublic, StaticImportTest$MyInnerClassStaticPrivate, StaticImportTest$MyInnerClass, InterfaceTest, InterfaceTest$InterfaceInnerEnum, InterfaceTest$InterfaceInnerInterface, InterfaceTest$InterfaceInnerClass, ExtendsTest, Test$TestInner, Test$1, Test]
+packge.members()后=Scope[(nelems=15 owner=my)Debug, testClash, StaticImportTest, StaticImportTest$MyInnerClassStaticProtected, StaticImportTest$MyInnerClassStaticPublic, StaticImportTest$MyInnerClassStaticPrivate, StaticImportTest$MyInnerClass, InterfaceTest, InterfaceTest$InterfaceInnerEnum, InterfaceTest$InterfaceInnerInterface, InterfaceTest$InterfaceInnerClass, ExtendsTest, Test$TestInner, Test$1, Test]
+
+
+JCClassDecl tree.sym=my.StaticImportTest
+JCClassDecl tree.sym.members_field=Scope[(nelems=0 owner=StaticImportTest)]
+ClassSymbol c.sourcefile=null
+ClassSymbol c.classfile=bin\mysrc\my\StaticImportTest.java
+if (chk.compiled.get(c.flatname) != null)=false
+Scope enclScope=Scope[(nelems=1 owner=my)StaticImportTest]
+env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]
+c.flags_field=class_seen source_seen 
+tree.mods.flags=public 
+ClassSymbol c.sourcefile=bin\mysrc\my\StaticImportTest.java
+c.flags_field=public 
+owner.kind=PCK 
+ct.getEnclosingType()=<none>
+ct.getEnclosingType()=<none>
+ct.typarams_field=null
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+ct.typarams_field=
+
+
+***Enter完Type Parameter***
+-----------------------------------------------
+类名: my.StaticImportTest
+成员: Scope[(nelems=0 owner=StaticImportTest)]
+Type Parameter: Scope[(nelems=0 owner=StaticImportTest)]
+
+
+if (!c.isLocal() && uncompleted != null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=6
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=CLASSDEF visitClassDef
+先前Env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]
+当前Env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=StaticImportTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)
+-------------------------------------------------------------------------
+JCClassDecl tree.sym=null
+JCClassDecl tree.name=MyInnerClass
+Symbol owner.kind=TYP 
+Symbol owner=my.StaticImportTest
+Scope enclScope=Scope[(nelems=0 owner=StaticImportTest)]
+owner.flags_field=public 
+tree.mods.flags=public 
+tree.mods.flags=public 
+
+
+JCClassDecl tree.sym=my.StaticImportTest.MyInnerClass
+JCClassDecl tree.sym.members_field=null
+ClassSymbol c.sourcefile=null
+ClassSymbol c.classfile=bin\mybin\my\StaticImportTest$MyInnerClass.class
+if (chk.compiled.get(c.flatname) != null)=false
+Scope enclScope=Scope[(nelems=1 owner=StaticImportTest)MyInnerClass]
+env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=StaticImportTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]
+c.flags_field=class_seen 
+tree.mods.flags=public 
+ClassSymbol c.sourcefile=bin\mysrc\my\StaticImportTest.java
+c.flags_field=public 
+owner.kind=TYP 
+ct.getEnclosingType()=<none>
+ClassType ct.getEnclosingType()=my.StaticImportTest
+ct.getEnclosingType()=my.StaticImportTest
+ct.typarams_field=null
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+ct.typarams_field=
+
+
+***Enter完Type Parameter***
+-----------------------------------------------
+类名: my.StaticImportTest.MyInnerClass
+成员: Scope[(nelems=0 owner=MyInnerClass)]
+Type Parameter: Scope[(nelems=0 owner=MyInnerClass)]
+
+
+if (!c.isLocal() && uncompleted != null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***类的所有成员Enter完成***
+-----------------------------------------------
+类名: my.StaticImportTest.MyInnerClass
+成员: Scope[(nelems=0 owner=MyInnerClass)]
+Type Parameter: Scope[(nelems=0 owner=MyInnerClass)]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=CLASSDEF visitClassDef
+先前Env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]
+当前Env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=StaticImportTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)
+-------------------------------------------------------------------------
+JCClassDecl tree.sym=null
+JCClassDecl tree.name=MyInnerClassStaticPrivate
+Symbol owner.kind=TYP 
+Symbol owner=my.StaticImportTest
+Scope enclScope=Scope[(nelems=1 owner=StaticImportTest)MyInnerClass]
+owner.flags_field=public 
+tree.mods.flags=private static 
+tree.mods.flags=private static 
+
+
+JCClassDecl tree.sym=my.StaticImportTest.MyInnerClassStaticPrivate
+JCClassDecl tree.sym.members_field=null
+ClassSymbol c.sourcefile=null
+ClassSymbol c.classfile=bin\mybin\my\StaticImportTest$MyInnerClassStaticPrivate.class
+if (chk.compiled.get(c.flatname) != null)=false
+Scope enclScope=Scope[(nelems=2 owner=StaticImportTest)MyInnerClassStaticPrivate, MyInnerClass]
+env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=StaticImportTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]
+c.flags_field=class_seen 
+tree.mods.flags=private static 
+ClassSymbol c.sourcefile=bin\mysrc\my\StaticImportTest.java
+c.flags_field=private static 
+owner.kind=TYP 
+ct.getEnclosingType()=<none>
+ct.getEnclosingType()=<none>
+ct.typarams_field=null
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+ct.typarams_field=
+
+
+***Enter完Type Parameter***
+-----------------------------------------------
+类名: my.StaticImportTest.MyInnerClassStaticPrivate
+成员: Scope[(nelems=0 owner=MyInnerClassStaticPrivate)]
+Type Parameter: Scope[(nelems=0 owner=MyInnerClassStaticPrivate)]
+
+
+if (!c.isLocal() && uncompleted != null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***类的所有成员Enter完成***
+-----------------------------------------------
+类名: my.StaticImportTest.MyInnerClassStaticPrivate
+成员: Scope[(nelems=0 owner=MyInnerClassStaticPrivate)]
+Type Parameter: Scope[(nelems=0 owner=MyInnerClassStaticPrivate)]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=CLASSDEF visitClassDef
+先前Env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]
+当前Env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=StaticImportTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)
+-------------------------------------------------------------------------
+JCClassDecl tree.sym=null
+JCClassDecl tree.name=MyInnerClassStaticPublic
+Symbol owner.kind=TYP 
+Symbol owner=my.StaticImportTest
+Scope enclScope=Scope[(nelems=2 owner=StaticImportTest)MyInnerClassStaticPrivate, MyInnerClass]
+owner.flags_field=public 
+tree.mods.flags=public static 
+tree.mods.flags=public static 
+
+
+JCClassDecl tree.sym=my.StaticImportTest.MyInnerClassStaticPublic
+JCClassDecl tree.sym.members_field=null
+ClassSymbol c.sourcefile=null
+ClassSymbol c.classfile=bin\mybin\my\StaticImportTest$MyInnerClassStaticPublic.class
+if (chk.compiled.get(c.flatname) != null)=false
+Scope enclScope=Scope[(nelems=3 owner=StaticImportTest)MyInnerClassStaticPublic, MyInnerClassStaticPrivate, MyInnerClass]
+env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=StaticImportTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]
+c.flags_field=class_seen 
+tree.mods.flags=public static 
+ClassSymbol c.sourcefile=bin\mysrc\my\StaticImportTest.java
+c.flags_field=public static 
+owner.kind=TYP 
+ct.getEnclosingType()=<none>
+ct.getEnclosingType()=<none>
+ct.typarams_field=null
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+ct.typarams_field=
+
+
+***Enter完Type Parameter***
+-----------------------------------------------
+类名: my.StaticImportTest.MyInnerClassStaticPublic
+成员: Scope[(nelems=0 owner=MyInnerClassStaticPublic)]
+Type Parameter: Scope[(nelems=0 owner=MyInnerClassStaticPublic)]
+
+
+if (!c.isLocal() && uncompleted != null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=1
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=VARDEF visitVarDef
+先前Env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=StaticImportTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]
+当前Env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=MyInnerClassStaticPublic)]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=StaticImportTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]]
+com.sun.tools.javac.comp.Enter===>visitTree(1)
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>visitTree(1)  END
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***类的所有成员Enter完成***
+-----------------------------------------------
+类名: my.StaticImportTest.MyInnerClassStaticPublic
+成员: Scope[(nelems=0 owner=MyInnerClassStaticPublic)]
+Type Parameter: Scope[(nelems=0 owner=MyInnerClassStaticPublic)]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=CLASSDEF visitClassDef
+先前Env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]
+当前Env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=StaticImportTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)
+-------------------------------------------------------------------------
+JCClassDecl tree.sym=null
+JCClassDecl tree.name=MyInnerClassStaticProtected
+Symbol owner.kind=TYP 
+Symbol owner=my.StaticImportTest
+Scope enclScope=Scope[(nelems=3 owner=StaticImportTest)MyInnerClassStaticPublic, MyInnerClassStaticPrivate, MyInnerClass]
+owner.flags_field=public 
+tree.mods.flags=protected static 
+tree.mods.flags=protected static 
+
+
+JCClassDecl tree.sym=my.StaticImportTest.MyInnerClassStaticProtected
+JCClassDecl tree.sym.members_field=null
+ClassSymbol c.sourcefile=null
+ClassSymbol c.classfile=bin\mybin\my\StaticImportTest$MyInnerClassStaticProtected.class
+if (chk.compiled.get(c.flatname) != null)=false
+Scope enclScope=Scope[(nelems=4 owner=StaticImportTest)MyInnerClassStaticProtected, MyInnerClassStaticPublic, MyInnerClassStaticPrivate, MyInnerClass]
+env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=StaticImportTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]
+c.flags_field=class_seen 
+tree.mods.flags=protected static 
+ClassSymbol c.sourcefile=bin\mysrc\my\StaticImportTest.java
+c.flags_field=protected static 
+owner.kind=TYP 
+ct.getEnclosingType()=<none>
+ct.getEnclosingType()=<none>
+ct.typarams_field=null
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+ct.typarams_field=
+
+
+***Enter完Type Parameter***
+-----------------------------------------------
+类名: my.StaticImportTest.MyInnerClassStaticProtected
+成员: Scope[(nelems=0 owner=MyInnerClassStaticProtected)]
+Type Parameter: Scope[(nelems=0 owner=MyInnerClassStaticProtected)]
+
+
+if (!c.isLocal() && uncompleted != null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***类的所有成员Enter完成***
+-----------------------------------------------
+类名: my.StaticImportTest.MyInnerClassStaticProtected
+成员: Scope[(nelems=0 owner=MyInnerClassStaticProtected)]
+Type Parameter: Scope[(nelems=0 owner=MyInnerClassStaticProtected)]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=VARDEF visitVarDef
+先前Env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]
+当前Env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=StaticImportTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]
+com.sun.tools.javac.comp.Enter===>visitTree(1)
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>visitTree(1)  END
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=METHODDEF visitMethodDef
+先前Env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]
+当前Env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=StaticImportTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]
+com.sun.tools.javac.comp.Enter===>visitTree(1)
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>visitTree(1)  END
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***类的所有成员Enter完成***
+-----------------------------------------------
+类名: my.StaticImportTest
+成员: Scope[(nelems=4 owner=StaticImportTest)MyInnerClassStaticProtected, MyInnerClassStaticPublic, MyInnerClassStaticPrivate, MyInnerClass]
+Type Parameter: Scope[(nelems=0 owner=StaticImportTest)]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***第一阶段Enter完成***
+-----------------------------------------------
+包名: my
+--------------------------
+tree.packge.members_field: Scope[(nelems=15 owner=my)Debug, testClash, StaticImportTest, InterfaceTest, InterfaceTest$InterfaceInnerEnum, InterfaceTest$InterfaceInnerInterface, InterfaceTest$InterfaceInnerClass, ExtendsTest, Test$TestInner, Test$1, Test]
+tree.namedImportScope    : Scope[(nelems=1 owner=my)StaticImportTest]
+tree.starImportScope     : Scope[(nelems=0 owner=my)]
+
+等待编译的类的总数: 5
+--------------------------
+类名             : my.StaticImportTest
+members_field    : Scope[(nelems=4 owner=StaticImportTest)MyInnerClassStaticProtected, MyInnerClassStaticPublic, MyInnerClassStaticPrivate, MyInnerClass]
+flags            : public 
+sourcefile       : bin\mysrc\my\StaticImportTest.java
+classfile        : bin\mysrc\my\StaticImportTest.java
+type             : my.StaticImportTest
+outer_field      : <none>
+supertype_field  : null
+interfaces_field : null
+typarams_field   : 
+allparams_field  : null
+
+类名             : my.StaticImportTest.MyInnerClass
+members_field    : Scope[(nelems=0 owner=MyInnerClass)]
+flags            : public 
+sourcefile       : bin\mysrc\my\StaticImportTest.java
+classfile        : bin\mybin\my\StaticImportTest$MyInnerClass.class
+type             : my.StaticImportTest.MyInnerClass
+outer_field      : my.StaticImportTest
+supertype_field  : null
+interfaces_field : null
+typarams_field   : 
+allparams_field  : null
+
+类名             : my.StaticImportTest.MyInnerClassStaticPrivate
+members_field    : Scope[(nelems=0 owner=MyInnerClassStaticPrivate)]
+flags            : private static 
+sourcefile       : bin\mysrc\my\StaticImportTest.java
+classfile        : bin\mybin\my\StaticImportTest$MyInnerClassStaticPrivate.class
+type             : my.StaticImportTest.MyInnerClassStaticPrivate
+outer_field      : <none>
+supertype_field  : null
+interfaces_field : null
+typarams_field   : 
+allparams_field  : null
+
+类名             : my.StaticImportTest.MyInnerClassStaticPublic
+members_field    : Scope[(nelems=0 owner=MyInnerClassStaticPublic)]
+flags            : public static 
+sourcefile       : bin\mysrc\my\StaticImportTest.java
+classfile        : bin\mybin\my\StaticImportTest$MyInnerClassStaticPublic.class
+type             : my.StaticImportTest.MyInnerClassStaticPublic
+outer_field      : <none>
+supertype_field  : null
+interfaces_field : null
+typarams_field   : 
+allparams_field  : null
+
+类名             : my.StaticImportTest.MyInnerClassStaticProtected
+members_field    : Scope[(nelems=0 owner=MyInnerClassStaticProtected)]
+flags            : protected static 
+sourcefile       : bin\mysrc\my\StaticImportTest.java
+classfile        : bin\mybin\my\StaticImportTest$MyInnerClassStaticProtected.class
+type             : my.StaticImportTest.MyInnerClassStaticProtected
+outer_field      : <none>
+supertype_field  : null
+interfaces_field : null
+typarams_field   : 
+allparams_field  : null
+
+
+Env总数: 7
+--------------------------
+my.test.Test.MyTestInnerClass=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=MyTestInnerClass)]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=3 owner=Test)E, T, S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=test)Test]]]]]
+my.StaticImportTest.MyInnerClassStaticProtected=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=MyInnerClassStaticProtected)]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=StaticImportTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]]
+my.StaticImportTest.MyInnerClass=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=MyInnerClass)]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=StaticImportTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]]
+my.StaticImportTest.MyInnerClassStaticPrivate=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=MyInnerClassStaticPrivate)]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=StaticImportTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]]
+my.test.Test=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=3 owner=Test)E, T, S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=test)Test]]]]
+my.StaticImportTest.MyInnerClassStaticPublic=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=MyInnerClassStaticPublic)]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=StaticImportTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]]
+my.StaticImportTest=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=StaticImportTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]
+
+
+syms.classes.size=209 keySet=[java.lang.Character$UnicodeBlock, java.lang.UnsupportedOperationException, my.test.Test$TestInner, java.lang.ClassLoader$3, java.lang.Process, java.lang.System, java.lang.ClassLoader$1, java.lang.IndexOutOfBoundsException, java.lang.annotation.Annotation, java.lang.String, java.lang.ConditionalSpecialCasing$Entry, java.lang.ProcessEnvironment, java.lang.StringBuffer, java.lang.ProcessEnvironment$EntryComparator, java.lang.Readable, , my.test.TestOhter, my.InterfaceTest$InterfaceInnerClass, java.lang.ThreadLocal$ThreadLocalMap, java.lang.Thread$1, java.lang.ThreadGroup, java.lang.ProcessBuilder, java.lang.CharSequence, my.test.Test$1MyLocalClass1, java.lang.StrictMath, java.lang.Runtime, java.lang.Boolean, java.lang.Object, java.lang.ProcessEnvironment$1, java.lang.SecurityManager$1, java.lang.ProcessImpl, java.lang.Appendable, java.lang.SystemClassLoaderAction, java.lang.ArrayIndexOutOfBoundsException, java.lang.LinkageError, java.lang.Class, java.lang.Class$1, java.lang.CloneNotSupportedException, java.lang.ProcessEnvironment$NameComparator, java.lang.AssertionError, my.ExtendsTest, java.lang.StringCoding, java.lang.SecurityManager, java.lang.ClassCircularityError, java.lang.Cloneable, java.lang.Void, my.test.Test$1, my.test.MyInterfaceA$MyInnerClass, java.lang.Character$Subset, my.Test$TestInner, java.lang.Math, java.lang.ThreadDeath, java.io.Serializable, my.test.Test, java.lang.AbstractStringBuilder, java.lang.ProcessImpl$1, java.lang.Package, java.lang.ArrayStoreException, java.lang.StackTraceElement, java.lang.Terminator$1, java.lang.annotation.Inherited, java.lang.Shutdown$1, my.Test, my.Test$1, java.util.Collections, java.lang.Class$MethodArray, java.lang.Enum, java.lang.Byte$ByteCache, java.lang.NegativeArraySizeException, java.lang.StringIndexOutOfBoundsException, java.lang.Package$1, java.lang.StringCoding$StringDecoder, java.lang.Terminator, java.lang.Character$CharacterCache, java.lang.IllegalAccessException, java.util.List, sun.Proprietary+Annotation, java.lang.Error, java.lang.ClassCastException, java.lang.SecurityManager$2, java.lang.IllegalArgumentException, java.lang.IllegalStateException, my.test.Test$MyTestInnerClass, my.test.MyUncompletedClass, java.lang.ClassLoader, java.lang.AssertionStatusDirectives, java.lang.ClassLoader$2, java.lang.StringBuilder, java.lang.Class$EnclosingMethodInfo, java.lang.Number, java.lang.ClassLoader$NativeLibrary, java.lang.VirtualMachineError, java.lang.InstantiationException, my.test.Test$MyInnerInterface, java.lang.StringCoding$1, java.lang.ExceptionInInitializerError, my.test.Test07, my.test.Test$MyInnerEnum, java.lang.Short$ShortCache, java.lang.ProcessEnvironment$CheckedValues, java.lang.Package$1PackageInfoProxy, java.lang.Throwable, java.lang.Class$2, my.test.Test06, java.lang.ThreadLocal$ThreadLocalMap$Entry, java.lang.String$1, java.lang.InternalError, java.lang.ThreadLocal$1, java.lang.CharacterDataUndefined, java.lang.Integer$IntegerCache, my.StaticImportTest$MyInnerClassStaticPrivate, java.lang.RuntimeException, java.lang.Compiler$1, my.test.Test04, java.lang.annotation.Target, my.test.Test$MyInnerClass, java.lang.OutOfMemoryError, java.lang.IllegalThreadStateException, java.lang.String$CaseInsensitiveComparator, java.lang.ApplicationShutdownHooks, java.lang.ProcessEnvironment$CheckedEntrySet, my.test.Test01, java.lang.CharacterDataLatin1, java.lang.ClassNotFoundException, java.lang.ClassFormatError, java.lang.System$1, java.util.Iterator, my.test.Test05, java.lang.Class$4, java.lang.Iterable, java.lang.StackOverflowError, java.lang.System$2, my.StaticImportTest$MyInnerClass, java.lang.CharacterDataPrivateUse, java.lang.Byte, java.util.Arrays, java.lang.ProcessEnvironment$CheckedKeySet, java.lang.UnsatisfiedLinkError, my.test.ExtendsTestBound, java.lang.ArithmeticException, java.lang.InstantiationError, java.lang.NoSuchMethodException, java.lang.SecurityException, java.lang.AbstractMethodError, my.StaticImportTest$MyInnerClassStaticPublic, java.lang.NullPointerException, java.lang.Compiler, java.lang.Exception, java.lang.NoSuchFieldException, java.lang.Comparable, my.test.Test03, java.lang.TypeNotPresentException, my.test.Test$MyInnerClassStatic, java.lang.IllegalMonitorStateException, java.lang.NumberFormatException, java.lang.Integer, my.test.Test02, java.lang.Shutdown$Lock, java.lang.CharacterData0E, java.lang.StringCoding$StringEncoder, java.lang.ThreadLocal, java.lang.ConditionalSpecialCasing, my.test.TestOhter2, java.lang.NoSuchMethodError, my.InterfaceTest, java.lang.SuppressWarnings, java.lang.UnsupportedClassVersionError, java.lang.Character, java.lang.Runnable, java.lang.Deprecated, java.lang.UnknownError, my.test.MyInterfaceA$MyInnerClassStatic, java.lang.Shutdown, java.lang.Thread, my.StaticImportTest$MyInnerClassStaticProtected, java.lang.Short, java.lang.NoSuchFieldError, java.lang.ProcessEnvironment$CheckedEntry, java.lang.CharacterData02, my.InterfaceTest$InterfaceInnerEnum, my.test.TestBound, java.lang.Class$3, my.test.package-info, java.lang.CharacterData01, java.lang.annotation.Retention, java.lang.Long$LongCache, java.lang.ProcessEnvironment$CheckedEntrySet$1, my.testClash, java.lang.Double, java.lang.VerifyError, java.lang.Thread$State, java.lang.RuntimePermission, java.lang.EnumConstantNotPresentException, java.lang.Float, my.Debug, my.test.MyInterfaceA, java.lang.InterruptedException, my.test.MyInterfaceB, java.lang.Override, java.lang.NoClassDefFoundError, java.lang.IncompatibleClassChangeError, java.lang.InheritableThreadLocal, java.lang.Thread$UncaughtExceptionHandler, my.StaticImportTest, my.InterfaceTest$InterfaceInnerInterface, java.lang.IllegalAccessError, my.test.MyInterfaceA$MyInnerInterface, java.lang.CharacterData00, java.lang.Long]
+syms.packages.size=9 keySet=[java.lang, sun, java.lang.annotation, my.test, java.io, , java.util, my, java]
+
+
+com.sun.tools.javac.comp.Enter===>visitTopLevel(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+
+
+
+***进入第二阶段MemberEnter***
+-----------------------------------------------
+memberEnter.completionEnabled=true
+uncompleted=5 my.StaticImportTest,my.StaticImportTest.MyInnerClass,my.StaticImportTest.MyInnerClassStaticPrivate,my.StaticImportTest.MyInnerClassStaticPublic,my.StaticImportTest.MyInnerClassStaticProtected
+Uncompleted SymbolName=my.StaticImportTest
+clazz.completer=com.sun.tools.javac.comp.MemberEnter@a6aeed
+(c == null)=false
+(c == clazz)=true
+(prevUncompleted == null)=false
+
+Uncompleted SymbolName=my.StaticImportTest.MyInnerClass
+clazz.completer=com.sun.tools.javac.comp.MemberEnter@a6aeed
+(c == null)=false
+(c == clazz)=false
+(prevUncompleted == null)=false
+
+Uncompleted SymbolName=my.StaticImportTest.MyInnerClassStaticPrivate
+clazz.completer=com.sun.tools.javac.comp.MemberEnter@a6aeed
+(c == null)=false
+(c == clazz)=false
+(prevUncompleted == null)=false
+
+Uncompleted SymbolName=my.StaticImportTest.MyInnerClassStaticPublic
+clazz.completer=com.sun.tools.javac.comp.MemberEnter@a6aeed
+(c == null)=false
+(c == clazz)=false
+(prevUncompleted == null)=false
+
+Uncompleted SymbolName=my.StaticImportTest.MyInnerClassStaticProtected
+clazz.completer=com.sun.tools.javac.comp.MemberEnter@a6aeed
+(c == null)=false
+(c == clazz)=false
+(prevUncompleted == null)=false
+
+
+
+tree.starImportScope=Scope[(nelems=156 owner=my)Object, Comparable, CharSequence, String, Class, Cloneable, ClassLoader, System, Throwable, Error, ThreadDeath, Exception, RuntimeException, ClassNotFoundException, LinkageError, NoClassDefFoundError, ClassCastException, ArrayStoreException, VirtualMachineError, OutOfMemoryError, StackOverflowError, IllegalMonitorStateException, Runnable, Thread, Thread$UncaughtExceptionHandler, ThreadGroup, Iterable, Appendable, AbstractStringBuilder, StringBuffer, StackTraceElement, Boolean, Character, Number, Float, Double, Byte, Short, Integer, Long, NullPointerException, ArithmeticException, String$CaseInsensitiveComparator, RuntimePermission, Class$3, ThreadLocal, Math, StringBuilder, Class$1, Runtime, Readable, ClassLoader$3, ClassLoader$NativeLibrary, Terminator, Terminator$1, System$2, Compiler, Compiler$1, CharacterDataLatin1, IncompatibleClassChangeError, NoSuchMethodError, SystemClassLoaderAction, StringCoding, ThreadLocal$ThreadLocalMap, ThreadLocal$ThreadLocalMap$Entry, StringCoding$StringDecoder, Shutdown, Shutdown$Lock, InterruptedException, Enum, Class$4, Integer$IntegerCache, NoSuchMethodException, IllegalStateException, Short$ShortCache, ClassLoader$2, UnsupportedOperationException, Package, StrictMath, IllegalArgumentException, NumberFormatException, Thread$State, Void, InheritableThreadLocal, InternalError, SecurityException, NoSuchFieldException, IllegalAccessException, InstantiationException, IndexOutOfBoundsException, ArrayIndexOutOfBoundsException, IllegalAccessError, CloneNotSupportedException, Long$LongCache, StringCoding$StringEncoder, UnsatisfiedLinkError, ClassFormatError, ExceptionInInitializerError, StringIndexOutOfBoundsException, SecurityManager, SecurityManager$1, Thread$1, ClassLoader$1, VerifyError, UnsupportedClassVersionError, UnknownError, TypeNotPresentException, ThreadLocal$1, System$1, SuppressWarnings, StringCoding$1, String$1, Shutdown$1, SecurityManager$2, ProcessImpl, ProcessImpl$1, ProcessEnvironment, ProcessEnvironment$NameComparator, ProcessEnvironment$EntryComparator, ProcessEnvironment$CheckedValues, ProcessEnvironment$CheckedKeySet, ProcessEnvironment$CheckedEntrySet, ProcessEnvironment$CheckedEntrySet$1, ProcessEnvironment$CheckedEntry, ProcessEnvironment$1, ProcessBuilder, Process, Package$1PackageInfoProxy, Package$1, Override, NoSuchFieldError, NegativeArraySizeException, InstantiationError, IllegalThreadStateException, EnumConstantNotPresentException, Deprecated, ConditionalSpecialCasing, ConditionalSpecialCasing$Entry, ClassCircularityError, Class$MethodArray, Class$EnclosingMethodInfo, Class$2, CharacterDataUndefined, CharacterDataPrivateUse, CharacterData0E, CharacterData02, CharacterData01, CharacterData00, Character$UnicodeBlock, Character$Subset, Character$CharacterCache, Byte$ByteCache, AssertionStatusDirectives, AssertionError, ApplicationShutdownHooks, AbstractMethodError]
+tree.namedImportScope=Scope[(nelems=1 owner=my)StaticImportTest]
+uncompleted=5 my.test.Test.MyTestInnerClass,my.StaticImportTest.MyInnerClass,my.StaticImportTest.MyInnerClassStaticPrivate,my.StaticImportTest.MyInnerClassStaticPublic,my.StaticImportTest.MyInnerClassStaticProtected
+
+
+完成Enter后List<JCCompilationUnit> trees的内容: trees.size=1
+------------------------------------------------------------------------------
+package my;
+
+public class StaticImportTest {
+    
+    public StaticImportTest() 0{
+        super();
+    }
+    
+    public class MyInnerClass {
+    }
+    
+    private static class MyInnerClassStaticPrivate {
+    }
+    
+    public static class MyInnerClassStaticPublic {
+        public int field;
+    }
+    
+    protected static class MyInnerClassStaticProtected {
+    }
+    public static int staticField = 1;
+    
+    public static void staticMethod() 0{
+    }
+}
+------------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>complete(2)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>complete(2)
+-------------------------------------------------------------------------
+完成Enter前List<JCCompilationUnit> trees的内容: trees.size=1
+------------------------------------------------------------------------------
+package my;
+
+public class ExtendsTest<T, S> {
+}
+------------------------------------------------------------------------------
+
+Env总数: 7
+--------------------------
+my.test.Test.MyTestInnerClass=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=MyTestInnerClass)]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=3 owner=Test)E, T, S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=3 owner=test)MyInnerClass, MyInnerClassStaticPublic, Test]]]]]
+my.StaticImportTest.MyInnerClassStaticProtected=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=MyInnerClassStaticProtected)super, this]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=StaticImportTest)super, this]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]]
+my.StaticImportTest.MyInnerClass=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=MyInnerClass)super, this]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=StaticImportTest)super, this]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]]
+my.StaticImportTest.MyInnerClassStaticPrivate=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=MyInnerClassStaticPrivate)super, this]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=StaticImportTest)super, this]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]]
+my.test.Test=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=3 owner=Test)E, T, S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=3 owner=test)MyInnerClass, MyInnerClassStaticPublic, Test]]]]
+my.StaticImportTest.MyInnerClassStaticPublic=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=MyInnerClassStaticPublic)super, this]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=StaticImportTest)super, this]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]]
+my.StaticImportTest=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=StaticImportTest)super, this]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]
+
+memberEnter.completionEnabled=true
+ListBuffer<ClassSymbol> uncompleted.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=1
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=TOPLEVEL visitTopLevel
+先前Env=null
+当前Env=null
+com.sun.tools.javac.comp.Enter===>visitTopLevel(1)
+-------------------------------------------------------------------------
+JCCompilationUnit tree.sourcefile=bin\mysrc\my\ExtendsTest.java
+JCCompilationUnit tree.packge=null
+JCCompilationUnit tree.packge=my
+JCCompilationUnit tree.packge.members_field=Scope[(nelems=15 owner=my)Debug, testClash, StaticImportTest, InterfaceTest, InterfaceTest$InterfaceInnerEnum, InterfaceTest$InterfaceInnerInterface, InterfaceTest$InterfaceInnerClass, ExtendsTest, Test$TestInner, Test$1, Test]
+syms.classes.size=209 keySet=[java.lang.Character$UnicodeBlock, java.lang.UnsupportedOperationException, my.test.Test$TestInner, java.lang.ClassLoader$3, java.lang.Process, java.lang.System, java.lang.ClassLoader$1, java.lang.IndexOutOfBoundsException, java.lang.annotation.Annotation, java.lang.String, java.lang.ConditionalSpecialCasing$Entry, java.lang.ProcessEnvironment, java.lang.StringBuffer, java.lang.ProcessEnvironment$EntryComparator, java.lang.Readable, , my.test.TestOhter, my.InterfaceTest$InterfaceInnerClass, java.lang.ThreadLocal$ThreadLocalMap, java.lang.Thread$1, java.lang.ThreadGroup, java.lang.ProcessBuilder, java.lang.CharSequence, my.test.Test$1MyLocalClass1, java.lang.StrictMath, java.lang.Runtime, java.lang.Boolean, java.lang.Object, java.lang.ProcessEnvironment$1, java.lang.SecurityManager$1, java.lang.ProcessImpl, java.lang.Appendable, java.lang.SystemClassLoaderAction, java.lang.ArrayIndexOutOfBoundsException, java.lang.LinkageError, java.lang.Class, java.lang.Class$1, java.lang.CloneNotSupportedException, java.lang.ProcessEnvironment$NameComparator, java.lang.AssertionError, my.ExtendsTest, java.lang.StringCoding, java.lang.SecurityManager, java.lang.ClassCircularityError, java.lang.Cloneable, java.lang.Void, my.test.Test$1, my.test.MyInterfaceA$MyInnerClass, java.lang.Character$Subset, my.Test$TestInner, java.lang.Math, java.lang.ThreadDeath, java.io.Serializable, my.test.Test, java.lang.AbstractStringBuilder, java.lang.ProcessImpl$1, java.lang.Package, java.lang.ArrayStoreException, java.lang.StackTraceElement, java.lang.Terminator$1, java.lang.annotation.Inherited, java.lang.Shutdown$1, my.Test, my.Test$1, java.util.Collections, java.lang.Class$MethodArray, java.lang.Enum, java.lang.Byte$ByteCache, java.lang.NegativeArraySizeException, java.lang.StringIndexOutOfBoundsException, java.lang.Package$1, java.lang.StringCoding$StringDecoder, java.lang.Terminator, java.lang.Character$CharacterCache, java.lang.IllegalAccessException, java.util.List, sun.Proprietary+Annotation, java.lang.Error, java.lang.ClassCastException, java.lang.SecurityManager$2, java.lang.IllegalArgumentException, java.lang.IllegalStateException, my.test.Test$MyTestInnerClass, my.test.MyUncompletedClass, java.lang.ClassLoader, java.lang.AssertionStatusDirectives, java.lang.ClassLoader$2, java.lang.StringBuilder, java.lang.Class$EnclosingMethodInfo, java.lang.Number, java.lang.ClassLoader$NativeLibrary, java.lang.VirtualMachineError, java.lang.InstantiationException, my.test.Test$MyInnerInterface, java.lang.StringCoding$1, java.lang.ExceptionInInitializerError, my.test.Test07, my.test.Test$MyInnerEnum, java.lang.Short$ShortCache, java.lang.ProcessEnvironment$CheckedValues, java.lang.Package$1PackageInfoProxy, java.lang.Throwable, java.lang.Class$2, my.test.Test06, java.lang.ThreadLocal$ThreadLocalMap$Entry, java.lang.String$1, java.lang.InternalError, java.lang.ThreadLocal$1, java.lang.CharacterDataUndefined, java.lang.Integer$IntegerCache, my.StaticImportTest$MyInnerClassStaticPrivate, java.lang.RuntimeException, java.lang.Compiler$1, my.test.Test04, java.lang.annotation.Target, my.test.Test$MyInnerClass, java.lang.OutOfMemoryError, java.lang.IllegalThreadStateException, java.lang.String$CaseInsensitiveComparator, java.lang.ApplicationShutdownHooks, java.lang.ProcessEnvironment$CheckedEntrySet, my.test.Test01, java.lang.CharacterDataLatin1, java.lang.ClassNotFoundException, java.lang.ClassFormatError, java.lang.System$1, java.util.Iterator, my.test.Test05, java.lang.Class$4, java.lang.Iterable, java.lang.StackOverflowError, java.lang.System$2, my.StaticImportTest$MyInnerClass, java.lang.CharacterDataPrivateUse, java.lang.Byte, java.util.Arrays, java.lang.ProcessEnvironment$CheckedKeySet, java.lang.UnsatisfiedLinkError, my.test.ExtendsTestBound, java.lang.ArithmeticException, java.lang.InstantiationError, java.lang.NoSuchMethodException, java.lang.SecurityException, java.lang.AbstractMethodError, my.StaticImportTest$MyInnerClassStaticPublic, java.lang.NullPointerException, java.lang.Compiler, java.lang.Exception, java.lang.NoSuchFieldException, java.lang.Comparable, my.test.Test03, java.lang.TypeNotPresentException, my.test.Test$MyInnerClassStatic, java.lang.IllegalMonitorStateException, java.lang.NumberFormatException, java.lang.Integer, my.test.Test02, java.lang.Shutdown$Lock, java.lang.CharacterData0E, java.lang.StringCoding$StringEncoder, java.lang.ThreadLocal, java.lang.ConditionalSpecialCasing, my.test.TestOhter2, java.lang.NoSuchMethodError, my.InterfaceTest, java.lang.SuppressWarnings, java.lang.UnsupportedClassVersionError, java.lang.Character, java.lang.Runnable, java.lang.Deprecated, java.lang.UnknownError, my.test.MyInterfaceA$MyInnerClassStatic, java.lang.Shutdown, java.lang.Thread, my.StaticImportTest$MyInnerClassStaticProtected, java.lang.Short, java.lang.NoSuchFieldError, java.lang.ProcessEnvironment$CheckedEntry, java.lang.CharacterData02, my.InterfaceTest$InterfaceInnerEnum, my.test.TestBound, java.lang.Class$3, my.test.package-info, java.lang.CharacterData01, java.lang.annotation.Retention, java.lang.Long$LongCache, java.lang.ProcessEnvironment$CheckedEntrySet$1, my.testClash, java.lang.Double, java.lang.VerifyError, java.lang.Thread$State, java.lang.RuntimePermission, java.lang.EnumConstantNotPresentException, java.lang.Float, my.Debug, my.test.MyInterfaceA, java.lang.InterruptedException, my.test.MyInterfaceB, java.lang.Override, java.lang.NoClassDefFoundError, java.lang.IncompatibleClassChangeError, java.lang.InheritableThreadLocal, java.lang.Thread$UncaughtExceptionHandler, my.StaticImportTest, my.InterfaceTest$InterfaceInnerInterface, java.lang.IllegalAccessError, my.test.MyInterfaceA$MyInnerInterface, java.lang.CharacterData00, java.lang.Long]
+syms.packages.size=10 keySet=[java.lang, sun, my.StaticImportTest, java.lang.annotation, my.test, java.io, , java.util, my, java]
+
+
+
+my包中的所有成员装载完成(Enter)
+JCCompilationUnit tree.packge.members_field=Scope[(nelems=15 owner=my)Debug, testClash, StaticImportTest, InterfaceTest, InterfaceTest$InterfaceInnerEnum, InterfaceTest$InterfaceInnerInterface, InterfaceTest$InterfaceInnerClass, ExtendsTest, Test$TestInner, Test$1, Test]
+syms.classes.size=209 keySet=[java.lang.Character$UnicodeBlock, java.lang.UnsupportedOperationException, my.test.Test$TestInner, java.lang.ClassLoader$3, java.lang.Process, java.lang.System, java.lang.ClassLoader$1, java.lang.IndexOutOfBoundsException, java.lang.annotation.Annotation, java.lang.String, java.lang.ConditionalSpecialCasing$Entry, java.lang.ProcessEnvironment, java.lang.StringBuffer, java.lang.ProcessEnvironment$EntryComparator, java.lang.Readable, , my.test.TestOhter, my.InterfaceTest$InterfaceInnerClass, java.lang.ThreadLocal$ThreadLocalMap, java.lang.Thread$1, java.lang.ThreadGroup, java.lang.ProcessBuilder, java.lang.CharSequence, my.test.Test$1MyLocalClass1, java.lang.StrictMath, java.lang.Runtime, java.lang.Boolean, java.lang.Object, java.lang.ProcessEnvironment$1, java.lang.SecurityManager$1, java.lang.ProcessImpl, java.lang.Appendable, java.lang.SystemClassLoaderAction, java.lang.ArrayIndexOutOfBoundsException, java.lang.LinkageError, java.lang.Class, java.lang.Class$1, java.lang.CloneNotSupportedException, java.lang.ProcessEnvironment$NameComparator, java.lang.AssertionError, my.ExtendsTest, java.lang.StringCoding, java.lang.SecurityManager, java.lang.ClassCircularityError, java.lang.Cloneable, java.lang.Void, my.test.Test$1, my.test.MyInterfaceA$MyInnerClass, java.lang.Character$Subset, my.Test$TestInner, java.lang.Math, java.lang.ThreadDeath, java.io.Serializable, my.test.Test, java.lang.AbstractStringBuilder, java.lang.ProcessImpl$1, java.lang.Package, java.lang.ArrayStoreException, java.lang.StackTraceElement, java.lang.Terminator$1, java.lang.annotation.Inherited, java.lang.Shutdown$1, my.Test, my.Test$1, java.util.Collections, java.lang.Class$MethodArray, java.lang.Enum, java.lang.Byte$ByteCache, java.lang.NegativeArraySizeException, java.lang.StringIndexOutOfBoundsException, java.lang.Package$1, java.lang.StringCoding$StringDecoder, java.lang.Terminator, java.lang.Character$CharacterCache, java.lang.IllegalAccessException, java.util.List, sun.Proprietary+Annotation, java.lang.Error, java.lang.ClassCastException, java.lang.SecurityManager$2, java.lang.IllegalArgumentException, java.lang.IllegalStateException, my.test.Test$MyTestInnerClass, my.test.MyUncompletedClass, java.lang.ClassLoader, java.lang.AssertionStatusDirectives, java.lang.ClassLoader$2, java.lang.StringBuilder, java.lang.Class$EnclosingMethodInfo, java.lang.Number, java.lang.ClassLoader$NativeLibrary, java.lang.VirtualMachineError, java.lang.InstantiationException, my.test.Test$MyInnerInterface, java.lang.StringCoding$1, java.lang.ExceptionInInitializerError, my.test.Test07, my.test.Test$MyInnerEnum, java.lang.Short$ShortCache, java.lang.ProcessEnvironment$CheckedValues, java.lang.Package$1PackageInfoProxy, java.lang.Throwable, java.lang.Class$2, my.test.Test06, java.lang.ThreadLocal$ThreadLocalMap$Entry, java.lang.String$1, java.lang.InternalError, java.lang.ThreadLocal$1, java.lang.CharacterDataUndefined, java.lang.Integer$IntegerCache, my.StaticImportTest$MyInnerClassStaticPrivate, java.lang.RuntimeException, java.lang.Compiler$1, my.test.Test04, java.lang.annotation.Target, my.test.Test$MyInnerClass, java.lang.OutOfMemoryError, java.lang.IllegalThreadStateException, java.lang.String$CaseInsensitiveComparator, java.lang.ApplicationShutdownHooks, java.lang.ProcessEnvironment$CheckedEntrySet, my.test.Test01, java.lang.CharacterDataLatin1, java.lang.ClassNotFoundException, java.lang.ClassFormatError, java.lang.System$1, java.util.Iterator, my.test.Test05, java.lang.Class$4, java.lang.Iterable, java.lang.StackOverflowError, java.lang.System$2, my.StaticImportTest$MyInnerClass, java.lang.CharacterDataPrivateUse, java.lang.Byte, java.util.Arrays, java.lang.ProcessEnvironment$CheckedKeySet, java.lang.UnsatisfiedLinkError, my.test.ExtendsTestBound, java.lang.ArithmeticException, java.lang.InstantiationError, java.lang.NoSuchMethodException, java.lang.SecurityException, java.lang.AbstractMethodError, my.StaticImportTest$MyInnerClassStaticPublic, java.lang.NullPointerException, java.lang.Compiler, java.lang.Exception, java.lang.NoSuchFieldException, java.lang.Comparable, my.test.Test03, java.lang.TypeNotPresentException, my.test.Test$MyInnerClassStatic, java.lang.IllegalMonitorStateException, java.lang.NumberFormatException, java.lang.Integer, my.test.Test02, java.lang.Shutdown$Lock, java.lang.CharacterData0E, java.lang.StringCoding$StringEncoder, java.lang.ThreadLocal, java.lang.ConditionalSpecialCasing, my.test.TestOhter2, java.lang.NoSuchMethodError, my.InterfaceTest, java.lang.SuppressWarnings, java.lang.UnsupportedClassVersionError, java.lang.Character, java.lang.Runnable, java.lang.Deprecated, java.lang.UnknownError, my.test.MyInterfaceA$MyInnerClassStatic, java.lang.Shutdown, java.lang.Thread, my.StaticImportTest$MyInnerClassStaticProtected, java.lang.Short, java.lang.NoSuchFieldError, java.lang.ProcessEnvironment$CheckedEntry, java.lang.CharacterData02, my.InterfaceTest$InterfaceInnerEnum, my.test.TestBound, java.lang.Class$3, my.test.package-info, java.lang.CharacterData01, java.lang.annotation.Retention, java.lang.Long$LongCache, java.lang.ProcessEnvironment$CheckedEntrySet$1, my.testClash, java.lang.Double, java.lang.VerifyError, java.lang.Thread$State, java.lang.RuntimePermission, java.lang.EnumConstantNotPresentException, java.lang.Float, my.Debug, my.test.MyInterfaceA, java.lang.InterruptedException, my.test.MyInterfaceB, java.lang.Override, java.lang.NoClassDefFoundError, java.lang.IncompatibleClassChangeError, java.lang.InheritableThreadLocal, java.lang.Thread$UncaughtExceptionHandler, my.StaticImportTest, my.InterfaceTest$InterfaceInnerInterface, java.lang.IllegalAccessError, my.test.MyInterfaceA$MyInnerInterface, java.lang.CharacterData00, java.lang.Long]
+syms.packages.size=10 keySet=[java.lang, sun, my.StaticImportTest, java.lang.annotation, my.test, java.io, , java.util, my, java]
+
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=1
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=CLASSDEF visitClassDef
+先前Env=null
+当前Env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=0 owner=my)]]]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)
+-------------------------------------------------------------------------
+JCClassDecl tree.sym=null
+JCClassDecl tree.name=ExtendsTest
+Symbol owner.kind=PCK 
+Symbol owner=my
+Scope enclScope=Scope[(nelems=0 owner=my)]
+PackageSymbol packge.flags_field(1)=8388608(exists )
+PackageSymbol packge.name=my
+PackageSymbol packge.flags_field(2)=8388608(exists )
+packge.members()前=Scope[(nelems=15 owner=my)Debug, testClash, StaticImportTest, InterfaceTest, InterfaceTest$InterfaceInnerEnum, InterfaceTest$InterfaceInnerInterface, InterfaceTest$InterfaceInnerClass, ExtendsTest, Test$TestInner, Test$1, Test]
+packge.members()后=Scope[(nelems=15 owner=my)Debug, testClash, StaticImportTest, InterfaceTest, InterfaceTest$InterfaceInnerEnum, InterfaceTest$InterfaceInnerInterface, InterfaceTest$InterfaceInnerClass, ExtendsTest, Test$TestInner, Test$1, Test]
+
+
+JCClassDecl tree.sym=my.ExtendsTest
+JCClassDecl tree.sym.members_field=Scope[(nelems=0 owner=ExtendsTest)]
+ClassSymbol c.sourcefile=null
+ClassSymbol c.classfile=bin\mysrc\my\ExtendsTest.java
+if (chk.compiled.get(c.flatname) != null)=false
+Scope enclScope=Scope[(nelems=1 owner=my)ExtendsTest]
+env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)ExtendsTest]]]
+c.flags_field=class_seen source_seen 
+tree.mods.flags=public 
+ClassSymbol c.sourcefile=bin\mysrc\my\ExtendsTest.java
+c.flags_field=public 
+owner.kind=PCK 
+ct.getEnclosingType()=<none>
+ct.getEnclosingType()=<none>
+ct.typarams_field=null
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=2
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=TYPEPARAMETER visitTypeParameter
+先前Env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)ExtendsTest]]]
+当前Env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=ExtendsTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)ExtendsTest]]]]
+com.sun.tools.javac.comp.Enter===>visitTypeParameter(JCTypeParameter tree)
+-------------------------------------------------------------------------
+tree.name=T
+tree.type=null
+env.info.scope.owner=my.ExtendsTest
+env.info.scope.owner.members_field=Scope[(nelems=0 owner=ExtendsTest)]
+env.info.scope=Scope[(nelems=0 owner=ExtendsTest)]
+env.info.scope.owner.members_field=Scope[(nelems=0 owner=ExtendsTest)]
+env.info.scope=Scope[(nelems=1 owner=ExtendsTest)T]
+com.sun.tools.javac.comp.Enter===>visitTypeParameter(JCTypeParameter tree)  END
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=TYPEPARAMETER visitTypeParameter
+先前Env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)ExtendsTest]]]
+当前Env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=1 owner=ExtendsTest)T]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)ExtendsTest]]]]
+com.sun.tools.javac.comp.Enter===>visitTypeParameter(JCTypeParameter tree)
+-------------------------------------------------------------------------
+tree.name=S
+tree.type=null
+env.info.scope.owner=my.ExtendsTest
+env.info.scope.owner.members_field=Scope[(nelems=0 owner=ExtendsTest)]
+env.info.scope=Scope[(nelems=1 owner=ExtendsTest)T]
+env.info.scope.owner.members_field=Scope[(nelems=0 owner=ExtendsTest)]
+env.info.scope=Scope[(nelems=2 owner=ExtendsTest)S, T]
+com.sun.tools.javac.comp.Enter===>visitTypeParameter(JCTypeParameter tree)  END
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+ct.typarams_field=T31063377,S8785225
+
+
+***Enter完Type Parameter***
+-----------------------------------------------
+类名: my.ExtendsTest
+成员: Scope[(nelems=0 owner=ExtendsTest)]
+Type Parameter: Scope[(nelems=2 owner=ExtendsTest)S, T]
+
+
+if (!c.isLocal() && uncompleted != null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***类的所有成员Enter完成***
+-----------------------------------------------
+类名: my.ExtendsTest
+成员: Scope[(nelems=0 owner=ExtendsTest)]
+Type Parameter: Scope[(nelems=2 owner=ExtendsTest)S, T]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***第一阶段Enter完成***
+-----------------------------------------------
+包名: my
+--------------------------
+tree.packge.members_field: Scope[(nelems=15 owner=my)Debug, testClash, StaticImportTest, InterfaceTest, InterfaceTest$InterfaceInnerEnum, InterfaceTest$InterfaceInnerInterface, InterfaceTest$InterfaceInnerClass, ExtendsTest, Test$TestInner, Test$1, Test]
+tree.namedImportScope    : Scope[(nelems=1 owner=my)ExtendsTest]
+tree.starImportScope     : Scope[(nelems=0 owner=my)]
+
+等待编译的类的总数: 1
+--------------------------
+类名             : my.ExtendsTest
+members_field    : Scope[(nelems=0 owner=ExtendsTest)]
+flags            : public 
+sourcefile       : bin\mysrc\my\ExtendsTest.java
+classfile        : bin\mysrc\my\ExtendsTest.java
+type             : my.ExtendsTest<T31063377,S8785225>
+outer_field      : <none>
+supertype_field  : null
+interfaces_field : null
+typarams_field   : T31063377,S8785225
+allparams_field  : null
+
+
+Env总数: 8
+--------------------------
+my.test.Test.MyTestInnerClass=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=MyTestInnerClass)]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=3 owner=Test)E, T, S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=3 owner=test)MyInnerClass, MyInnerClassStaticPublic, Test]]]]]
+my.StaticImportTest.MyInnerClassStaticProtected=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=MyInnerClassStaticProtected)super, this]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=StaticImportTest)super, this]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]]
+my.ExtendsTest=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=ExtendsTest)S, T]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)ExtendsTest]]]]
+my.StaticImportTest.MyInnerClass=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=MyInnerClass)super, this]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=StaticImportTest)super, this]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]]
+my.StaticImportTest.MyInnerClassStaticPrivate=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=MyInnerClassStaticPrivate)super, this]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=StaticImportTest)super, this]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]]
+my.test.Test=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=3 owner=Test)E, T, S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=3 owner=test)MyInnerClass, MyInnerClassStaticPublic, Test]]]]
+my.StaticImportTest.MyInnerClassStaticPublic=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=MyInnerClassStaticPublic)super, this]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=StaticImportTest)super, this]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]]
+my.StaticImportTest=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=StaticImportTest)super, this]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]
+
+
+syms.classes.size=209 keySet=[java.lang.Character$UnicodeBlock, java.lang.UnsupportedOperationException, my.test.Test$TestInner, java.lang.ClassLoader$3, java.lang.Process, java.lang.System, java.lang.ClassLoader$1, java.lang.IndexOutOfBoundsException, java.lang.annotation.Annotation, java.lang.String, java.lang.ConditionalSpecialCasing$Entry, java.lang.ProcessEnvironment, java.lang.StringBuffer, java.lang.ProcessEnvironment$EntryComparator, java.lang.Readable, , my.test.TestOhter, my.InterfaceTest$InterfaceInnerClass, java.lang.ThreadLocal$ThreadLocalMap, java.lang.Thread$1, java.lang.ThreadGroup, java.lang.ProcessBuilder, java.lang.CharSequence, my.test.Test$1MyLocalClass1, java.lang.StrictMath, java.lang.Runtime, java.lang.Boolean, java.lang.Object, java.lang.ProcessEnvironment$1, java.lang.SecurityManager$1, java.lang.ProcessImpl, java.lang.Appendable, java.lang.SystemClassLoaderAction, java.lang.ArrayIndexOutOfBoundsException, java.lang.LinkageError, java.lang.Class, java.lang.Class$1, java.lang.CloneNotSupportedException, java.lang.ProcessEnvironment$NameComparator, java.lang.AssertionError, my.ExtendsTest, java.lang.StringCoding, java.lang.SecurityManager, java.lang.ClassCircularityError, java.lang.Cloneable, java.lang.Void, my.test.Test$1, my.test.MyInterfaceA$MyInnerClass, java.lang.Character$Subset, my.Test$TestInner, java.lang.Math, java.lang.ThreadDeath, java.io.Serializable, my.test.Test, java.lang.AbstractStringBuilder, java.lang.ProcessImpl$1, java.lang.Package, java.lang.ArrayStoreException, java.lang.StackTraceElement, java.lang.Terminator$1, java.lang.annotation.Inherited, java.lang.Shutdown$1, my.Test, my.Test$1, java.util.Collections, java.lang.Class$MethodArray, java.lang.Enum, java.lang.Byte$ByteCache, java.lang.NegativeArraySizeException, java.lang.StringIndexOutOfBoundsException, java.lang.Package$1, java.lang.StringCoding$StringDecoder, java.lang.Terminator, java.lang.Character$CharacterCache, java.lang.IllegalAccessException, java.util.List, sun.Proprietary+Annotation, java.lang.Error, java.lang.ClassCastException, java.lang.SecurityManager$2, java.lang.IllegalArgumentException, java.lang.IllegalStateException, my.test.Test$MyTestInnerClass, my.test.MyUncompletedClass, java.lang.ClassLoader, java.lang.AssertionStatusDirectives, java.lang.ClassLoader$2, java.lang.StringBuilder, java.lang.Class$EnclosingMethodInfo, java.lang.Number, java.lang.ClassLoader$NativeLibrary, java.lang.VirtualMachineError, java.lang.InstantiationException, my.test.Test$MyInnerInterface, java.lang.StringCoding$1, java.lang.ExceptionInInitializerError, my.test.Test07, my.test.Test$MyInnerEnum, java.lang.Short$ShortCache, java.lang.ProcessEnvironment$CheckedValues, java.lang.Package$1PackageInfoProxy, java.lang.Throwable, java.lang.Class$2, my.test.Test06, java.lang.ThreadLocal$ThreadLocalMap$Entry, java.lang.String$1, java.lang.InternalError, java.lang.ThreadLocal$1, java.lang.CharacterDataUndefined, java.lang.Integer$IntegerCache, my.StaticImportTest$MyInnerClassStaticPrivate, java.lang.RuntimeException, java.lang.Compiler$1, my.test.Test04, java.lang.annotation.Target, my.test.Test$MyInnerClass, java.lang.OutOfMemoryError, java.lang.IllegalThreadStateException, java.lang.String$CaseInsensitiveComparator, java.lang.ApplicationShutdownHooks, java.lang.ProcessEnvironment$CheckedEntrySet, my.test.Test01, java.lang.CharacterDataLatin1, java.lang.ClassNotFoundException, java.lang.ClassFormatError, java.lang.System$1, java.util.Iterator, my.test.Test05, java.lang.Class$4, java.lang.Iterable, java.lang.StackOverflowError, java.lang.System$2, my.StaticImportTest$MyInnerClass, java.lang.CharacterDataPrivateUse, java.lang.Byte, java.util.Arrays, java.lang.ProcessEnvironment$CheckedKeySet, java.lang.UnsatisfiedLinkError, my.test.ExtendsTestBound, java.lang.ArithmeticException, java.lang.InstantiationError, java.lang.NoSuchMethodException, java.lang.SecurityException, java.lang.AbstractMethodError, my.StaticImportTest$MyInnerClassStaticPublic, java.lang.NullPointerException, java.lang.Compiler, java.lang.Exception, java.lang.NoSuchFieldException, java.lang.Comparable, my.test.Test03, java.lang.TypeNotPresentException, my.test.Test$MyInnerClassStatic, java.lang.IllegalMonitorStateException, java.lang.NumberFormatException, java.lang.Integer, my.test.Test02, java.lang.Shutdown$Lock, java.lang.CharacterData0E, java.lang.StringCoding$StringEncoder, java.lang.ThreadLocal, java.lang.ConditionalSpecialCasing, my.test.TestOhter2, java.lang.NoSuchMethodError, my.InterfaceTest, java.lang.SuppressWarnings, java.lang.UnsupportedClassVersionError, java.lang.Character, java.lang.Runnable, java.lang.Deprecated, java.lang.UnknownError, my.test.MyInterfaceA$MyInnerClassStatic, java.lang.Shutdown, java.lang.Thread, my.StaticImportTest$MyInnerClassStaticProtected, java.lang.Short, java.lang.NoSuchFieldError, java.lang.ProcessEnvironment$CheckedEntry, java.lang.CharacterData02, my.InterfaceTest$InterfaceInnerEnum, my.test.TestBound, java.lang.Class$3, my.test.package-info, java.lang.CharacterData01, java.lang.annotation.Retention, java.lang.Long$LongCache, java.lang.ProcessEnvironment$CheckedEntrySet$1, my.testClash, java.lang.Double, java.lang.VerifyError, java.lang.Thread$State, java.lang.RuntimePermission, java.lang.EnumConstantNotPresentException, java.lang.Float, my.Debug, my.test.MyInterfaceA, java.lang.InterruptedException, my.test.MyInterfaceB, java.lang.Override, java.lang.NoClassDefFoundError, java.lang.IncompatibleClassChangeError, java.lang.InheritableThreadLocal, java.lang.Thread$UncaughtExceptionHandler, my.StaticImportTest, my.InterfaceTest$InterfaceInnerInterface, java.lang.IllegalAccessError, my.test.MyInterfaceA$MyInnerInterface, java.lang.CharacterData00, java.lang.Long]
+syms.packages.size=10 keySet=[java.lang, sun, my.StaticImportTest, java.lang.annotation, my.test, java.io, , java.util, my, java]
+
+
+com.sun.tools.javac.comp.Enter===>visitTopLevel(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+
+
+
+***进入第二阶段MemberEnter***
+-----------------------------------------------
+memberEnter.completionEnabled=true
+uncompleted=1 my.ExtendsTest
+Uncompleted SymbolName=my.ExtendsTest
+clazz.completer=com.sun.tools.javac.comp.MemberEnter@a6aeed
+(c == null)=false
+(c == clazz)=true
+(prevUncompleted == null)=false
+
+
+
+tree.starImportScope=Scope[(nelems=156 owner=my)Object, Comparable, CharSequence, String, Class, Cloneable, ClassLoader, System, Throwable, Error, ThreadDeath, Exception, RuntimeException, ClassNotFoundException, LinkageError, NoClassDefFoundError, ClassCastException, ArrayStoreException, VirtualMachineError, OutOfMemoryError, StackOverflowError, IllegalMonitorStateException, Runnable, Thread, Thread$UncaughtExceptionHandler, ThreadGroup, Iterable, Appendable, AbstractStringBuilder, StringBuffer, StackTraceElement, Boolean, Character, Number, Float, Double, Byte, Short, Integer, Long, NullPointerException, ArithmeticException, String$CaseInsensitiveComparator, RuntimePermission, Class$3, ThreadLocal, Math, StringBuilder, Class$1, Runtime, Readable, ClassLoader$3, ClassLoader$NativeLibrary, Terminator, Terminator$1, System$2, Compiler, Compiler$1, CharacterDataLatin1, IncompatibleClassChangeError, NoSuchMethodError, SystemClassLoaderAction, StringCoding, ThreadLocal$ThreadLocalMap, ThreadLocal$ThreadLocalMap$Entry, StringCoding$StringDecoder, Shutdown, Shutdown$Lock, InterruptedException, Enum, Class$4, Integer$IntegerCache, NoSuchMethodException, IllegalStateException, Short$ShortCache, ClassLoader$2, UnsupportedOperationException, Package, StrictMath, IllegalArgumentException, NumberFormatException, Thread$State, Void, InheritableThreadLocal, InternalError, SecurityException, NoSuchFieldException, IllegalAccessException, InstantiationException, IndexOutOfBoundsException, ArrayIndexOutOfBoundsException, IllegalAccessError, CloneNotSupportedException, Long$LongCache, StringCoding$StringEncoder, UnsatisfiedLinkError, ClassFormatError, ExceptionInInitializerError, StringIndexOutOfBoundsException, SecurityManager, SecurityManager$1, Thread$1, ClassLoader$1, VerifyError, UnsupportedClassVersionError, UnknownError, TypeNotPresentException, ThreadLocal$1, System$1, SuppressWarnings, StringCoding$1, String$1, Shutdown$1, SecurityManager$2, ProcessImpl, ProcessImpl$1, ProcessEnvironment, ProcessEnvironment$NameComparator, ProcessEnvironment$EntryComparator, ProcessEnvironment$CheckedValues, ProcessEnvironment$CheckedKeySet, ProcessEnvironment$CheckedEntrySet, ProcessEnvironment$CheckedEntrySet$1, ProcessEnvironment$CheckedEntry, ProcessEnvironment$1, ProcessBuilder, Process, Package$1PackageInfoProxy, Package$1, Override, NoSuchFieldError, NegativeArraySizeException, InstantiationError, IllegalThreadStateException, EnumConstantNotPresentException, Deprecated, ConditionalSpecialCasing, ConditionalSpecialCasing$Entry, ClassCircularityError, Class$MethodArray, Class$EnclosingMethodInfo, Class$2, CharacterDataUndefined, CharacterDataPrivateUse, CharacterData0E, CharacterData02, CharacterData01, CharacterData00, Character$UnicodeBlock, Character$Subset, Character$CharacterCache, Byte$ByteCache, AssertionStatusDirectives, AssertionError, ApplicationShutdownHooks, AbstractMethodError]
+tree.namedImportScope=Scope[(nelems=1 owner=my)ExtendsTest]
+uncompleted=5 my.test.Test.MyTestInnerClass,my.StaticImportTest.MyInnerClass,my.StaticImportTest.MyInnerClassStaticPrivate,my.StaticImportTest.MyInnerClassStaticPublic,my.StaticImportTest.MyInnerClassStaticProtected
+
+
+完成Enter后List<JCCompilationUnit> trees的内容: trees.size=1
+------------------------------------------------------------------------------
+package my;
+
+public class ExtendsTest<T, S> {
+    
+    public ExtendsTest() 0{
+        super();
+    }
+}
+------------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>complete(2)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>complete(2)
+-------------------------------------------------------------------------
+完成Enter前List<JCCompilationUnit> trees的内容: trees.size=1
+------------------------------------------------------------------------------
+package my;
+
+public interface InterfaceTest {
+    
+    0int myInterfaceMethod(0int i, 0char c);
+    
+    0class InterfaceInnerClass {
+    }
+    
+    0interface InterfaceInnerInterface {
+    }
+    
+    0enum InterfaceInnerEnum {
+;
+    }
+}
+------------------------------------------------------------------------------
+
+Env总数: 8
+--------------------------
+my.test.Test.MyTestInnerClass=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=MyTestInnerClass)]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=3 owner=Test)E, T, S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=3 owner=test)MyInnerClass, MyInnerClassStaticPublic, Test]]]]]
+my.StaticImportTest.MyInnerClassStaticProtected=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=MyInnerClassStaticProtected)super, this]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=StaticImportTest)super, this]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]]
+my.ExtendsTest=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=4 owner=ExtendsTest)super, this, S, T]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)ExtendsTest]]]]
+my.StaticImportTest.MyInnerClass=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=MyInnerClass)super, this]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=StaticImportTest)super, this]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]]
+my.StaticImportTest.MyInnerClassStaticPrivate=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=MyInnerClassStaticPrivate)super, this]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=StaticImportTest)super, this]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]]
+my.test.Test=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=3 owner=Test)E, T, S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=3 owner=test)MyInnerClass, MyInnerClassStaticPublic, Test]]]]
+my.StaticImportTest.MyInnerClassStaticPublic=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=MyInnerClassStaticPublic)super, this]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=StaticImportTest)super, this]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]]
+my.StaticImportTest=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=StaticImportTest)super, this]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]
+
+memberEnter.completionEnabled=true
+ListBuffer<ClassSymbol> uncompleted.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=1
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=TOPLEVEL visitTopLevel
+先前Env=null
+当前Env=null
+com.sun.tools.javac.comp.Enter===>visitTopLevel(1)
+-------------------------------------------------------------------------
+JCCompilationUnit tree.sourcefile=bin\mysrc\my\InterfaceTest.java
+JCCompilationUnit tree.packge=null
+JCCompilationUnit tree.packge=my
+JCCompilationUnit tree.packge.members_field=Scope[(nelems=15 owner=my)Debug, testClash, StaticImportTest, InterfaceTest, InterfaceTest$InterfaceInnerEnum, InterfaceTest$InterfaceInnerInterface, InterfaceTest$InterfaceInnerClass, ExtendsTest, Test$TestInner, Test$1, Test]
+syms.classes.size=209 keySet=[java.lang.Character$UnicodeBlock, java.lang.UnsupportedOperationException, my.test.Test$TestInner, java.lang.ClassLoader$3, java.lang.Process, java.lang.System, java.lang.ClassLoader$1, java.lang.IndexOutOfBoundsException, java.lang.annotation.Annotation, java.lang.String, java.lang.ConditionalSpecialCasing$Entry, java.lang.ProcessEnvironment, java.lang.StringBuffer, java.lang.ProcessEnvironment$EntryComparator, java.lang.Readable, , my.test.TestOhter, my.InterfaceTest$InterfaceInnerClass, java.lang.ThreadLocal$ThreadLocalMap, java.lang.Thread$1, java.lang.ThreadGroup, java.lang.ProcessBuilder, java.lang.CharSequence, my.test.Test$1MyLocalClass1, java.lang.StrictMath, java.lang.Runtime, java.lang.Boolean, java.lang.Object, java.lang.ProcessEnvironment$1, java.lang.SecurityManager$1, java.lang.ProcessImpl, java.lang.Appendable, java.lang.SystemClassLoaderAction, java.lang.ArrayIndexOutOfBoundsException, java.lang.LinkageError, java.lang.Class, java.lang.Class$1, java.lang.CloneNotSupportedException, java.lang.ProcessEnvironment$NameComparator, java.lang.AssertionError, my.ExtendsTest, java.lang.StringCoding, java.lang.SecurityManager, java.lang.ClassCircularityError, java.lang.Cloneable, java.lang.Void, my.test.Test$1, my.test.MyInterfaceA$MyInnerClass, java.lang.Character$Subset, my.Test$TestInner, java.lang.Math, java.lang.ThreadDeath, java.io.Serializable, my.test.Test, java.lang.AbstractStringBuilder, java.lang.ProcessImpl$1, java.lang.Package, java.lang.ArrayStoreException, java.lang.StackTraceElement, java.lang.Terminator$1, java.lang.annotation.Inherited, java.lang.Shutdown$1, my.Test, my.Test$1, java.util.Collections, java.lang.Class$MethodArray, java.lang.Enum, java.lang.Byte$ByteCache, java.lang.NegativeArraySizeException, java.lang.StringIndexOutOfBoundsException, java.lang.Package$1, java.lang.StringCoding$StringDecoder, java.lang.Terminator, java.lang.Character$CharacterCache, java.lang.IllegalAccessException, java.util.List, sun.Proprietary+Annotation, java.lang.Error, java.lang.ClassCastException, java.lang.SecurityManager$2, java.lang.IllegalArgumentException, java.lang.IllegalStateException, my.test.Test$MyTestInnerClass, my.test.MyUncompletedClass, java.lang.ClassLoader, java.lang.AssertionStatusDirectives, java.lang.ClassLoader$2, java.lang.StringBuilder, java.lang.Class$EnclosingMethodInfo, java.lang.Number, java.lang.ClassLoader$NativeLibrary, java.lang.VirtualMachineError, java.lang.InstantiationException, my.test.Test$MyInnerInterface, java.lang.StringCoding$1, java.lang.ExceptionInInitializerError, my.test.Test07, my.test.Test$MyInnerEnum, java.lang.Short$ShortCache, java.lang.ProcessEnvironment$CheckedValues, java.lang.Package$1PackageInfoProxy, java.lang.Throwable, java.lang.Class$2, my.test.Test06, java.lang.ThreadLocal$ThreadLocalMap$Entry, java.lang.String$1, java.lang.InternalError, java.lang.ThreadLocal$1, java.lang.CharacterDataUndefined, java.lang.Integer$IntegerCache, my.StaticImportTest$MyInnerClassStaticPrivate, java.lang.RuntimeException, java.lang.Compiler$1, my.test.Test04, java.lang.annotation.Target, my.test.Test$MyInnerClass, java.lang.OutOfMemoryError, java.lang.IllegalThreadStateException, java.lang.String$CaseInsensitiveComparator, java.lang.ApplicationShutdownHooks, java.lang.ProcessEnvironment$CheckedEntrySet, my.test.Test01, java.lang.CharacterDataLatin1, java.lang.ClassNotFoundException, java.lang.ClassFormatError, java.lang.System$1, java.util.Iterator, my.test.Test05, java.lang.Class$4, java.lang.Iterable, java.lang.StackOverflowError, java.lang.System$2, my.StaticImportTest$MyInnerClass, java.lang.CharacterDataPrivateUse, java.lang.Byte, java.util.Arrays, java.lang.ProcessEnvironment$CheckedKeySet, java.lang.UnsatisfiedLinkError, my.test.ExtendsTestBound, java.lang.ArithmeticException, java.lang.InstantiationError, java.lang.NoSuchMethodException, java.lang.SecurityException, java.lang.AbstractMethodError, my.StaticImportTest$MyInnerClassStaticPublic, java.lang.NullPointerException, java.lang.Compiler, java.lang.Exception, java.lang.NoSuchFieldException, java.lang.Comparable, my.test.Test03, java.lang.TypeNotPresentException, my.test.Test$MyInnerClassStatic, java.lang.IllegalMonitorStateException, java.lang.NumberFormatException, java.lang.Integer, my.test.Test02, java.lang.Shutdown$Lock, java.lang.CharacterData0E, java.lang.StringCoding$StringEncoder, java.lang.ThreadLocal, java.lang.ConditionalSpecialCasing, my.test.TestOhter2, java.lang.NoSuchMethodError, my.InterfaceTest, java.lang.SuppressWarnings, java.lang.UnsupportedClassVersionError, java.lang.Character, java.lang.Runnable, java.lang.Deprecated, java.lang.UnknownError, my.test.MyInterfaceA$MyInnerClassStatic, java.lang.Shutdown, java.lang.Thread, my.StaticImportTest$MyInnerClassStaticProtected, java.lang.Short, java.lang.NoSuchFieldError, java.lang.ProcessEnvironment$CheckedEntry, java.lang.CharacterData02, my.InterfaceTest$InterfaceInnerEnum, my.test.TestBound, java.lang.Class$3, my.test.package-info, java.lang.CharacterData01, java.lang.annotation.Retention, java.lang.Long$LongCache, java.lang.ProcessEnvironment$CheckedEntrySet$1, my.testClash, java.lang.Double, java.lang.VerifyError, java.lang.Thread$State, java.lang.RuntimePermission, java.lang.EnumConstantNotPresentException, java.lang.Float, my.Debug, my.test.MyInterfaceA, java.lang.InterruptedException, my.test.MyInterfaceB, java.lang.Override, java.lang.NoClassDefFoundError, java.lang.IncompatibleClassChangeError, java.lang.InheritableThreadLocal, java.lang.Thread$UncaughtExceptionHandler, my.StaticImportTest, my.InterfaceTest$InterfaceInnerInterface, java.lang.IllegalAccessError, my.test.MyInterfaceA$MyInnerInterface, java.lang.CharacterData00, java.lang.Long]
+syms.packages.size=11 keySet=[java.lang, sun, my.StaticImportTest, my.ExtendsTest, java.lang.annotation, my.test, java.io, , java.util, my, java]
+
+
+
+my包中的所有成员装载完成(Enter)
+JCCompilationUnit tree.packge.members_field=Scope[(nelems=15 owner=my)Debug, testClash, StaticImportTest, InterfaceTest, InterfaceTest$InterfaceInnerEnum, InterfaceTest$InterfaceInnerInterface, InterfaceTest$InterfaceInnerClass, ExtendsTest, Test$TestInner, Test$1, Test]
+syms.classes.size=209 keySet=[java.lang.Character$UnicodeBlock, java.lang.UnsupportedOperationException, my.test.Test$TestInner, java.lang.ClassLoader$3, java.lang.Process, java.lang.System, java.lang.ClassLoader$1, java.lang.IndexOutOfBoundsException, java.lang.annotation.Annotation, java.lang.String, java.lang.ConditionalSpecialCasing$Entry, java.lang.ProcessEnvironment, java.lang.StringBuffer, java.lang.ProcessEnvironment$EntryComparator, java.lang.Readable, , my.test.TestOhter, my.InterfaceTest$InterfaceInnerClass, java.lang.ThreadLocal$ThreadLocalMap, java.lang.Thread$1, java.lang.ThreadGroup, java.lang.ProcessBuilder, java.lang.CharSequence, my.test.Test$1MyLocalClass1, java.lang.StrictMath, java.lang.Runtime, java.lang.Boolean, java.lang.Object, java.lang.ProcessEnvironment$1, java.lang.SecurityManager$1, java.lang.ProcessImpl, java.lang.Appendable, java.lang.SystemClassLoaderAction, java.lang.ArrayIndexOutOfBoundsException, java.lang.LinkageError, java.lang.Class, java.lang.Class$1, java.lang.CloneNotSupportedException, java.lang.ProcessEnvironment$NameComparator, java.lang.AssertionError, my.ExtendsTest, java.lang.StringCoding, java.lang.SecurityManager, java.lang.ClassCircularityError, java.lang.Cloneable, java.lang.Void, my.test.Test$1, my.test.MyInterfaceA$MyInnerClass, java.lang.Character$Subset, my.Test$TestInner, java.lang.Math, java.lang.ThreadDeath, java.io.Serializable, my.test.Test, java.lang.AbstractStringBuilder, java.lang.ProcessImpl$1, java.lang.Package, java.lang.ArrayStoreException, java.lang.StackTraceElement, java.lang.Terminator$1, java.lang.annotation.Inherited, java.lang.Shutdown$1, my.Test, my.Test$1, java.util.Collections, java.lang.Class$MethodArray, java.lang.Enum, java.lang.Byte$ByteCache, java.lang.NegativeArraySizeException, java.lang.StringIndexOutOfBoundsException, java.lang.Package$1, java.lang.StringCoding$StringDecoder, java.lang.Terminator, java.lang.Character$CharacterCache, java.lang.IllegalAccessException, java.util.List, sun.Proprietary+Annotation, java.lang.Error, java.lang.ClassCastException, java.lang.SecurityManager$2, java.lang.IllegalArgumentException, java.lang.IllegalStateException, my.test.Test$MyTestInnerClass, my.test.MyUncompletedClass, java.lang.ClassLoader, java.lang.AssertionStatusDirectives, java.lang.ClassLoader$2, java.lang.StringBuilder, java.lang.Class$EnclosingMethodInfo, java.lang.Number, java.lang.ClassLoader$NativeLibrary, java.lang.VirtualMachineError, java.lang.InstantiationException, my.test.Test$MyInnerInterface, java.lang.StringCoding$1, java.lang.ExceptionInInitializerError, my.test.Test07, my.test.Test$MyInnerEnum, java.lang.Short$ShortCache, java.lang.ProcessEnvironment$CheckedValues, java.lang.Package$1PackageInfoProxy, java.lang.Throwable, java.lang.Class$2, my.test.Test06, java.lang.ThreadLocal$ThreadLocalMap$Entry, java.lang.String$1, java.lang.InternalError, java.lang.ThreadLocal$1, java.lang.CharacterDataUndefined, java.lang.Integer$IntegerCache, my.StaticImportTest$MyInnerClassStaticPrivate, java.lang.RuntimeException, java.lang.Compiler$1, my.test.Test04, java.lang.annotation.Target, my.test.Test$MyInnerClass, java.lang.OutOfMemoryError, java.lang.IllegalThreadStateException, java.lang.String$CaseInsensitiveComparator, java.lang.ApplicationShutdownHooks, java.lang.ProcessEnvironment$CheckedEntrySet, my.test.Test01, java.lang.CharacterDataLatin1, java.lang.ClassNotFoundException, java.lang.ClassFormatError, java.lang.System$1, java.util.Iterator, my.test.Test05, java.lang.Class$4, java.lang.Iterable, java.lang.StackOverflowError, java.lang.System$2, my.StaticImportTest$MyInnerClass, java.lang.CharacterDataPrivateUse, java.lang.Byte, java.util.Arrays, java.lang.ProcessEnvironment$CheckedKeySet, java.lang.UnsatisfiedLinkError, my.test.ExtendsTestBound, java.lang.ArithmeticException, java.lang.InstantiationError, java.lang.NoSuchMethodException, java.lang.SecurityException, java.lang.AbstractMethodError, my.StaticImportTest$MyInnerClassStaticPublic, java.lang.NullPointerException, java.lang.Compiler, java.lang.Exception, java.lang.NoSuchFieldException, java.lang.Comparable, my.test.Test03, java.lang.TypeNotPresentException, my.test.Test$MyInnerClassStatic, java.lang.IllegalMonitorStateException, java.lang.NumberFormatException, java.lang.Integer, my.test.Test02, java.lang.Shutdown$Lock, java.lang.CharacterData0E, java.lang.StringCoding$StringEncoder, java.lang.ThreadLocal, java.lang.ConditionalSpecialCasing, my.test.TestOhter2, java.lang.NoSuchMethodError, my.InterfaceTest, java.lang.SuppressWarnings, java.lang.UnsupportedClassVersionError, java.lang.Character, java.lang.Runnable, java.lang.Deprecated, java.lang.UnknownError, my.test.MyInterfaceA$MyInnerClassStatic, java.lang.Shutdown, java.lang.Thread, my.StaticImportTest$MyInnerClassStaticProtected, java.lang.Short, java.lang.NoSuchFieldError, java.lang.ProcessEnvironment$CheckedEntry, java.lang.CharacterData02, my.InterfaceTest$InterfaceInnerEnum, my.test.TestBound, java.lang.Class$3, my.test.package-info, java.lang.CharacterData01, java.lang.annotation.Retention, java.lang.Long$LongCache, java.lang.ProcessEnvironment$CheckedEntrySet$1, my.testClash, java.lang.Double, java.lang.VerifyError, java.lang.Thread$State, java.lang.RuntimePermission, java.lang.EnumConstantNotPresentException, java.lang.Float, my.Debug, my.test.MyInterfaceA, java.lang.InterruptedException, my.test.MyInterfaceB, java.lang.Override, java.lang.NoClassDefFoundError, java.lang.IncompatibleClassChangeError, java.lang.InheritableThreadLocal, java.lang.Thread$UncaughtExceptionHandler, my.StaticImportTest, my.InterfaceTest$InterfaceInnerInterface, java.lang.IllegalAccessError, my.test.MyInterfaceA$MyInnerInterface, java.lang.CharacterData00, java.lang.Long]
+syms.packages.size=11 keySet=[java.lang, sun, my.StaticImportTest, my.ExtendsTest, java.lang.annotation, my.test, java.io, , java.util, my, java]
+
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=1
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=CLASSDEF visitClassDef
+先前Env=null
+当前Env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=0 owner=my)]]]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)
+-------------------------------------------------------------------------
+JCClassDecl tree.sym=null
+JCClassDecl tree.name=InterfaceTest
+Symbol owner.kind=PCK 
+Symbol owner=my
+Scope enclScope=Scope[(nelems=0 owner=my)]
+PackageSymbol packge.flags_field(1)=8388608(exists )
+PackageSymbol packge.name=my
+PackageSymbol packge.flags_field(2)=8388608(exists )
+packge.members()前=Scope[(nelems=15 owner=my)Debug, testClash, StaticImportTest, InterfaceTest, InterfaceTest$InterfaceInnerEnum, InterfaceTest$InterfaceInnerInterface, InterfaceTest$InterfaceInnerClass, ExtendsTest, Test$TestInner, Test$1, Test]
+packge.members()后=Scope[(nelems=15 owner=my)Debug, testClash, StaticImportTest, InterfaceTest, InterfaceTest$InterfaceInnerEnum, InterfaceTest$InterfaceInnerInterface, InterfaceTest$InterfaceInnerClass, ExtendsTest, Test$TestInner, Test$1, Test]
+
+
+JCClassDecl tree.sym=my.InterfaceTest
+JCClassDecl tree.sym.members_field=Scope[(nelems=0 owner=InterfaceTest)]
+ClassSymbol c.sourcefile=null
+ClassSymbol c.classfile=bin\mysrc\my\InterfaceTest.java
+if (chk.compiled.get(c.flatname) != null)=false
+Scope enclScope=Scope[(nelems=1 owner=my)InterfaceTest]
+env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)InterfaceTest]]]
+c.flags_field=class_seen source_seen 
+tree.mods.flags=public interface 
+ClassSymbol c.sourcefile=bin\mysrc\my\InterfaceTest.java
+c.flags_field=public interface abstract 
+owner.kind=PCK 
+ct.getEnclosingType()=<none>
+ct.getEnclosingType()=<none>
+ct.typarams_field=null
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+ct.typarams_field=
+
+
+***Enter完Type Parameter***
+-----------------------------------------------
+类名: my.InterfaceTest
+成员: Scope[(nelems=0 owner=InterfaceTest)]
+Type Parameter: Scope[(nelems=0 owner=InterfaceTest)]
+
+
+if (!c.isLocal() && uncompleted != null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=4
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=METHODDEF visitMethodDef
+先前Env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)InterfaceTest]]]
+当前Env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=InterfaceTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)InterfaceTest]]]]
+com.sun.tools.javac.comp.Enter===>visitTree(1)
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>visitTree(1)  END
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=CLASSDEF visitClassDef
+先前Env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)InterfaceTest]]]
+当前Env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=InterfaceTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)InterfaceTest]]]]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)
+-------------------------------------------------------------------------
+JCClassDecl tree.sym=null
+JCClassDecl tree.name=InterfaceInnerClass
+Symbol owner.kind=TYP 
+Symbol owner=my.InterfaceTest
+Scope enclScope=Scope[(nelems=0 owner=InterfaceTest)]
+owner.flags_field=public interface abstract 
+tree.mods.flags=0
+tree.mods.flags=public static 
+
+
+JCClassDecl tree.sym=my.InterfaceTest.InterfaceInnerClass
+JCClassDecl tree.sym.members_field=null
+ClassSymbol c.sourcefile=null
+ClassSymbol c.classfile=bin\mybin\my\InterfaceTest$InterfaceInnerClass.class
+if (chk.compiled.get(c.flatname) != null)=false
+Scope enclScope=Scope[(nelems=1 owner=InterfaceTest)InterfaceInnerClass]
+env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=InterfaceTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)InterfaceTest]]]]
+c.flags_field=class_seen 
+tree.mods.flags=public static 
+ClassSymbol c.sourcefile=bin\mysrc\my\InterfaceTest.java
+c.flags_field=public static 
+owner.kind=TYP 
+ct.getEnclosingType()=<none>
+ct.getEnclosingType()=<none>
+ct.typarams_field=null
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+ct.typarams_field=
+
+
+***Enter完Type Parameter***
+-----------------------------------------------
+类名: my.InterfaceTest.InterfaceInnerClass
+成员: Scope[(nelems=0 owner=InterfaceInnerClass)]
+Type Parameter: Scope[(nelems=0 owner=InterfaceInnerClass)]
+
+
+if (!c.isLocal() && uncompleted != null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***类的所有成员Enter完成***
+-----------------------------------------------
+类名: my.InterfaceTest.InterfaceInnerClass
+成员: Scope[(nelems=0 owner=InterfaceInnerClass)]
+Type Parameter: Scope[(nelems=0 owner=InterfaceInnerClass)]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=CLASSDEF visitClassDef
+先前Env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)InterfaceTest]]]
+当前Env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=InterfaceTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)InterfaceTest]]]]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)
+-------------------------------------------------------------------------
+JCClassDecl tree.sym=null
+JCClassDecl tree.name=InterfaceInnerInterface
+Symbol owner.kind=TYP 
+Symbol owner=my.InterfaceTest
+Scope enclScope=Scope[(nelems=1 owner=InterfaceTest)InterfaceInnerClass]
+owner.flags_field=public interface abstract 
+tree.mods.flags=interface 
+tree.mods.flags=public static interface 
+
+
+JCClassDecl tree.sym=my.InterfaceTest.InterfaceInnerInterface
+JCClassDecl tree.sym.members_field=null
+ClassSymbol c.sourcefile=null
+ClassSymbol c.classfile=bin\mybin\my\InterfaceTest$InterfaceInnerInterface.class
+if (chk.compiled.get(c.flatname) != null)=false
+Scope enclScope=Scope[(nelems=2 owner=InterfaceTest)InterfaceInnerInterface, InterfaceInnerClass]
+env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=InterfaceTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)InterfaceTest]]]]
+c.flags_field=class_seen 
+tree.mods.flags=public static interface 
+ClassSymbol c.sourcefile=bin\mysrc\my\InterfaceTest.java
+c.flags_field=public static interface abstract 
+owner.kind=TYP 
+ct.getEnclosingType()=<none>
+ct.getEnclosingType()=<none>
+ct.typarams_field=null
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+ct.typarams_field=
+
+
+***Enter完Type Parameter***
+-----------------------------------------------
+类名: my.InterfaceTest.InterfaceInnerInterface
+成员: Scope[(nelems=0 owner=InterfaceInnerInterface)]
+Type Parameter: Scope[(nelems=0 owner=InterfaceInnerInterface)]
+
+
+if (!c.isLocal() && uncompleted != null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***类的所有成员Enter完成***
+-----------------------------------------------
+类名: my.InterfaceTest.InterfaceInnerInterface
+成员: Scope[(nelems=0 owner=InterfaceInnerInterface)]
+Type Parameter: Scope[(nelems=0 owner=InterfaceInnerInterface)]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=CLASSDEF visitClassDef
+先前Env=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)InterfaceTest]]]
+当前Env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=InterfaceTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)InterfaceTest]]]]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)
+-------------------------------------------------------------------------
+JCClassDecl tree.sym=null
+JCClassDecl tree.name=InterfaceInnerEnum
+Symbol owner.kind=TYP 
+Symbol owner=my.InterfaceTest
+Scope enclScope=Scope[(nelems=2 owner=InterfaceTest)InterfaceInnerInterface, InterfaceInnerClass]
+owner.flags_field=public interface abstract 
+tree.mods.flags=enum 
+tree.mods.flags=public static enum 
+
+
+JCClassDecl tree.sym=my.InterfaceTest.InterfaceInnerEnum
+JCClassDecl tree.sym.members_field=null
+ClassSymbol c.sourcefile=null
+ClassSymbol c.classfile=bin\mybin\my\InterfaceTest$InterfaceInnerEnum.class
+if (chk.compiled.get(c.flatname) != null)=false
+Scope enclScope=Scope[(nelems=3 owner=InterfaceTest)InterfaceInnerEnum, InterfaceInnerInterface, InterfaceInnerClass]
+env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=InterfaceTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)InterfaceTest]]]]
+c.flags_field=class_seen 
+tree.mods.flags=public static enum 
+ClassSymbol c.sourcefile=bin\mysrc\my\InterfaceTest.java
+c.flags_field=public static final enum 
+owner.kind=TYP 
+ct.getEnclosingType()=<none>
+ct.getEnclosingType()=<none>
+ct.typarams_field=null
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+ct.typarams_field=
+
+
+***Enter完Type Parameter***
+-----------------------------------------------
+类名: my.InterfaceTest.InterfaceInnerEnum
+成员: Scope[(nelems=0 owner=InterfaceInnerEnum)]
+Type Parameter: Scope[(nelems=0 owner=InterfaceInnerEnum)]
+
+
+if (!c.isLocal() && uncompleted != null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***类的所有成员Enter完成***
+-----------------------------------------------
+类名: my.InterfaceTest.InterfaceInnerEnum
+成员: Scope[(nelems=0 owner=InterfaceInnerEnum)]
+Type Parameter: Scope[(nelems=0 owner=InterfaceInnerEnum)]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***类的所有成员Enter完成***
+-----------------------------------------------
+类名: my.InterfaceTest
+成员: Scope[(nelems=3 owner=InterfaceTest)InterfaceInnerEnum, InterfaceInnerInterface, InterfaceInnerClass]
+Type Parameter: Scope[(nelems=0 owner=InterfaceTest)]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***第一阶段Enter完成***
+-----------------------------------------------
+包名: my
+--------------------------
+tree.packge.members_field: Scope[(nelems=15 owner=my)Debug, testClash, StaticImportTest, InterfaceTest, ExtendsTest, Test$TestInner, Test$1, Test]
+tree.namedImportScope    : Scope[(nelems=1 owner=my)InterfaceTest]
+tree.starImportScope     : Scope[(nelems=0 owner=my)]
+
+等待编译的类的总数: 4
+--------------------------
+类名             : my.InterfaceTest
+members_field    : Scope[(nelems=3 owner=InterfaceTest)InterfaceInnerEnum, InterfaceInnerInterface, InterfaceInnerClass]
+flags            : public interface abstract 
+sourcefile       : bin\mysrc\my\InterfaceTest.java
+classfile        : bin\mysrc\my\InterfaceTest.java
+type             : my.InterfaceTest
+outer_field      : <none>
+supertype_field  : null
+interfaces_field : null
+typarams_field   : 
+allparams_field  : null
+
+类名             : my.InterfaceTest.InterfaceInnerClass
+members_field    : Scope[(nelems=0 owner=InterfaceInnerClass)]
+flags            : public static 
+sourcefile       : bin\mysrc\my\InterfaceTest.java
+classfile        : bin\mybin\my\InterfaceTest$InterfaceInnerClass.class
+type             : my.InterfaceTest.InterfaceInnerClass
+outer_field      : <none>
+supertype_field  : null
+interfaces_field : null
+typarams_field   : 
+allparams_field  : null
+
+类名             : my.InterfaceTest.InterfaceInnerInterface
+members_field    : Scope[(nelems=0 owner=InterfaceInnerInterface)]
+flags            : public static interface abstract 
+sourcefile       : bin\mysrc\my\InterfaceTest.java
+classfile        : bin\mybin\my\InterfaceTest$InterfaceInnerInterface.class
+type             : my.InterfaceTest.InterfaceInnerInterface
+outer_field      : <none>
+supertype_field  : null
+interfaces_field : null
+typarams_field   : 
+allparams_field  : null
+
+类名             : my.InterfaceTest.InterfaceInnerEnum
+members_field    : Scope[(nelems=0 owner=InterfaceInnerEnum)]
+flags            : public static final enum 
+sourcefile       : bin\mysrc\my\InterfaceTest.java
+classfile        : bin\mybin\my\InterfaceTest$InterfaceInnerEnum.class
+type             : my.InterfaceTest.InterfaceInnerEnum
+outer_field      : <none>
+supertype_field  : null
+interfaces_field : null
+typarams_field   : 
+allparams_field  : null
+
+
+Env总数: 12
+--------------------------
+my.test.Test.MyTestInnerClass=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=MyTestInnerClass)]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=3 owner=Test)E, T, S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=3 owner=test)MyInnerClass, MyInnerClassStaticPublic, Test]]]]]
+my.StaticImportTest.MyInnerClassStaticProtected=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=MyInnerClassStaticProtected)super, this]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=StaticImportTest)super, this]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]]
+my.ExtendsTest=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=4 owner=ExtendsTest)super, this, S, T]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)ExtendsTest]]]]
+my.InterfaceTest.InterfaceInnerEnum=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=InterfaceInnerEnum)]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=InterfaceTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)InterfaceTest]]]]]
+my.StaticImportTest.MyInnerClass=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=MyInnerClass)super, this]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=StaticImportTest)super, this]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]]
+my.StaticImportTest.MyInnerClassStaticPrivate=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=MyInnerClassStaticPrivate)super, this]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=StaticImportTest)super, this]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]]
+my.InterfaceTest.InterfaceInnerClass=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=InterfaceInnerClass)]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=InterfaceTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)InterfaceTest]]]]]
+my.InterfaceTest.InterfaceInnerInterface=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=InterfaceInnerInterface)]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=InterfaceTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)InterfaceTest]]]]]
+my.test.Test=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=3 owner=Test)E, T, S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=3 owner=test)MyInnerClass, MyInnerClassStaticPublic, Test]]]]
+my.InterfaceTest=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=InterfaceTest)]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)InterfaceTest]]]]
+my.StaticImportTest.MyInnerClassStaticPublic=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=MyInnerClassStaticPublic)super, this]],outer=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=StaticImportTest)super, this]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]]
+my.StaticImportTest=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=2 owner=StaticImportTest)super, this]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=1 owner=my)StaticImportTest]]]]
+
+
+syms.classes.size=209 keySet=[java.lang.Character$UnicodeBlock, java.lang.UnsupportedOperationException, my.test.Test$TestInner, java.lang.ClassLoader$3, java.lang.Process, java.lang.System, java.lang.ClassLoader$1, java.lang.IndexOutOfBoundsException, java.lang.annotation.Annotation, java.lang.String, java.lang.ConditionalSpecialCasing$Entry, java.lang.ProcessEnvironment, java.lang.StringBuffer, java.lang.ProcessEnvironment$EntryComparator, java.lang.Readable, , my.test.TestOhter, my.InterfaceTest$InterfaceInnerClass, java.lang.ThreadLocal$ThreadLocalMap, java.lang.Thread$1, java.lang.ThreadGroup, java.lang.ProcessBuilder, java.lang.CharSequence, my.test.Test$1MyLocalClass1, java.lang.StrictMath, java.lang.Runtime, java.lang.Boolean, java.lang.Object, java.lang.ProcessEnvironment$1, java.lang.SecurityManager$1, java.lang.ProcessImpl, java.lang.Appendable, java.lang.SystemClassLoaderAction, java.lang.ArrayIndexOutOfBoundsException, java.lang.LinkageError, java.lang.Class, java.lang.Class$1, java.lang.CloneNotSupportedException, java.lang.ProcessEnvironment$NameComparator, java.lang.AssertionError, my.ExtendsTest, java.lang.StringCoding, java.lang.SecurityManager, java.lang.ClassCircularityError, java.lang.Cloneable, java.lang.Void, my.test.Test$1, my.test.MyInterfaceA$MyInnerClass, java.lang.Character$Subset, my.Test$TestInner, java.lang.Math, java.lang.ThreadDeath, java.io.Serializable, my.test.Test, java.lang.AbstractStringBuilder, java.lang.ProcessImpl$1, java.lang.Package, java.lang.ArrayStoreException, java.lang.StackTraceElement, java.lang.Terminator$1, java.lang.annotation.Inherited, java.lang.Shutdown$1, my.Test, my.Test$1, java.util.Collections, java.lang.Class$MethodArray, java.lang.Enum, java.lang.Byte$ByteCache, java.lang.NegativeArraySizeException, java.lang.StringIndexOutOfBoundsException, java.lang.Package$1, java.lang.StringCoding$StringDecoder, java.lang.Terminator, java.lang.Character$CharacterCache, java.lang.IllegalAccessException, java.util.List, sun.Proprietary+Annotation, java.lang.Error, java.lang.ClassCastException, java.lang.SecurityManager$2, java.lang.IllegalArgumentException, java.lang.IllegalStateException, my.test.Test$MyTestInnerClass, my.test.MyUncompletedClass, java.lang.ClassLoader, java.lang.AssertionStatusDirectives, java.lang.ClassLoader$2, java.lang.StringBuilder, java.lang.Class$EnclosingMethodInfo, java.lang.Number, java.lang.ClassLoader$NativeLibrary, java.lang.VirtualMachineError, java.lang.InstantiationException, my.test.Test$MyInnerInterface, java.lang.StringCoding$1, java.lang.ExceptionInInitializerError, my.test.Test07, my.test.Test$MyInnerEnum, java.lang.Short$ShortCache, java.lang.ProcessEnvironment$CheckedValues, java.lang.Package$1PackageInfoProxy, java.lang.Throwable, java.lang.Class$2, my.test.Test06, java.lang.ThreadLocal$ThreadLocalMap$Entry, java.lang.String$1, java.lang.InternalError, java.lang.ThreadLocal$1, java.lang.CharacterDataUndefined, java.lang.Integer$IntegerCache, my.StaticImportTest$MyInnerClassStaticPrivate, java.lang.RuntimeException, java.lang.Compiler$1, my.test.Test04, java.lang.annotation.Target, my.test.Test$MyInnerClass, java.lang.OutOfMemoryError, java.lang.IllegalThreadStateException, java.lang.String$CaseInsensitiveComparator, java.lang.ApplicationShutdownHooks, java.lang.ProcessEnvironment$CheckedEntrySet, my.test.Test01, java.lang.CharacterDataLatin1, java.lang.ClassNotFoundException, java.lang.ClassFormatError, java.lang.System$1, java.util.Iterator, my.test.Test05, java.lang.Class$4, java.lang.Iterable, java.lang.StackOverflowError, java.lang.System$2, my.StaticImportTest$MyInnerClass, java.lang.CharacterDataPrivateUse, java.lang.Byte, java.util.Arrays, java.lang.ProcessEnvironment$CheckedKeySet, java.lang.UnsatisfiedLinkError, my.test.ExtendsTestBound, java.lang.ArithmeticException, java.lang.InstantiationError, java.lang.NoSuchMethodException, java.lang.SecurityException, java.lang.AbstractMethodError, my.StaticImportTest$MyInnerClassStaticPublic, java.lang.NullPointerException, java.lang.Compiler, java.lang.Exception, java.lang.NoSuchFieldException, java.lang.Comparable, my.test.Test03, java.lang.TypeNotPresentException, my.test.Test$MyInnerClassStatic, java.lang.IllegalMonitorStateException, java.lang.NumberFormatException, java.lang.Integer, my.test.Test02, java.lang.Shutdown$Lock, java.lang.CharacterData0E, java.lang.StringCoding$StringEncoder, java.lang.ThreadLocal, java.lang.ConditionalSpecialCasing, my.test.TestOhter2, java.lang.NoSuchMethodError, my.InterfaceTest, java.lang.SuppressWarnings, java.lang.UnsupportedClassVersionError, java.lang.Character, java.lang.Runnable, java.lang.Deprecated, java.lang.UnknownError, my.test.MyInterfaceA$MyInnerClassStatic, java.lang.Shutdown, java.lang.Thread, my.StaticImportTest$MyInnerClassStaticProtected, java.lang.Short, java.lang.NoSuchFieldError, java.lang.ProcessEnvironment$CheckedEntry, java.lang.CharacterData02, my.InterfaceTest$InterfaceInnerEnum, my.test.TestBound, java.lang.Class$3, my.test.package-info, java.lang.CharacterData01, java.lang.annotation.Retention, java.lang.Long$LongCache, java.lang.ProcessEnvironment$CheckedEntrySet$1, my.testClash, java.lang.Double, java.lang.VerifyError, java.lang.Thread$State, java.lang.RuntimePermission, java.lang.EnumConstantNotPresentException, java.lang.Float, my.Debug, my.test.MyInterfaceA, java.lang.InterruptedException, my.test.MyInterfaceB, java.lang.Override, java.lang.NoClassDefFoundError, java.lang.IncompatibleClassChangeError, java.lang.InheritableThreadLocal, java.lang.Thread$UncaughtExceptionHandler, my.StaticImportTest, my.InterfaceTest$InterfaceInnerInterface, java.lang.IllegalAccessError, my.test.MyInterfaceA$MyInnerInterface, java.lang.CharacterData00, java.lang.Long]
+syms.packages.size=11 keySet=[java.lang, sun, my.StaticImportTest, my.ExtendsTest, java.lang.annotation, my.test, java.io, , java.util, my, java]
+
+
+com.sun.tools.javac.comp.Enter===>visitTopLevel(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+
+
+
+***进入第二阶段MemberEnter***
+-----------------------------------------------
+memberEnter.completionEnabled=true
+uncompleted=4 my.InterfaceTest,my.InterfaceTest.InterfaceInnerClass,my.InterfaceTest.InterfaceInnerInterface,my.InterfaceTest.InterfaceInnerEnum
+Uncompleted SymbolName=my.InterfaceTest
+clazz.completer=com.sun.tools.javac.comp.MemberEnter@a6aeed
+(c == null)=false
+(c == clazz)=true
+(prevUncompleted == null)=false
+
+Uncompleted SymbolName=my.InterfaceTest.InterfaceInnerClass
+clazz.completer=com.sun.tools.javac.comp.MemberEnter@a6aeed
+(c == null)=false
+(c == clazz)=false
+(prevUncompleted == null)=false
+
+Uncompleted SymbolName=my.InterfaceTest.InterfaceInnerInterface
+clazz.completer=com.sun.tools.javac.comp.MemberEnter@a6aeed
+(c == null)=false
+(c == clazz)=false
+(prevUncompleted == null)=false
+
+Uncompleted SymbolName=my.InterfaceTest.InterfaceInnerEnum
+clazz.completer=com.sun.tools.javac.comp.MemberEnter@a6aeed
+(c == null)=false
+(c == clazz)=false
+(prevUncompleted == null)=false
+
+
+
+tree.starImportScope=Scope[(nelems=156 owner=my)Object, Comparable, CharSequence, String, Class, Cloneable, ClassLoader, System, Throwable, Error, ThreadDeath, Exception, RuntimeException, ClassNotFoundException, LinkageError, NoClassDefFoundError, ClassCastException, ArrayStoreException, VirtualMachineError, OutOfMemoryError, StackOverflowError, IllegalMonitorStateException, Runnable, Thread, Thread$UncaughtExceptionHandler, ThreadGroup, Iterable, Appendable, AbstractStringBuilder, StringBuffer, StackTraceElement, Boolean, Character, Number, Float, Double, Byte, Short, Integer, Long, NullPointerException, ArithmeticException, String$CaseInsensitiveComparator, RuntimePermission, Class$3, ThreadLocal, Math, StringBuilder, Class$1, Runtime, Readable, ClassLoader$3, ClassLoader$NativeLibrary, Terminator, Terminator$1, System$2, Compiler, Compiler$1, CharacterDataLatin1, IncompatibleClassChangeError, NoSuchMethodError, SystemClassLoaderAction, StringCoding, ThreadLocal$ThreadLocalMap, ThreadLocal$ThreadLocalMap$Entry, StringCoding$StringDecoder, Shutdown, Shutdown$Lock, InterruptedException, Enum, Class$4, Integer$IntegerCache, NoSuchMethodException, IllegalStateException, Short$ShortCache, ClassLoader$2, UnsupportedOperationException, Package, StrictMath, IllegalArgumentException, NumberFormatException, Thread$State, Void, InheritableThreadLocal, InternalError, SecurityException, NoSuchFieldException, IllegalAccessException, InstantiationException, IndexOutOfBoundsException, ArrayIndexOutOfBoundsException, IllegalAccessError, CloneNotSupportedException, Long$LongCache, StringCoding$StringEncoder, UnsatisfiedLinkError, ClassFormatError, ExceptionInInitializerError, StringIndexOutOfBoundsException, SecurityManager, SecurityManager$1, Thread$1, ClassLoader$1, VerifyError, UnsupportedClassVersionError, UnknownError, TypeNotPresentException, ThreadLocal$1, System$1, SuppressWarnings, StringCoding$1, String$1, Shutdown$1, SecurityManager$2, ProcessImpl, ProcessImpl$1, ProcessEnvironment, ProcessEnvironment$NameComparator, ProcessEnvironment$EntryComparator, ProcessEnvironment$CheckedValues, ProcessEnvironment$CheckedKeySet, ProcessEnvironment$CheckedEntrySet, ProcessEnvironment$CheckedEntrySet$1, ProcessEnvironment$CheckedEntry, ProcessEnvironment$1, ProcessBuilder, Process, Package$1PackageInfoProxy, Package$1, Override, NoSuchFieldError, NegativeArraySizeException, InstantiationError, IllegalThreadStateException, EnumConstantNotPresentException, Deprecated, ConditionalSpecialCasing, ConditionalSpecialCasing$Entry, ClassCircularityError, Class$MethodArray, Class$EnclosingMethodInfo, Class$2, CharacterDataUndefined, CharacterDataPrivateUse, CharacterData0E, CharacterData02, CharacterData01, CharacterData00, Character$UnicodeBlock, Character$Subset, Character$CharacterCache, Byte$ByteCache, AssertionStatusDirectives, AssertionError, ApplicationShutdownHooks, AbstractMethodError]
+tree.namedImportScope=Scope[(nelems=1 owner=my)InterfaceTest]
+uncompleted=8 my.test.Test.MyTestInnerClass,my.StaticImportTest.MyInnerClass,my.StaticImportTest.MyInnerClassStaticPrivate,my.StaticImportTest.MyInnerClassStaticPublic,my.StaticImportTest.MyInnerClassStaticProtected,my.InterfaceTest.InterfaceInnerClass,my.InterfaceTest.InterfaceInnerInterface,my.InterfaceTest.InterfaceInnerEnum
+
+
+完成Enter后List<JCCompilationUnit> trees的内容: trees.size=1
+------------------------------------------------------------------------------
+package my;
+
+public interface InterfaceTest {
+    
+    0int myInterfaceMethod(0int i, 0char c);
+    
+    public static class InterfaceInnerClass {
+    }
+    
+    public static interface InterfaceInnerInterface {
+    }
+    
+    public static enum InterfaceInnerEnum {
+;
+    }
+}
+------------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>complete(2)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=2
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=TYPEPARAMETER visitTypeParameter
+先前Env=null
+当前Env=Env(TreeKind=METHOD)[AttrContext[Scope[(nelems=0 owner=myMethod()) | (nelems=5 owner=Test)super, this, E, T, S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=3 owner=test)MyInnerClass, MyInnerClassStaticPublic, Test]]]]
+com.sun.tools.javac.comp.Enter===>visitTypeParameter(JCTypeParameter tree)
+-------------------------------------------------------------------------
+tree.name=M
+tree.type=null
+env.info.scope.owner=myMethod
+env.info.scope=Scope[(nelems=0 owner=myMethod()) | (nelems=5 owner=Test)super, this, E, T, S]
+env.info.scope=Scope[(nelems=1 owner=myMethod())M | (nelems=5 owner=Test)super, this, E, T, S]
+com.sun.tools.javac.comp.Enter===>visitTypeParameter(JCTypeParameter tree)  END
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=TYPEPARAMETER visitTypeParameter
+先前Env=null
+当前Env=Env(TreeKind=METHOD)[AttrContext[Scope[(nelems=1 owner=myMethod())M | (nelems=5 owner=Test)super, this, E, T, S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=3 owner=test)MyInnerClass, MyInnerClassStaticPublic, Test]]]]
+com.sun.tools.javac.comp.Enter===>visitTypeParameter(JCTypeParameter tree)
+-------------------------------------------------------------------------
+tree.name=S
+tree.type=null
+env.info.scope.owner=myMethod
+env.info.scope=Scope[(nelems=1 owner=myMethod())M | (nelems=5 owner=Test)super, this, E, T, S]
+env.info.scope=Scope[(nelems=2 owner=myMethod())S, M | (nelems=5 owner=Test)super, this, E, T, S]
+com.sun.tools.javac.comp.Enter===>visitTypeParameter(JCTypeParameter tree)  END
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+Uncompleted SymbolName=my.test.Test.MyTestInnerClass
+clazz.completer=com.sun.tools.javac.comp.MemberEnter@a6aeed
+(c == null)=true
+(c == clazz)=false
+(prevUncompleted == null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+Uncompleted SymbolName=my.StaticImportTest.MyInnerClass
+clazz.completer=null
+(c == null)=true
+(c == clazz)=false
+(prevUncompleted == null)=true
+
+Uncompleted SymbolName=my.StaticImportTest.MyInnerClassStaticPrivate
+clazz.completer=null
+(c == null)=true
+(c == clazz)=false
+(prevUncompleted == null)=true
+
+Uncompleted SymbolName=my.StaticImportTest.MyInnerClassStaticPublic
+clazz.completer=null
+(c == null)=true
+(c == clazz)=false
+(prevUncompleted == null)=true
+
+Uncompleted SymbolName=my.StaticImportTest.MyInnerClassStaticProtected
+clazz.completer=null
+(c == null)=true
+(c == clazz)=false
+(prevUncompleted == null)=true
+
+Uncompleted SymbolName=my.InterfaceTest.InterfaceInnerClass
+clazz.completer=com.sun.tools.javac.comp.MemberEnter@a6aeed
+(c == null)=true
+(c == clazz)=false
+(prevUncompleted == null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+Uncompleted SymbolName=my.InterfaceTest.InterfaceInnerInterface
+clazz.completer=com.sun.tools.javac.comp.MemberEnter@a6aeed
+(c == null)=true
+(c == clazz)=false
+(prevUncompleted == null)=true
+
+Uncompleted SymbolName=my.InterfaceTest.InterfaceInnerEnum
+clazz.completer=com.sun.tools.javac.comp.MemberEnter@a6aeed
+(c == null)=true
+(c == clazz)=false
+(prevUncompleted == null)=true
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+
+tree.starImportScope=Scope[(nelems=168 owner=test)Test, Test$1, Test$TestInner, ExtendsTest, InterfaceInnerClass, InterfaceInnerInterface, InterfaceInnerEnum, InterfaceTest, StaticImportTest, testClash, Debug, MyInnerClassStaticPublic, Object, Comparable, CharSequence, String, Class, Cloneable, ClassLoader, System, Throwable, Error, ThreadDeath, Exception, RuntimeException, ClassNotFoundException, LinkageError, NoClassDefFoundError, ClassCastException, ArrayStoreException, VirtualMachineError, OutOfMemoryError, StackOverflowError, IllegalMonitorStateException, Runnable, Thread, Thread$UncaughtExceptionHandler, ThreadGroup, Iterable, Appendable, AbstractStringBuilder, StringBuffer, StackTraceElement, Boolean, Character, Number, Float, Double, Byte, Short, Integer, Long, NullPointerException, ArithmeticException, CaseInsensitiveComparator, RuntimePermission, Class$3, ThreadLocal, Math, StringBuilder, Class$1, Runtime, Readable, ClassLoader$3, ClassLoader$NativeLibrary, Terminator, Terminator$1, System$2, Compiler, Compiler$1, CharacterDataLatin1, IncompatibleClassChangeError, NoSuchMethodError, SystemClassLoaderAction, StringCoding, ThreadLocal$ThreadLocalMap, ThreadLocal$ThreadLocalMap$Entry, StringCoding$StringDecoder, Shutdown, Shutdown$Lock, InterruptedException, Enum, Class$4, Integer$IntegerCache, NoSuchMethodException, IllegalStateException, Short$ShortCache, ClassLoader$2, UnsupportedOperationException, Package, StrictMath, IllegalArgumentException, NumberFormatException, Thread$State, Void, InheritableThreadLocal, InternalError, SecurityException, NoSuchFieldException, IllegalAccessException, InstantiationException, IndexOutOfBoundsException, ArrayIndexOutOfBoundsException, IllegalAccessError, CloneNotSupportedException, Long$LongCache, StringCoding$StringEncoder, UnsatisfiedLinkError, ClassFormatError, ExceptionInInitializerError, StringIndexOutOfBoundsException, SecurityManager, SecurityManager$1, Thread$1, ClassLoader$1, VerifyError, UnsupportedClassVersionError, UnknownError, TypeNotPresentException, ThreadLocal$1, System$1, SuppressWarnings, StringCoding$1, 1, Shutdown$1, SecurityManager$2, ProcessImpl, ProcessImpl$1, ProcessEnvironment, ProcessEnvironment$NameComparator, ProcessEnvironment$EntryComparator, ProcessEnvironment$CheckedValues, ProcessEnvironment$CheckedKeySet, ProcessEnvironment$CheckedEntrySet, ProcessEnvironment$CheckedEntrySet$1, ProcessEnvironment$CheckedEntry, ProcessEnvironment$1, ProcessBuilder, Process, Package$1PackageInfoProxy, Package$1, Override, NoSuchFieldError, NegativeArraySizeException, InstantiationError, IllegalThreadStateException, EnumConstantNotPresentException, Deprecated, ConditionalSpecialCasing, ConditionalSpecialCasing$Entry, ClassCircularityError, Class$MethodArray, Class$EnclosingMethodInfo, Class$2, CharacterDataUndefined, CharacterDataPrivateUse, CharacterData0E, CharacterData02, CharacterData01, CharacterData00, Character$UnicodeBlock, Character$Subset, Character$CharacterCache, Byte$ByteCache, AssertionStatusDirectives, AssertionError, ApplicationShutdownHooks, AbstractMethodError]
+tree.namedImportScope=Scope[(nelems=3 owner=test)MyInnerClass, MyInnerClassStaticPublic, Test]
+uncompleted=null
+
+
+完成Enter后List<JCCompilationUnit> trees的内容: trees.size=1
+------------------------------------------------------------------------------
+package my.test;
+
+import static my.StaticImportTest.MyInnerClassStaticPublic;
+import static my.StaticImportTest.*;
+import my.StaticImportTest.MyInnerClass;
+import my.*;
+
+public class Test<S, T extends ExtendsTest, E extends ExtendsTest & InterfaceTest> extends ExtendsTest implements InterfaceTest {
+    
+    public Test() 0{
+        super();
+    }
+    
+    public int myInterfaceMethod(0int i, 0char c) 0{
+        return field;
+    }
+    
+    public class MyTestInnerClass {
+        
+        0MyTestInnerClass(0int intInner) 0{
+        }
+    }
+    
+    @Deprecated()
+    public <M extends T, S>int[][] myMethod(final M m, 0S[][] s, 0int i, 0String s2, 0int... ii) throws Exception, Error 0{
+        ;
+        if (i + 1 / 2 * 3 - 4 > 5) i++; else i--;
+        for (final int dd : ii) ;
+        for (; i < 10; i++, i += 2) ;
+        for (0int n = 0, n2 = {10, 20}; n < 10; n++) ;
+        while (i < 10) ;
+        do i++;         while (i < 10);
+        try 0{
+            i++;
+        } catch (0RuntimeException e) 0{
+        } catch (0Exception e) 0{
+        } finally 0{
+            i = 0;
+        }
+        switch (i) {
+        case 0: 
+            i++;
+            break;
+        
+        default: 
+            i--;
+        
+        }
+        synchronized (s) 0{
+        }
+        assert (i < 10) : "message";
+        myLable: i++;
+        0int[] myIntArray = new int[10];
+        myIntArray[1] = 10;
+        0int[] myIntArray2 = {1, 2};
+        i++;
+        field <<= 2;
+        
+        @Deprecated()
+        final class MyLocalClass1 {
+            
+            0MyLocalClass1() 0{
+                Test.this.field = 10;
+            }
+        }
+        return new int[0][0];
+    }
+    0int field = 10;
+}
+------------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>complete(2)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>main(1)  END
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=CLASSDEF visitClassDef
+先前Env=null
+当前Env=Env(TreeKind=BLOCK)[AttrContext[Scope[(nelems=2 owner=myMethod())myIntArray2, myIntArray | (nelems=7 owner=myMethod())ii, s2, i, s, m, S, M | (nelems=5 owner=Test)super, this, E, T, S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=3 owner=test)MyInnerClass, MyInnerClassStaticPublic, Test]]]]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)
+-------------------------------------------------------------------------
+JCClassDecl tree.sym=null
+JCClassDecl tree.name=MyLocalClass1
+Symbol owner.kind=MTH 
+Symbol owner=<M6183504,S8087689>myMethod(M6183504,S8087689[][],int,java.lang.String,int...)
+Scope enclScope=Scope[(nelems=2 owner=myMethod())myIntArray2, myIntArray | (nelems=7 owner=myMethod())ii, s2, i, s, m, S, M | (nelems=5 owner=Test)super, this, E, T, S]
+owner.kind!=TYP(注意)
+c.flatname=my.test.Test$1MyLocalClass1
+
+
+JCClassDecl tree.sym=MyLocalClass1
+JCClassDecl tree.sym.members_field=null
+ClassSymbol c.sourcefile=null
+ClassSymbol c.classfile=null
+if (chk.compiled.get(c.flatname) != null)=false
+Scope enclScope=Scope[(nelems=3 owner=myMethod())MyLocalClass1, myIntArray2, myIntArray | (nelems=7 owner=myMethod())ii, s2, i, s, m, S, M | (nelems=5 owner=Test)super, this, E, T, S]
+env=Env(TreeKind=BLOCK)[AttrContext[Scope[(nelems=3 owner=myMethod())MyLocalClass1, myIntArray2, myIntArray | (nelems=7 owner=myMethod())ii, s2, i, s, m, S, M | (nelems=5 owner=Test)super, this, E, T, S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=3 owner=test)MyInnerClass, MyInnerClassStaticPublic, Test]]]]
+c.flags_field=0
+tree.mods.flags=final 
+ClassSymbol c.sourcefile=bin\mysrc\my\test\Test.java
+c.flags_field=final 
+owner.kind=MTH 
+ct.getEnclosingType()=<none>
+ClassType ct.getEnclosingType()=my.test.Test<S30426707,T12122157,E28145575>
+ct.getEnclosingType()=my.test.Test<S30426707,T12122157,E28145575>
+ct.typarams_field=null
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+ct.typarams_field=
+
+
+***Enter完Type Parameter***
+-----------------------------------------------
+类名: MyLocalClass1
+成员: Scope[(nelems=0 owner=MyLocalClass1)]
+Type Parameter: Scope[(nelems=0 owner=MyLocalClass1)]
+
+
+if (!c.isLocal() && uncompleted != null)=false
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=1
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)
+-------------------------------------------------------------------------
+tree.tag=METHODDEF visitMethodDef
+先前Env=Env(TreeKind=BLOCK)[AttrContext[Scope[(nelems=3 owner=myMethod())MyLocalClass1, myIntArray2, myIntArray | (nelems=7 owner=myMethod())ii, s2, i, s, m, S, M | (nelems=5 owner=Test)super, this, E, T, S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=3 owner=test)MyInnerClass, MyInnerClassStaticPublic, Test]]]]
+当前Env=Env(TreeKind=CLASS)[AttrContext[Scope[(nelems=0 owner=MyLocalClass1)]],outer=Env(TreeKind=BLOCK)[AttrContext[Scope[(nelems=3 owner=myMethod())MyLocalClass1, myIntArray2, myIntArray | (nelems=7 owner=myMethod())ii, s2, i, s, m, S, M | (nelems=5 owner=Test)super, this, E, T, S]],outer=Env(TreeKind=COMPILATION_UNIT)[AttrContext[Scope[(nelems=3 owner=test)MyInnerClass, MyInnerClassStaticPublic, Test]]]]]
+com.sun.tools.javac.comp.Enter===>visitTree(1)
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>visitTree(1)  END
+-------------------------------------------------------------------------
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+
+
+
+***类的所有成员Enter完成***
+-----------------------------------------------
+类名: MyLocalClass1
+成员: Scope[(nelems=0 owner=MyLocalClass1)]
+Type Parameter: Scope[(nelems=0 owner=MyLocalClass1)]
+com.sun.tools.javac.comp.Enter===>visitClassDef(1)  END
+-------------------------------------------------------------------------
+
+
+com.sun.tools.javac.comp.Enter===>classEnter(JCTree tree, Env<AttrContext> env)  END
+-------------------------------------------------------------------------
+
+com.sun.tools.javac.comp.Enter===>classEnter(2)
+-------------------------------------------------------------------------
+List<T> trees.size()=0
+com.sun.tools.javac.comp.Enter===>classEnter(2)  END
+-------------------------------------------------------------------------
+
+

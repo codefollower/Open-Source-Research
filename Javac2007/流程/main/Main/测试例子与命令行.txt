@@ -1,0 +1,4 @@
+rem -versionÑ¡Ïî²âÊÔ
+java -classpath bin\classes com.sun.tools.javac.Main  -debug:off -version
+
+java -classpath bin\classes com.sun.tools.javac.Main -version

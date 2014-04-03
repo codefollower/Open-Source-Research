@@ -1,0 +1,5 @@
+*.class
+*.jar
+
+.settings
+target
