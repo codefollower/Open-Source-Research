@@ -13,6 +13,6 @@ HotSpot JVM针对Linux-x86平台的源代码学习研究(包括代码注释、�
 
 ## HotSpot构建与调试
 
-[构建与调试](https://github.com/codefollower/HotSpot-JVM-Linux-x86-Research/blob/master/my-docs/%E6%9E%84%E5%BB%BA%E4%B8%8E%E8%B0%83%E8%AF%95.md)
+[构建与调试](https://github.com/codefollower/Open-Source-Research/blob/master/HotSpot1.7-JVM-Linux-x86/my-docs/%E6%9E%84%E5%BB%BA%E4%B8%8E%E8%B0%83%E8%AF%95.md)
 
 
