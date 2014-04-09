@@ -15,7 +15,7 @@ HotSpot JVM源代码学习研究(包括代码注释、文档、用于代码分�
 ## HotSpot构建与调试
 
 
-[构建与调试-Windows](https://github.com/codefollower/HotSpot-Research/blob/master/my-docs/%E6%9E%84%E5%BB%BA%E4%B8%8E%E8%B0%83%E8%AF%95-Windows.md)
+[构建与调试-Windows](https://github.com/codefollower/Open-Source-Research/blob/master/HotSpot1.7/my-docs/%E6%9E%84%E5%BB%BA%E4%B8%8E%E8%B0%83%E8%AF%95-Windows.md)
 
-[构建与调试-Linux](https://github.com/codefollower/HotSpot-Research/blob/master/my-docs/%E6%9E%84%E5%BB%BA%E4%B8%8E%E8%B0%83%E8%AF%95-Linux.md)
+[构建与调试-Linux](https://github.com/codefollower/Open-Source-Research/blob/master/HotSpot1.7/my-docs/%E6%9E%84%E5%BB%BA%E4%B8%8E%E8%B0%83%E8%AF%95-Linux.md)
 
