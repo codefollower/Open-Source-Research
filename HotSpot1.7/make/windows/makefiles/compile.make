@@ -144,6 +144,11 @@ COMPILER_NAME=VS2010
 !endif
 !endif
 
+#我加上的
+!MESSAGE "COMPILER_NAME: $(COMPILER_NAME)"
+!MESSAGE "MSC_VER: $(MSC_VER)"
+#!ERROR "MSC_VER: $(MSC_VER)" 
+
 # By default, we do not want to use the debug version of the msvcrt.dll file
 #   but if MFC_DEBUG is defined in the environment it will be used.
 MS_RUNTIME_OPTION = /MD
