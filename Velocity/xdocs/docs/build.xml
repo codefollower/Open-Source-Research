@@ -121,7 +121,7 @@ control the download with the <code>skip.jar.loading</code> and
   <td>No</td>  
 </tr>
 <tr>
-  <td><code>commons-collection-3.1.jar</code></td>
+  <td><code>commons-collection-3.2.2.jar</code></td>
   <td>Used in parsing configuration</td>
   <td>Yes</td>  
 </tr>
