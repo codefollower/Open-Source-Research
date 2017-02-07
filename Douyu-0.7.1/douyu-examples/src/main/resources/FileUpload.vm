@@ -1,0 +1,13 @@
+<HTML>
+<HEAD><TITLE>文件上传</TITLE></HEAD>
+<BODY>
+    <FORM ENCTYPE="multipart/form-data" METHOD="POST" ACTION="FileUpload.upload">
+    文件1:<INPUT NAME="file1" TYPE="file" size="50"><br>
+	文件2:<INPUT NAME="file2" TYPE="file" size="50"><br>
+
+	说明 :<TEXTAREA NAME="description" ROWS="5" COLS="50"></TEXTAREA><br>
+
+    <INPUT TYPE="submit" VALUE="上传">
+    </FORM>
+</BODY>
+</HTML>

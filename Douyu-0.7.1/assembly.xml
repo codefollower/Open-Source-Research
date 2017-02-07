@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<assembly>
+	<formats>
+		<format>dir</format>
+	</formats>
+
+	<baseDirectory>disc</baseDirectory>
+
+	<moduleSets>
+		<moduleSet>
+			<includes>
+				<include>com.codefollower.douyu:douyu-api</include>
+			</includes>
+			<binaries>
+				<unpack>false</unpack>
+				<outputDirectory>douyu-api</outputDirectory>
+				<dependencySets>
+					<dependencySet>
+						<useTransitiveFiltering>true</useTransitiveFiltering>
+						<useTransitiveDependencies>true</useTransitiveDependencies>
+					</dependencySet>
+				</dependencySets>
+			</binaries>
+		</moduleSet>
+
+		<moduleSet>
+			<includes>
+				<include>com.codefollower.douyu:douyu-javac</include>
+			</includes>
+			<binaries>
+				<unpack>false</unpack>
+				<outputDirectory>douyu-javac</outputDirectory>
+				<dependencySets>
+					<dependencySet>
+						<useTransitiveFiltering>true</useTransitiveFiltering>
+						<useTransitiveDependencies>true</useTransitiveDependencies>
+						<excludes>
+							<exclude>com.codefollower.douyu:douyu-api</exclude>
+						</excludes>
+					</dependencySet>
+				</dependencySets>
+			</binaries>
+		</moduleSet>
+
+		<moduleSet>
+			<includes>
+				<include>com.codefollower.douyu:douyu-core</include>
+			</includes>
+			<binaries>
+				<unpack>false</unpack>
+				<outputDirectory>douyu-core</outputDirectory>
+				<dependencySets>
+					<dependencySet>
+						<useTransitiveFiltering>true</useTransitiveFiltering>
+						<useTransitiveDependencies>true</useTransitiveDependencies>
+						<excludes>
+							<exclude>com.codefollower.douyu:douyu-javac</exclude>
+						</excludes>
+					</dependencySet>
+				</dependencySets>
+			</binaries>
+		</moduleSet>
+
+		<moduleSet>
+			<includes>
+				<include>com.codefollower.douyu:douyu-mvc</include>
+			</includes>
+			<binaries>
+				<unpack>false</unpack>
+				<outputDirectory>douyu-mvc</outputDirectory>
+				<dependencySets>
+					<dependencySet>
+						<useTransitiveFiltering>true</useTransitiveFiltering>
+						<useTransitiveDependencies>true</useTransitiveDependencies>
+						<excludes>
+							<exclude>com.codefollower.douyu:douyu-core</exclude>
+						</excludes>
+					</dependencySet>
+				</dependencySets>
+			</binaries>
+		</moduleSet>
+
+		<moduleSet>
+			<includes>
+				<include>com.codefollower.douyu:douyu-plugins</include>
+			</includes>
+			<binaries>
+				<unpack>false</unpack>
+				<outputDirectory>douyu-plugins</outputDirectory>
+				<dependencySets>
+					<dependencySet>
+						<useTransitiveFiltering>true</useTransitiveFiltering>
+						<useTransitiveDependencies>true</useTransitiveDependencies>
+						<excludes>
+							<exclude>com.codefollower.douyu:douyu-api</exclude>
+						</excludes>
+					</dependencySet>
+				</dependencySets>
+			</binaries>
+		</moduleSet>
+
+	</moduleSets>
+</assembly>

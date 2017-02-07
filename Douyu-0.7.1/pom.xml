@@ -1,0 +1,79 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<properties>
+		<douyu.version>0.7.1-SNAPSHOT</douyu.version>
+	</properties>
+
+	<name>douyu project</name>
+
+	<groupId>com.codefollower.douyu</groupId>
+	<artifactId>douyu</artifactId>
+	<packaging>pom</packaging>
+	<version>0.1.0</version>
+	
+	<modules>
+		<module>douyu-api</module>
+		<module>douyu-javac</module>
+		<module>douyu-core</module>
+		<module>douyu-mvc</module>
+		<module>douyu-http</module>
+		<module>douyu-ajp</module>
+		<module>douyu-plugins</module>
+		<module>douyu-netty</module>
+		<module>douyu-startup</module>
+		<module>douyu-logging</module>
+		<module>douyu-examples</module>
+	</modules>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.3.1</version>
+				<!--
+				<configuration>
+					<excludes>
+						<exclude>javax/**</exclude>
+					</excludes>
+				</configuration>
+				-->
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.2-beta-5</version>
+				<configuration>
+					<finalName>douyu-${douyu.version}</finalName>
+					<descriptors>
+						<descriptor>assembly.xml</descriptor>
+					</descriptors>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>
